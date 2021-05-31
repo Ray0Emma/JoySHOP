@@ -1,6 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/backend
+/public/frontend
+/public/uploads
 /storage/*.key
 /vendor
 .env
