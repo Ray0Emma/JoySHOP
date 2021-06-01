@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         // This line will call our AdminsTableSeeder class when we run the db:seed artisan command and create database entries for us.
         $this->call(AdminsTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
     }
 }
