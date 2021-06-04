@@ -13,13 +13,14 @@ class CreateAttributeValuesTable extends Migration
      */
     public function up()
     {
+
         Schema::create('attribute_values', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('attribute_id');
             $table->foreign('attribute_id')->references('id')->on('attributes');
             $table->text('value');
             //  DON'T FORGET THIS
-            $table->decimal('price',2 , 2)->nullable();
+            $table->decimal('price',8 , 2)->nullable();
             $table->timestamps();
         });
     }

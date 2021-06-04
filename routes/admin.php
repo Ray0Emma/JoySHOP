@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
 
         Route::group(['prefix'  =>  'admin'], function () {
 
@@ -62,5 +63,16 @@ use App\Http\Controllers\Admin\BrandController;
             Route::get('/{id}/delete', [BrandController::class,'delete'])->name('admin.brands.delete');
 
         });
+
+        Route::group(['prefix' => 'products'], function () {
+
+            Route::get('/', [ProductController::class,'index'])->name('admin.products.index');
+            Route::get('/create', [ProductController::class,'create'])->name('admin.products.create');
+            Route::post('/store', [ProductController::class,'store'])->name('admin.products.store');
+            Route::get('/edit/{id}', [ProductController::class,'edit'])->name('admin.products.edit');
+            Route::post('/update', [ProductController::class,'update'])->name('admin.products.update');
+            Route::get('/delete/{id}', [ProductController::class,'delete'])->name('admin.products.delete');
+
+         });
 
 });
