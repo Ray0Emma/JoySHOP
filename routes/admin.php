@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductImageController;
 
         Route::group(['prefix'  =>  'admin'], function () {
 
@@ -72,6 +73,9 @@ use App\Http\Controllers\Admin\ProductController;
             Route::get('/edit/{id}', [ProductController::class,'edit'])->name('admin.products.edit');
             Route::post('/update', [ProductController::class,'update'])->name('admin.products.update');
             Route::get('/delete/{id}', [ProductController::class,'delete'])->name('admin.products.delete');
+
+            Route::post('images/upload', [ProductImageController::class,'upload'])->name('admin.products.images.upload');
+            Route::get('images/{id}/delete', [ProductImageController::class,'delete'])->name('admin.products.images.delete');
 
          });
 

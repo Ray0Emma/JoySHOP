@@ -13,11 +13,10 @@ class CreateProductImagesTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('product_images');
+        //Schema::dropIfExists('product_images');
         Schema::create('product_images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
-            $table->string('thumbnail')->nullable();
             $table->string('full')->nullable();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
