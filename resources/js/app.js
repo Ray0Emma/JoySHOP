@@ -25,6 +25,7 @@ Vue.use(VueSwal);
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
+Vue.component('product-attributes', require('./components/ProductAttributes').default);
 
 
 /**
@@ -35,9 +36,10 @@ Vue.component('attribute-values', require('./components/AttributeValues.vue').de
 
  import Vue from 'vue'
  import AttributeValues from './components/AttributeValues.vue'
+ import ProductAttributes from './components/ProductAttributes.vue'
 
  const app = new Vue({
      el: '#app',
-     components: { AttributeValues }
+     components: { AttributeValues , ProductAttributes}
  });
 

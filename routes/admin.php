@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\ProductAttributeController;
 
         Route::group(['prefix'  =>  'admin'], function () {
 
@@ -77,6 +78,19 @@ use App\Http\Controllers\Admin\ProductImageController;
             Route::post('images/upload', [ProductImageController::class,'upload'])->name('admin.products.images.upload');
             Route::get('images/{id}/delete', [ProductImageController::class,'delete'])->name('admin.products.images.delete');
 
+            // Load attributes on the page load
+            Route::get('attributes/load', [ProductAttributeController::class,'loadAttributes']);
+            // Load product attributes on the page load
+            Route::post('attributes', [ProductAttributeController::class,'productAttributes']);
+            // Load option values for a attribute
+            Route::post('attributes/values', [ProductAttributeController::class,'loadValues']);
+            // Add product attribute to the current product
+            Route::post('attributes/add', [ProductAttributeController::class,'addAttribute']);
+            // Delete product attribute from the current product
+            Route::post('attributes/delete', [ProductAttributeController::class,'deleteAttribute']);
+
          });
+
+
 
 });
