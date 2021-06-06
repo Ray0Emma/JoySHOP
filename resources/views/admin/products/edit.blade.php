@@ -249,7 +249,7 @@
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap-notify.min.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('backend/js/app.js') }}"></script>
+    <script  src="{{ mix('backend/js/app.js') }}"></script>
     <script type="text/javascript">
 
         Dropzone.autoDiscover = false;

@@ -23,7 +23,7 @@ use App\Http\Controllers\Admin\ProductAttributeController;
                 return view('admin.dashboard.index');
             })->name('admin.dashboard');
 
-        });
+
 
         Route::get('settings', [SettingController::class,'index'])->name('admin.settings');
         Route::post('settings', [SettingController::class,'update'])->name('admin.settings.update');
@@ -92,5 +92,5 @@ use App\Http\Controllers\Admin\ProductAttributeController;
          });
 
 
-
+        });
 });

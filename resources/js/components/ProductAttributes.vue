@@ -18,6 +18,41 @@
                 </div>
             </div>
         </div>
+        <div class="tile" v-if="attributeSelected">
+            <h3 class="tile-title">Add Attributes To Product</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="values">Select an value <span class="m-l-5 text-danger"> *</span></label>
+                        <select id=values class="form-control custom-select mt-15" v-model="value" @change="selectValue(value)">
+                            <option :value="value" v-for="value in attributeValues" v-bind:key="value.value">
+                                 {{ value.value }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" v-if="valueSelected">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="quantity">Quantity</label>
+                        <input class="form-control" type="number" id="quantity" v-model="currentQty"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="price">Price</label>
+                        <input class="form-control" type="text" id="price" v-model="currentPrice"/>
+                        <small class="text-danger">This price will be added to the main price of product on frontend.</small>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-sm btn-primary" @click="addProductAttribute()">
+                        <i class="fa fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="tile">
             <h3 class="tile-title">Product Attributes</h3>
             <div class="tile-body">
