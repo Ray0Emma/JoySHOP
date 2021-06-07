@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use TypiCMS\NestableTrait;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 
 {
-    use HasFactory;
+    use HasFactory, NestableTrait;
 
     protected $table = 'categories';
 

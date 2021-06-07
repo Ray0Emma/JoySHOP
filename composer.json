@@ -12,7 +12,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "typicms/nestablecollection": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
