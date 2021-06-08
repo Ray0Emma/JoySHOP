@@ -17,7 +17,7 @@
                         <thead>
                         <tr>
                             <th> # </th>
-                            <th> CODE </th>
+                            <th> UGS </th>
                             <th> Nom </th>
                             <th class="text-center"> Marque </th>
                             <th class="text-center"> Catégories </th>

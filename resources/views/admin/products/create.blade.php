@@ -11,7 +11,7 @@
         <div class="col-md-3">
             <div class="tile p-0">
                 <ul class="nav flex-column nav-tabs user-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">General</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">Général</a></li>
                 </ul>
             </div>
         </div>
@@ -21,15 +21,15 @@
                     <div class="tile">
                         <form action="{{ route('admin.products.store') }}" method="POST" role="form">
                             @csrf
-                            <h3 class="tile-title">Product Information</h3>
+                            <h3 class="tile-title">Informations sur le produit</h3>
                             <hr>
                             <div class="tile-body">
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Name</label>
+                                    <label class="control-label" for="name">Nom</label>
                                     <input
                                         class="form-control @error('name') is-invalid @enderror"
                                         type="text"
-                                        placeholder="Enter attribute name"
+                                        placeholder="Entrez le nom de l'attribut"
                                         id="name"
                                         name="name"
                                         value="{{ old('name') }}"
@@ -41,11 +41,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="sku">SKU</label>
+                                            <label class="control-label" for="sku">UGS</label>
                                             <input
                                                 class="form-control @error('sku') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product sku"
+                                                placeholder="Entrer le UGS du produit"
                                                 id="sku"
                                                 name="sku"
                                                 value="{{ old('sku') }}"
@@ -57,9 +57,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="brand_id">Brand</label>
+                                            <label class="control-label" for="brand_id">Marque</label>
                                             <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
-                                                <option value="0">Select a brand</option>
+                                                <option value="0">Sélectionnez une Marque</option>
                                                 @foreach($brands as $brand)
                                                     <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                                 @endforeach
@@ -73,7 +73,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label" for="categories">Categories</label>
+                                            <label class="control-label" for="categories">Catégories</label>
                                             <select name="categories[]" id="categories" class="form-control" multiple>
                                                 @foreach($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -85,11 +85,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="price">Price</label>
+                                            <label class="control-label" for="price">Prix</label>
                                             <input
                                                 class="form-control @error('price') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product price"
+                                                placeholder="Saisir le prix du produit"
                                                 id="price"
                                                 name="price"
                                                 value="{{ old('price') }}"
@@ -101,11 +101,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="special_price">Special Price</label>
+                                            <label class="control-label" for="special_price">Prix ​​spécial</label>
                                             <input
                                                 class="form-control @error('special_price') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product special "
+                                                placeholder="Entrez le prix spécial du produit"
                                                 id="special_price"
                                                 name="special_price"
                                                 value="{{ old('special_price') }}"
@@ -119,11 +119,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="quantity">Quantity</label>
+                                            <label class="control-label" for="quantity">Quantité</label>
                                             <input
                                                 class="form-control @error('quantity') is-invalid @enderror"
                                                 type="number"
-                                                placeholder="Enter product quantity"
+                                                placeholder="Entrez la quantité de produit"
                                                 id="quantity"
                                                 name="quantity"
                                                 value="{{ old('quantity') }}"
@@ -135,11 +135,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="weight">Weight</label>
+                                            <label class="control-label" for="weight">Poids</label>
                                             <input
                                                 class="form-control"
                                                 type="text"
-                                                placeholder="Enter product weight"
+                                                placeholder="Entrer le poids du produit"
                                                 id="weight"
                                                 name="weight"
                                                 value="{{ old('weight') }}"
@@ -158,7 +158,7 @@
                                                    type="checkbox"
                                                    id="status"
                                                    name="status"
-                                                />Status
+                                                />Statut
                                         </label>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                                    type="checkbox"
                                                    id="featured"
                                                    name="featured"
-                                                />Featured
+                                                />Spécial
                                         </label>
                                     </div>
                                 </div>

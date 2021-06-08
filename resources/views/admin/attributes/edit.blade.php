@@ -11,8 +11,9 @@
         <div class="col-md-3">
             <div class="tile p-0">
                 <ul class="nav flex-column nav-tabs user-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">General</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#values" data-toggle="tab">Attribute Values</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">Général</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#values" data-toggle="tab">
+                        Valeurs d'attribut</a></li>
                 </ul>
             </div>
         </div>
@@ -22,7 +23,7 @@
                     <div class="tile">
                         <form action="{{ route('admin.attributes.update') }}" method="POST" role="form">
                             @csrf
-                            <h3 class="tile-title">Attribute Information</h3>
+                            <h3 class="tile-title">Informations sur l'attribut</h3>
                             <hr>
                             <div class="tile-body">
                                 <div class="form-group">
@@ -38,7 +39,7 @@
                                 </div>
                                 <input type="hidden" name="id" value="{{ $attribute->id }}">
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Name</label>
+                                    <label class="control-label" for="name">Nom</label>
                                     <input
                                         class="form-control"
                                         type="text"
@@ -49,7 +50,7 @@
                                     />
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="frontend_type">Frontend Type</label>
+                                    <label class="control-label" for="frontend_type">Type d'interface</label>
                                     @php $types = ['select' => 'Select Box', 'radio' => 'Radio Button', 'text' => 'Text Field', 'text_area' => 'Text Area']; @endphp
                                     <select name="frontend_type" id="frontend_type" class="form-control">
                                         @foreach($types as $key => $label)
@@ -68,7 +69,7 @@
                                                    type="checkbox"
                                                    id="is_filterable"
                                                    name="is_filterable"
-                                                {{ $attribute->is_filterable == 1 ? 'checked' : '' }}/>Filterable
+                                                {{ $attribute->is_filterable == 1 ? 'checked' : '' }}/>Filtrable
                                         </label>
                                     </div>
                                 </div>
@@ -79,7 +80,7 @@
                                                    type="checkbox"
                                                    id="is_required"
                                                    name="is_required"
-                                                {{ $attribute->is_required == 1 ? 'checked' : '' }}/>Required
+                                                {{ $attribute->is_required == 1 ? 'checked' : '' }}/>Obligatoire
                                         </label>
                                     </div>
                                 </div>
@@ -87,8 +88,8 @@
                             <div class="tile-footer">
                                 <div class="row d-print-none mt-2">
                                     <div class="col-12 text-right">
-                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Attribute</button>
-                                        <a class="btn btn-danger" href="{{ route('admin.attributes.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Go Back</a>
+                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Modifier</button>
+                                        <a class="btn btn-danger" href="{{ route('admin.attributes.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Retourner</a>
                                     </div>
                                 </div>
                             </div>

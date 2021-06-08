@@ -16,7 +16,7 @@
                 <ul class="nav flex-column nav-tabs user-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">Général</a></li>
                     <li class="nav-item"><a class="nav-link" href="#images" data-toggle="tab">Images</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#attributes" data-toggle="tab">Attributes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#attributes" data-toggle="tab">Attributs</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +34,7 @@
                                     <input
                                         class="form-control @error('name') is-invalid @enderror"
                                         type="text"
-                                        placeholder="Enter attribute name"
+                                        placeholder="Entrez le nom de l'attribut"
                                         id="name"
                                         name="name"
                                         value="{{ old('name', $product->name) }}"
@@ -47,11 +47,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="sku">CODE</label>
+                                            <label class="control-label" for="sku">UGS</label>
                                             <input
                                                 class="form-control @error('sku') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product sku"
+                                                placeholder="Entrer le UGS du produit"
                                                 id="sku"
                                                 name="sku"
                                                 value="{{ old('sku', $product->sku) }}"
@@ -65,7 +65,7 @@
                                         <div class="form-group">
                                             <label class="control-label" for="brand_id">Marque</label>
                                             <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
-                                                <option value="0">Select a brand</option>
+                                                <option value="0">Sélectionnez une Marque</option>
                                                 @foreach($brands as $brand)
                                                     @if ($product->brand_id == $brand->id)
                                                         <option value="{{ $brand->id }}" selected>{{ $brand->name }}</option>
@@ -100,7 +100,7 @@
                                             <input
                                                 class="form-control @error('price') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product price"
+                                                placeholder="Saisir le prix du produit"
                                                 id="price"
                                                 name="price"
                                                 value="{{ old('price', $product->price) }}"
@@ -116,7 +116,7 @@
                                             <input
                                                 class="form-control @error('special_price') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product special price"
+                                                placeholder="Entrez le prix spécial du produit"
                                                 id="special_price"
                                                 name="special_price"
                                                 value="{{ old('special_price', $product->special_price) }}"
@@ -134,7 +134,7 @@
                                             <input
                                                 class="form-control @error('quantity') is-invalid @enderror"
                                                 type="number"
-                                                placeholder="Enter product quantity"
+                                                placeholder="Entrez la quantité de produit"
                                                 id="quantity"
                                                 name="quantity"
                                                 value="{{ old('quantity', $product->quantity) }}"
@@ -150,7 +150,7 @@
                                             <input
                                                 class="form-control"
                                                 type="text"
-                                                placeholder="Enter product weight"
+                                                placeholder="Entrer le poids du produit"
                                                 id="weight"
                                                 name="weight"
                                                 value="{{ old('weight', $product->weight) }}"
@@ -170,7 +170,7 @@
                                                    id="status"
                                                    name="status"
                                                    {{ $product->status == 1 ? 'checked' : '' }}
-                                                />Status
+                                                />Statut
                                         </label>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                                    id="featured"
                                                    name="featured"
                                                    {{ $product->featured == 1 ? 'checked' : '' }}
-                                                />Featured
+                                                />Spécial
                                         </label>
                                     </div>
                                 </div>

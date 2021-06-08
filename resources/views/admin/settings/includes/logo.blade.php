@@ -1,7 +1,7 @@
 <div class="tile">
     <form action="{{ route('admin.settings.update') }}" method="POST" role="form" enctype="multipart/form-data">
         @csrf
-        <h3 class="tile-title">Site Logo</h3>
+        <h3 class="tile-title">Logo du Site</h3>
         <hr>
         <div class="tile-body">
             <div class="row">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-9">
                     <div class="form-group">
-                        <label class="control-label">Site Logo</label>
+                        <label class="control-label">Logo du Site</label>
                         <input class="form-control" type="file" name="site_logo" onchange="loadFile(event,'logoImg')"/>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-9">
                     <div class="form-group">
-                        <label class="control-label">Site Favicon</label>
+                        <label class="control-label">Favicon du Site</label>
                         <input class="form-control" type="file" name="site_favicon" onchange="loadFile(event,'faviconImg')"/>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <div class="tile-footer">
             <div class="row d-print-none mt-2">
                 <div class="col-12 text-right">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Settings</button>
+                    <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Modifier</button>
                 </div>
             </div>
         </div>

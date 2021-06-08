@@ -6,7 +6,7 @@
             <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
-        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary pull-right">Add Category</a>
+        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary pull-right">Ajouter Une Catégorie</a>
     </div>
     @include('admin.partials.flash')
     <div class="row">
@@ -17,12 +17,12 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Name </th>
+                                <th> Nom </th>
                                 <th> Slug </th>
                                 <th class="text-center"> Parent </th>
-                                <th class="text-center"> Featured </th>
+                                <th class="text-center"> discret </th>
                                 <th class="text-center"> Menu </th>
-                                <th class="text-center"> Order </th>
+                                <th class="text-center"> Ordere </th>
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>
@@ -33,19 +33,19 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
-                                        <td>{{ $category->parent->name }}</td>
+                                        <td>{{ optional($category->parent)->name }}</td>
                                         <td class="text-center">
                                             @if ($category->featured == 1)
-                                                <span class="badge badge-success">Yes</span>
+                                                <span class="badge badge-success">Oui</span>
                                             @else
-                                                <span class="badge badge-danger">No</span>
+                                                <span class="badge badge-danger">Non</span>
                                             @endif
                                         </td>
                                         <td class="text-center">
                                             @if ($category->menu == 1)
-                                                <span class="badge badge-success">Yes</span>
+                                                <span class="badge badge-success">Oui</span>
                                             @else
-                                                <span class="badge badge-danger">No</span>
+                                                <span class="badge badge-danger">Non</span>
                                             @endif
                                         </td>
                                         <td class="text-center">

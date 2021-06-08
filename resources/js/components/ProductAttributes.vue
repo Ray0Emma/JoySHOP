@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="tile">
-            <h3 class="tile-title">Attributes</h3>
+            <h3 class="tile-title">Attributs</h3>
             <hr>
             <div class="tile-body">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="parent">Select an Attribute <span class="m-l-5 text-danger"> *</span></label>
+                            <label for="parent">Sélectionnez un Attribut <span class="m-l-5 text-danger"> *</span></label>
                             <select id=parent class="form-control custom-select mt-15" v-model="attribute" @change="selectAttribute(attribute)">
                                 <option :value="attribute" v-for="attribute in attributes" :key="attribute.name">
                                      {{ attribute.name }}
@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="tile" v-if="attributeSelected">
-            <h3 class="tile-title">Add Attributes To Product</h3>
+            <h3 class="tile-title">Ajouter des Attributs au Produit</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="values">Select an value <span class="m-l-5 text-danger"> *</span></label>
+                        <label for="values">Sélectionnez une valeur <span class="m-l-5 text-danger"> *</span></label>
                         <select id=values class="form-control custom-select mt-15" v-model="value" @change="selectValue(value)">
                             <option :value="value" v-for="value in attributeValues" v-bind:key="value.value">
                                  {{ value.value }}
@@ -35,34 +35,34 @@
             <div class="row" v-if="valueSelected">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label" for="quantity">Quantity</label>
+                        <label class="control-label" for="quantity">Quantité</label>
                         <input class="form-control" type="number" id="quantity" v-model="currentQty"/>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label" for="price">Price</label>
+                        <label class="control-label" for="price">Prix</label>
                         <input class="form-control" type="text" id="price" v-model="currentPrice"/>
-                        <small class="text-danger">This price will be added to the main price of product on frontend.</small>
+                        <small class="text-danger">Ce prix sera ajouté au prix principal du produit sur l'interface d'utilisateur.</small>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <button class="btn btn-sm btn-primary" @click="addProductAttribute()">
-                        <i class="fa fa-plus"></i> Add
+                        <i class="fa fa-plus"></i> Ajouter
                     </button>
                 </div>
             </div>
         </div>
         <div class="tile">
-            <h3 class="tile-title">Product Attributes</h3>
+            <h3 class="tile-title">Attributs du Produit</h3>
             <div class="tile-body">
                 <div class="table-responsive">
                     <table class="table table-sm">
                         <thead>
                         <tr class="text-center">
-                            <th>Value</th>
-                            <th>Qty</th>
-                            <th>Price</th>
+                            <th>Valeur</th>
+                            <th>Quantité</th>
+                            <th>Prix</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -154,7 +154,7 @@
             },
             addProductAttribute() {
                 if (this.currentQty === null || this.currentPrice === null) {
-                    this.$swal("Error, Some values are missing.", {
+                    this.$swal("Erreur, certaines valeurs sont manquantes.", {
                         icon: "error",
                     });
                 } else {
@@ -170,7 +170,7 @@
                     axios.post('/admin/products/attributes/add', {
                         data: data
                     }).then (function(response){
-                        _this.$swal("Success! " + response.data.message, {
+                        _this.$swal("Succès! " + response.data.message, {
                             icon: "success",
                         });
                         _this.currentValue = '';
@@ -186,8 +186,8 @@
             deleteProductAttribute(pa) {
                 let _this = this;
                 this.$swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -198,18 +198,18 @@
                             id: pa.id,
                         }).then (function(response){
                             if (response.data.status === 'success') {
-                                _this.$swal("Success! Product attribute has been deleted!", {
+                                _this.$swal("Succès! L'attribut de produit a été supprimé !", {
                                     icon: "success",
                                 });
                                 _this.loadProductAttributes(_this.productid);
                             } else {
-                                _this.$swal("Your Product attribute not deleted!");
+                                _this.$swal("Votre attribut de produit n'est pas supprimé!");
                             }
                         }).catch(function (error) {
                             console.log(error);
                         });
                     } else {
-                        this.$swal("Action cancelled!");
+                        this.$swal("Action annulée!");
                     }
                 });
 

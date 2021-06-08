@@ -1,26 +1,26 @@
 <template>
     <div id="">
         <div class="tile">
-            <h3 class="tile-title">Attribute Values</h3>
+            <h3 class="tile-title">Valeurs D'attribut</h3>
             <hr>
             <div class="tile-body">
                 <div class="form-group">
-                    <label class="control-label" for="value">Value</label>
+                    <label class="control-label" for="value">Valeur</label>
                     <input
                         class="form-control"
                         type="text"
-                        placeholder="Enter attribute value"
+                        placeholder="Saisissez la valeur de l'attribut"
                         id="value"
                         name="value"
                         v-model="value"
                     />
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="price">Price</label>
+                    <label class="control-label" for="price">Prix</label>
                     <input
                         class="form-control"
                         type="text"
-                        placeholder="Enter attribute value price"
+                        placeholder="Saisissez le prix "
                         id="price"
                         name="price"
                         v-model="price"
@@ -31,28 +31,28 @@
                 <div class="row d-print-none mt-2">
                     <div class="col-12 text-right">
                         <button class="btn btn-success" type="submit" @click.stop="saveValue()" v-if="addValue">
-                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Save
+                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Sauvegarder
                         </button>
                         <button class="btn btn-success" type="submit" @click.stop="updateValue()" v-if="!addValue">
-                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Update
+                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Modifier
                         </button>
                         <button class="btn btn-primary" type="submit" @click.stop="reset()" v-if="!addValue">
-                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Reset
+                            <i class="fa fa-fw fa-lg fa-check-circle"></i>Annuler
                         </button>
                     </div>
                 </div>
             </div>
         </div>
      <div class="tile">
-        <h3 class="tile-title">Option Values</h3>
+        <h3 class="tile-title">Valeurs des options</h3>
         <div class="tile-body">
             <div class="table-responsive">
                 <table class="table table-sm">
                     <thead>
                     <tr class="text-center">
                         <th>#</th>
-                        <th>Value</th>
-                        <th>Price</th>
+                        <th>Valeur</th>
+                        <th>Prix</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -109,7 +109,7 @@
             },
             saveValue() {
                 if (this.value === '' ) {
-                    this.$swal("Error, Value for attribute is required.", {
+                    this.$swal("Erreur, la valeur de l'attribut est obligatoire.", {
                     icon: "error",
                     });
                 } else {
@@ -122,7 +122,7 @@
                     }).then (function(response){
                         _this.values.push(response.data);
                         _this.resetValue();
-                        _this.$swal("Success! Value added successfully!", {
+                        _this.$swal("Succès! Valeur ajoutée avec succès!", {
                             icon: "success",
                         });
                     }).catch(function (error) {
@@ -147,7 +147,7 @@
             },
             updateValue() {
                 if (this.value === '') {
-                    this.$swal("Error, Value for attribute is required.", {
+                    this.$swal("Erreur, la valeur de l'attribut est obligatoire.", {
                         icon: "error",
                     });
                 } else {
@@ -162,7 +162,7 @@
                         _this.values.splice(_this.key, 1);
                         _this.resetValue();
                         _this.values.push(response.data);
-                        _this.$swal("Success! Value updated successfully!", {
+                        _this.$swal("Succès! Valeur modifiée avec succès!", {
                             icon: "success",
                         });
                     }).catch(function (error) {
@@ -172,8 +172,8 @@
             },
             deleteAttributeValue(value) {
                 this.$swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this attribute value!",
+                    title: "Êtes-vous sûr?",
+                    text: "Une fois supprimé, vous ne pourrez pas récupérer cette valeur d'attribut!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -188,17 +188,17 @@
                             if (response.data.status === 'success') {
                                 _this.values.splice(_this.key, 1);
                                 _this.resetValue();
-                                _this.$swal("Success! Option value has been deleted!", {
+                                _this.$swal("Succès! La valeur de l'option a été supprimée!", {
                                     icon: "success",
                                 });
                             } else {
-                                _this.$swal("Your option value not deleted!");
+                                _this.$swal("La valeur de votre option n'est pas supprimée!");
                             }
                         }).catch(function (error) {
                             console.log(error);
                         });
                     } else {
-                        this.$swal("Your option value not deleted!");
+                        this.$swal("La valeur de votre option n'est pas supprimée!");
                     }
                 });
             },

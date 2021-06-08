@@ -29,7 +29,7 @@ class CategoryController extends BaseController
     {
         $categories = $this->categoryRepository->listCategories();
 
-        $this->setPageTitle('Categories', 'List of all categories');
+        $this->setPageTitle('Catégories', 'Liste de toutes les catégories');
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -40,7 +40,7 @@ class CategoryController extends BaseController
     {
         $categories = $this->categoryRepository->treeList();
 
-        $this->setPageTitle('Categories', 'Create Category');
+        $this->setPageTitle('Catégories', 'Créer une catégorie');
         return view('admin.categories.create', compact('categories'));
     }
 
@@ -62,9 +62,9 @@ class CategoryController extends BaseController
         $category = $this->categoryRepository->createCategory($params);
 
         if (!$category) {
-            return $this->responseRedirectBack('Error occurred while creating category.', 'error', true, true);
+            return $this->responseRedirectBack("Erreur s'est produite lors de la création de la catégorie.", 'error', true, true);
         }
-        return $this->responseRedirect('admin.categories.index', 'Category added successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.categories.index', "Catégorie ajoutée avec succès" ,'success',false, false);
     }
 
     /**
@@ -76,7 +76,7 @@ class CategoryController extends BaseController
         $targetCategory = $this->categoryRepository->findCategoryById($id);
         $categories = $this->categoryRepository->treeList();
 
-        $this->setPageTitle('Categories', 'Edit Category : '.$targetCategory->name);
+        $this->setPageTitle('Catégories', 'Modifier la catégorie : '.$targetCategory->name);
         return view('admin.categories.edit', compact('categories', 'targetCategory'));
     }
 
@@ -98,9 +98,9 @@ class CategoryController extends BaseController
         $category = $this->categoryRepository->updateCategory($params);
 
         if (!$category) {
-            return $this->responseRedirectBack('Error occurred while updating category.', 'error', true, true);
+            return $this->responseRedirectBack("Erreur s'est produite lors de la mise à jour de la catégorie.", 'error', true, true);
         }
-        return $this->responseRedirectBack('Category updated successfully' ,'success',false, false);
+        return $this->responseRedirectBack("Catégorie modifiée avec succès" ,'success',false, false);
     }
 
     /**
@@ -112,8 +112,8 @@ class CategoryController extends BaseController
         $category = $this->categoryRepository->deleteCategory($id);
 
         if (!$category) {
-            return $this->responseRedirectBack('Error occurred while deleting category.', 'error', true, true);
+            return $this->responseRedirectBack("Erreur s'est produite lors de la suppression de la catégorie.", 'error', true, true);
         }
-        return $this->responseRedirect('admin.categories.index', 'Category deleted successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.categories.index', "Catégorie supprimée avec succès" ,'success',false, false);
     }
 }
