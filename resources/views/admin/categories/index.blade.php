@@ -22,7 +22,7 @@
                                 <th class="text-center"> Parent </th>
                                 <th class="text-center"> discret </th>
                                 <th class="text-center"> Menu </th>
-                                <th class="text-center"> Ordere </th>
+                                <th class="text-center"> Ordre </th>
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>
