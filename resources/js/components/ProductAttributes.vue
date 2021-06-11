@@ -190,6 +190,7 @@
                     text: "Une fois supprimées, vous ne pourrez pas récupérer ces données!",
                     icon: "warning",
                     buttons: true,
+                    buttons:['Annuler','Ok'],
                     dangerMode: true,
                 }).then((willDelete) => {
                     if (willDelete) {

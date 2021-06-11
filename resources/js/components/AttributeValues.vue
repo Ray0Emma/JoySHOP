@@ -176,6 +176,7 @@
                     text: "Une fois supprimé, vous ne pourrez pas récupérer cette valeur d'attribut!",
                     icon: "warning",
                     buttons: true,
+                    buttons:['Annuler','Ok'],
                     dangerMode: true,
                 }).then((willDelete) => {
                     if (willDelete) {

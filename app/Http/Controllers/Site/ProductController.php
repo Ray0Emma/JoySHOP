@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use Cart;
 use Illuminate\Http\Request;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,15 @@ class ProductController extends Controller
 
     public function addToCart(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        $product = $this->productRepository->findProductById($request->input('productId'));
+
+        //$options for assigning only attributes
+        $options = $request->except('_token', 'productId', 'price', 'qty');
+
+        // uniqid -> Generate a unique ID
+        Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
+
+        return redirect()->back()->with('message', "Article ajouté au panier avec succès.");
     }
 }

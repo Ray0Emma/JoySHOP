@@ -62,5 +62,35 @@
 @push('scripts')
     <script type="text/javascript" src="{{ asset('backend/js/plugins/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dataTables.bootstrap.min.js') }}"></script>
-    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+        $(document).ready(function() {
+        $('#sampleTable').DataTable( {
+            responsive: true;
+            "language": {
+                            "decimal":        "",
+                            "emptyTable":     "Aucune donnée disponible dans le tableau",
+                            "info":           "Affichage de _START_ à _END_ entrées sur _TOTAL_",
+                            "infoEmpty":      "Affichage de 0 à 0 sur 0 entrées",
+                            "infoFiltered":   "(filtré à partir de _MAX_ entrées totales)",
+                            "infoPostFix":    "",
+                            "thousands":      ",",
+                            "lengthMenu":     "Afficher les _MENU_ entrées ",
+                            "loadingRecords": "Chargement...",
+                            "processing":     "Traitement...",
+                            "search":         "Rechercher:",
+                            "zeroRecords":    "Aucun enregistrements correspondants trouvés",
+                            "paginate": {
+                                "first":      "Premier",
+                                "last":       "dernier",
+                                "next":       "Suivant",
+                                "previous":   "Précédent"
+                            },
+                            "aria": {
+                                "sortAscending":  ": activer pour trier les colonnes par ordre croissant",
+                                "sortDescending": ": activer pour trier les colonnes par ordre décroissant"
+                            }
+                       }
+                } );
+        } );
+    </script>
 @endpush
