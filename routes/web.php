@@ -17,17 +17,22 @@ require 'admin.php';
 |
 */
 
-Route::view('/', 'site.pages.homepage');
+            Route::view('/', 'site.pages.homepage');
 
 
-Auth::routes();
+            Auth::routes();
 
 
-Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/categorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
-Route::get('/produit/{slug}', [App\Http\Controllers\Site\ProductController::class, 'show'])->name('product.show');
-Route::post('/produit/ajouter/panier', [App\Http\Controllers\Site\ProductController::class, 'addToCart'])->name('product.add.cart');
+            Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+            Route::get('/categorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
+            Route::get('/produit/{slug}', [App\Http\Controllers\Site\ProductController::class, 'show'])->name('product.show');
+            Route::post('/produit/ajouter/panier', [App\Http\Controllers\Site\ProductController::class, 'addToCart'])->name('product.add.cart');
 
-Route::get('/panier', [App\Http\Controllers\Site\CartController::class,'getCart'])->name('checkout.cart');
-Route::get('/panier/article/{id}/supprimer', [App\Http\Controllers\Site\CartController::class,'removeItem'])->name('checkout.cart.remove');
-Route::get('/panier/vider', [App\Http\Controllers\Site\CartController::class,'clearCart'])->name('checkout.cart.clear');
+            Route::get('/panier', [App\Http\Controllers\Site\CartController::class,'getCart'])->name('checkout.cart');
+            Route::get('/panier/article/{id}/supprimer', [App\Http\Controllers\Site\CartController::class,'removeItem'])->name('checkout.cart.remove');
+            Route::get('/panier/vider', [App\Http\Controllers\Site\CartController::class,'clearCart'])->name('checkout.cart.clear');
+
+            Route::group(['middleware' => ['auth']], function () {
+                Route::get('/la_caisse', [App\Http\Controllers\Site\CheckoutController::class,'getCheckout'])->name('checkout.index');
+                Route::post('/la_caisse/commande', [App\Http\Controllers\Site\CheckoutController::class,'placeOrder'])->name('checkout.place.order');
+            });

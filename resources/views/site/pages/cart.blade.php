@@ -87,7 +87,7 @@
                             <br> Lorem ipsum dolor
                         </div>
                     </figure>
-                    <a href="#" class="btn btn-success btn-lg btn-block">Passer à la caisse</a>
+                    <a href="{{ route('checkout.index') }}" class="btn btn-success btn-lg btn-block">Passer à la caisse</a>
                 </aside>
             </div>
         </div>

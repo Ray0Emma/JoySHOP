@@ -13,7 +13,7 @@
             <div class="row">
                 @forelse($category->products as $product)
                     <div class="col-md-4">
-                        <figure class="card card-product">
+                        <figure class="card card-product" href="{{ route('product.show', $product->slug) }}">
                             @if ($product->images->count() > 0)
                                 <div class="img-wrap padding-y"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
                             @else
@@ -23,7 +23,7 @@
                                 <h4 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
                             </figcaption>
                             <div class="bottom-wrap">
-                                <a href="" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Buy Now</a>
+                                <a href="{{ route('product.show', $product->slug) }}" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Buy Now</a>
                                 @if ($product->special_price != 0)
                                     <div class="price-wrap h5">
                                         <span class="price"> {{ $product->special_price.config('settings.currency_symbol') }} </span>
