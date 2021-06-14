@@ -52,9 +52,9 @@ class OrderRepository extends BaseRepository implements OrderContract
                 ]);
 
                 $order->items()->save($orderItem);
-            }
+                }
         }
 
-        return 'done';
+        return $order;
     }
 }
