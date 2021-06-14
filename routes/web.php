@@ -36,5 +36,5 @@ require 'admin.php';
                 Route::get('/la_caisse', [App\Http\Controllers\Site\CheckoutController::class,'getCheckout'])->name('checkout.index');
                 Route::post('/la_caisse/commande', [App\Http\Controllers\Site\CheckoutController::class,'placeOrder'])->name('checkout.place.order');
                 Route::get('la_caisse/paiement/achevée', [App\Http\Controllers\Site\CheckoutController::class,'complete'])->name('checkout.payment.complete');
-                Route::get('account/orders', [App\Http\Controllers\Site\CheckoutController::class,'getOrders'])->name('account.orders');
+                Route::get('account/orders', [App\Http\Controllers\Site\AccountController::class,'getOrders'])->name('account.orders');
             });

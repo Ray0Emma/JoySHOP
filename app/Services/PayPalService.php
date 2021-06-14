@@ -36,9 +36,9 @@ class PayPalService
         // To use PayPal in live mode you have to add
         // the below, I prefer to use the sandbox mode only.
 
-        //$this->payPal->setConfig(
-        //    array('mode'  =>  'live')
-        //);
+        $this->payPal->setConfig(
+           array('mode'  =>  'live')
+        );
     }
 
     public function processPayment($order)
@@ -60,7 +60,7 @@ class PayPalService
             $orderItems[$item->id]->setName($item->product->name)
                 ->setCurrency(config('settings.currency_code'))
                 ->setQuantity($item->quantity)
-                ->setPrice(sprintf('%0.2f', $item->price));
+                ->setPrice(sprintf('%0.2f', ($item->price)/$item->quantity));
 
             array_push($items, $orderItems[$item->id]);
         }
