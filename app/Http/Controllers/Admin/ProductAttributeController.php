@@ -51,9 +51,9 @@ class ProductAttributeController extends Controller
         $productAttribute = ProductAttribute::create($request->data);
 
         if ($productAttribute) {
-            return response()->json(['message' => 'Product attribute added successfully.']);
+            return response()->json(['message' => 'Attribut de produit ajouté avec succès.']);
         } else {
-            return response()->json(['message' => 'Something went wrong while submitting product attribute.']);
+            return response()->json(['message' => "Une erreur s'est produite lors de la soumission de l'attribut de produit."]);
         }
     }
 
@@ -66,6 +66,6 @@ class ProductAttributeController extends Controller
         $productAttribute = ProductAttribute::findOrFail($request->id);
         $productAttribute->delete();
 
-        return response()->json(['status' => 'success', 'message' => 'Product attribute deleted successfully.']);
+        return response()->json(['status' => 'success', 'message' => 'Attribut de produit supprimé avec succès.']);
     }
 }

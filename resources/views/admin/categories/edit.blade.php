@@ -18,7 +18,9 @@
                             <label class="control-label" for="name">Nom <span class="m-l-5 text-danger"> *</span></label>
                             <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $targetCategory->name) }}"/>
                             <input type="hidden" name="id" value="{{ $targetCategory->id }}">
-                            @error('name') {{ $message }} @enderror
+                            <div class="invalid-feedback active">
+                                <i class="fa fa-exclamation-circle fa-fw"></i> @error('name') <span>{{ $message }}</span> @enderror
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="description">Description</label>
@@ -36,7 +38,9 @@
                                     @endif
                                 @endforeach
                             </select>
-                            @error('parent_id') {{ $message }} @enderror
+                            <div class="invalid-feedback active">
+                                <i class="fa fa-exclamation-circle fa-fw"></i> @error('parent_id') <span>{{ $message }}</span> @enderror
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
@@ -68,7 +72,9 @@
                                 <div class="col-md-10">
                                     <label class="control-label">Image de la Catégorie</label>
                                     <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"/>
-                                    @error('image') {{ $message }} @enderror
+                                    <div class="invalid-feedback active">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> @error('image') <span>{{ $message }}</span> @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>

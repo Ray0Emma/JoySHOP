@@ -27,33 +27,42 @@
                                 <div class="form-group">
                                     <label class="control-label" for="code">Code</label>
                                     <input
-                                        class="form-control"
+                                        class="form-control  @error('code') is-invalid @enderror"
                                         type="text"
                                         placeholder="Entrez le code d'attribut"
                                         id="code"
                                         name="code"
                                         value="{{ old('code') }}"
                                     />
+                                    <div class="invalid-feedback active">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> @error('code') <span>{{ $message }}</span> @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="name">Nom</label>
                                     <input
-                                        class="form-control"
+                                        class="form-control  @error('name') is-invalid @enderror"
                                         type="text"
                                         placeholder="Entrez le nom de l'attribut"
                                         id="name"
                                         name="name"
                                         value="{{ old('name') }}"
                                     />
+                                    <div class="invalid-feedback active">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> @error('name') <span>{{ $message }}</span> @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="frontend_type">Type d'interface</label>
                                     @php $types = ['select' => 'Select Box', 'radio' => 'Radio Button', 'text' => 'Text Field', 'text_area' => 'Text Area']; @endphp
-                                    <select name="frontend_type" id="frontend_type" class="form-control">
+                                    <select name="frontend_type" id="frontend_type" class="form-control  @error('frontend_type') is-invalid @enderror">
                                         @foreach($types as $key => $label)
                                             <option value="{{ $key }}">{{ $label }}</option>
                                         @endforeach
                                     </select>
+                                    <div class="invalid-feedback active">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> @error('frontend_type') <span>{{ $message }}</span> @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-check">

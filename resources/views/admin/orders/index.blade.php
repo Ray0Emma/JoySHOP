@@ -3,12 +3,10 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
+            <h1><i class="fa fa-bar-chart"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
-        <a href="{{ route('admin.attributes.create') }}" class="btn btn-primary pull-right">Ajouter un attribut</a>
     </div>
-    @include('admin.partials.flash')
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
@@ -16,42 +14,39 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
-                            <th> Code </th>
-                            <th> Nom </th>
-                            <th class="text-center"> Type d'interface </th>
-                            <th class="text-center"> Filtrable </th>
-                            <th class="text-center"> Obligatoire </th>
+                            <th> Numéro de commande </th>
+                            <th> Passée par </th>
+                            <th class="text-center"> Montant total </th>
+                            <th class="text-center"> Quantité d'article </th>
+                            <th class="text-center"> Statut de paiement </th>
+                            <th class="text-center"> Statut </th>
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($attributes as $attribute)
-                                <tr>
-                                    <td>{{ $attribute->code }}</td>
-                                    <td>{{ $attribute->name }}</td>
-                                    <td>{{ $attribute->frontend_type }}</td>
-                                    <td class="text-center">
-                                        @if ($attribute->is_filterable == 1)
-                                            <span class="badge badge-success">Oui</span>
-                                        @else
-                                            <span class="badge badge-danger">Non</span>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if ($attribute->is_required == 1)
-                                            <span class="badge badge-success">Oui</span>
-                                        @else
-                                            <span class="badge badge-danger">Non</span>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group" role="group" aria-label="Second group">
-                                            <a href="{{ route('admin.attributes.edit', $attribute->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                            <a href="{{ route('admin.attributes.delete', $attribute->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($orders as $order)
+                            <tr>
+                                <td>{{ $order->order_number }}</td>
+                                <td>{{ $order->user->fullName }}</td>
+                                <td class="text-center">{{ config('settings.currency_symbol') }}{{ $order->grand_total }}</td>
+                                <td class="text-center">{{ $order->item_count }}</td>
+                                <td class="text-center">
+                                    @if ($order->payment_status == 1)
+                                        <span class="badge badge-success">Complétée</span>
+                                    @else
+                                        <span class="badge badge-danger">Non Complétée</span>
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge badge-success">{{ $order->status }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Second group">
+                                        <a href="{{ route('admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -65,7 +60,7 @@
     <script>
         $(document).ready(function() {
         $('#sampleTable').DataTable( {
-            responsive: true,
+            responsive: true;
             "language": {
                             "decimal":        "",
                             "emptyTable":     "Aucune donnée disponible dans le tableau",

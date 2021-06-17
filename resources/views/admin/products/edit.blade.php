@@ -134,7 +134,7 @@
                                             <input
                                                 class="form-control @error('quantity') is-invalid @enderror"
                                                 type="number"
-                                                placeholder="Entrez la quantité de produit"
+                                                placeholder="Entrez la quantité de produit au stock"
                                                 id="quantity"
                                                 name="quantity"
                                                 value="{{ old('quantity', $product->quantity) }}"
@@ -148,19 +148,29 @@
                                         <div class="form-group">
                                             <label class="control-label" for="weight">Poids</label>
                                             <input
-                                                class="form-control"
+                                                class="form-control @error('weight') is-invalid @enderror"
                                                 type="text"
                                                 placeholder="Entrer le poids du produit"
                                                 id="weight"
                                                 name="weight"
                                                 value="{{ old('weight', $product->weight) }}"
                                             />
+                                            <div class="invalid-feedback active">
+                                                <i class="fa fa-exclamation-circle fa-fw"></i> @error('weight') <span>{{ $message }}</span> @enderror
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="description">Description</label>
-                                    <textarea name="description" id="description" rows="8" class="form-control">{{ old('description', $product->description) }}</textarea>
+                                    <textarea name="description" id="description"
+                                              rows="8"
+                                              class="form-control @error('description') is-invalid @enderror">
+                                              {{ old('description', $product->description) }}
+                                    </textarea>
+                                    <div class="invalid-feedback active">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> @error('description') <span>{{ $message }}</span> @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-check">
@@ -249,13 +259,21 @@
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap-notify.min.js') }}" defer></script>
+    <script>
+        $( document ).ready(function() {
+            $('#categories').select2();
+            $('#description').summernote();
+
+        });
+    </script>
     <script  src="{{ mix('backend/js/app.js') }}"></script>
     <script type="text/javascript">
 
         Dropzone.autoDiscover = false;
 
         $( document ).ready(function() {
-                $('#categories').select2();
+
+
                 let myDropzone = new Dropzone("#dropzone", {
                 paramName: "image",
                 addRemoveLinks: false,
@@ -267,11 +285,11 @@
             });
             myDropzone.on("queuecomplete", function (file) {
                 window.location.reload();
-                showNotification('Completed', 'All product images uploaded', 'success', 'fa-check');
+                showNotification('Terminer', "Toutes les images de produits téléchargées", 'success', 'fa-check');
             });
             $('#uploadButton').click(function(){
                 if (myDropzone.files.length === 0) {
-                    showNotification('Error', 'Please select files to upload.', 'danger', 'fa-close');
+                    showNotification('Erreur', 'Veuillez sélectionner les fichiers à télécharger.', 'danger', 'fa-close');
                 } else {
                     myDropzone.processQueue();
                 }

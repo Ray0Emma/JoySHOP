@@ -5,20 +5,20 @@
                 <div class="col-lg-3">
                     <div class="brand-wrap">
                         <a href="{{ url('/') }}">
-                            <img class="logo" src="{{ asset('frontend/images/logo-dark.png') }}" alt="logo">
+                            <img class="logo" src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="logo">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <form action="#" class="search-wrap">
-                        <div class="input-group">
+                        {{-- <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fa fa-search"></i>
+                                {{-- <button class="btn btn-primary" type="submit">
+                                        <search></search>
                                 </button>
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
                 <div class="col-lg-3 col-sm-6">
@@ -72,3 +72,4 @@
     </section>
     @include('site.partials.nav')
 </header>
+

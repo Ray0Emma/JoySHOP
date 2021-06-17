@@ -23,7 +23,7 @@ class PayPalService
     public function __construct()
     {
         if (config('settings.paypal_client_id') == '' || config('settings.paypal_secret_id') == '') {
-            return redirect()->back()->with('error', 'No PayPal settings found.');
+            return redirect()->back()->with('error', 'Aucun paramètre PayPal trouvé.');
         }
 
         $this->payPal = new ApiContext(
@@ -58,7 +58,9 @@ class PayPalService
         {
             $orderItems[$item->id] = new Item();
             $orderItems[$item->id]->setName($item->product->name)
-                ->setCurrency(config('settings.currency_code'))
+                // ->setCurrency(config('settings.currency_code'))
+                // do the calculation
+                ->setCurrency("USD")
                 ->setQuantity($item->quantity)
                 ->setPrice(sprintf('%0.2f', ($item->price)/$item->quantity));
 

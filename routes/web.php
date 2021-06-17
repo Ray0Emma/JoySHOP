@@ -23,7 +23,7 @@ require 'admin.php';
             Auth::routes();
 
 
-            Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+            Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
             Route::get('/categorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
             Route::get('/produit/{slug}', [App\Http\Controllers\Site\ProductController::class, 'show'])->name('product.show');
             Route::post('/produit/ajouter/panier', [App\Http\Controllers\Site\ProductController::class, 'addToCart'])->name('product.add.cart');

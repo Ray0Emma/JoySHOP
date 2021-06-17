@@ -1,6 +1,6 @@
 @extends('site.app')
-@section('title', 'Homepage')
+@section('title', 'Accueil')
 
 @section('content')
-    <h2>Homepage</h2>
+    <h2>Farah</h2>
 @stop

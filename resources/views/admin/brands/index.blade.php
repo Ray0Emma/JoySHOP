@@ -49,7 +49,7 @@
     <script>
         $(document).ready(function() {
         $('#sampleTable').DataTable( {
-            responsive: true;
+            responsive: true,
             "language": {
                             "decimal":        "",
                             "emptyTable":     "Aucune donnée disponible dans le tableau",

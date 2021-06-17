@@ -27,7 +27,13 @@
                                 <div class="form-row">
                                     <div class="col form-group">
                                         <label>Prénom</label>
-                                        <input type="text" class="form-control" name="first_name">
+                                        <input type="text"
+                                               class="form-control @error('first_name') is-invalid @enderror"
+                                               name="first_name"
+                                        />
+                                        <div class="invalid-feedback active">
+                                            <i class="fa fa-exclamation-circle fa-fw"></i> @error('first_name') <span>{{ $message }}</span> @enderror
+                                        </div>
                                     </div>
                                     <div class="col form-group">
                                         <label>Nom</label>

@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('title') {{ $pageTitle }} @endsection
-=@section('content')
+@section('content')
     <div class="app-title">
         <div>
             <h1><i class="fa fa-shopping-bag"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
@@ -177,8 +177,8 @@
                             <div class="tile-footer">
                                 <div class="row d-print-none mt-2">
                                     <div class="col-12 text-right">
-                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save Product</button>
-                                        <a class="btn btn-danger" href="{{ route('admin.products.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Go Back</a>
+                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Enregistrer</button>
+                                        <a class="btn btn-danger" href="{{ route('admin.products.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Annuler</a>
                                     </div>
                                 </div>
                             </div>
@@ -194,6 +194,13 @@
     <script>
         $( document ).ready(function() {
             $('#categories').select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#description').summernote({
+                lang: 'fr-FR' // default: 'en-US'
+            });
         });
     </script>
 @endpush
