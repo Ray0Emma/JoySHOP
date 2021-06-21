@@ -50,4 +50,6 @@ interface CategoryContract
      * @return mixed
      */
     public function findBySlug($slug);
+
+    public function homeCategory();
 }

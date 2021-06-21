@@ -1,60 +1,86 @@
 <!-- FOOTER -->
 <footer class="site-footer ">
-    <div class="container ">
-      <div class="row">
+    <div class="main">
+        <div class="module-small ">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="widget">
+                    <h5 class="widget-title font-alt">{{ config('settings.site_name')}}</h5>
+                    <p><i class="fas fa-map-marker-alt "></i>&nbsp;332 BD BRAHIM ROUDANI 5EME ETAGE N 21, CASABLANCA.</p>
+                    <i class="fas fa-phone-square"></i><a href="tel:{{ config('settings.phone')}}" class="href"> &nbsp; +1 234 567 89 10 </a><br>
 
-        <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
-          <h1 class="" data-aos="fade-up" data-aos-delay="100">
-              We make creative <strong>brands</strong> only.</h1>
-        </div>
+                    <p> <i class="fas fa-envelope"></i><a href="mailto:{{ config('settings.default_email_address')}}">&nbsp;{{ config('settings.default_email_address')}}</a></p>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="widget">
+                    <h5 class="widget-title font-alt">{{strtoupper('Nos Pages')}}</h5>
+                    <ul class="icon-list">
+                      <li><a href="#">Accueil</a></li>
+                      <li> <a href="#">Categories</a></li>
+                      <li> <a href="#">Qui somme nous ?</a></li>
+                      <li> <a href="#">Contactez nous</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="widget">
+                    <h5 class="widget-title font-alt">Nos Contact</h5>
+                    <ul class="icon-list">
+                     @if (config('settings.social_facebook'))
+                         <li><a href="{{config('settings.social_facebook')}}"><i class="fab fa-facebook">&nbsp;&nbsp;Facebook</i></a></li>@endif
+                     @if (config('settings.social_twitter'))
+                         <li><a href="{{config('settings.social_twitter')}}"><i class="fab fa-twitter">&nbsp;&nbsp;Twitter</i></a></li>@endif
+                     @if (config('settings.social_instagram') )
+                     <li><a href="{{config('settings.social_instagram')}}"><i class="fab fa-instagram">&nbsp;&nbsp;Instagram</i></a></li>@endif
+                     @if (config('settings.social_youtube') )
+                      <li><a href="{{config('settings.social_youtube')}}"><i class="fab fa-youtube">&nbsp;&nbsp;Youtube</i></a></li>@endif
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="widget">
+                    <h5 class="widget-title font-alt"> Paiement </h5>
+                    <ul class="widget-posts">
+                      <li class="clearfix">
+                        <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div>
+                        <div class="widget-posts-body">
+                          <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                          <div class="widget-posts-meta">23 january</div>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div>
+                        <div class="widget-posts-body">
+                          <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                          <div class="widget-posts-meta">15 February</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="divider-d">
+          <footer class="footer ">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p class="copyright ">&copy;2021&nbsp;<a href="\">{{ config('settings.site_name')}}</a>, Tous les droits sont réservés</p>
+                </div>
+                <div class="col-sm-6">
+                  <div class="footer-social-links">
+                      <button><i class="fab fa-cc-visa fa-2x"></i></button>
+                      <button><i class="fab fa-cc-paypal fa-2x"></i></button>
+                      <button><i class="fab fa-cc-mastercard fa-2x"></i></button>
 
-        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
-          <h4 class="my-4">Contact Info</h4>
-
-          <p class="mb-1">
-            <i class="fa fa-phone mr-2 footer-icon"></i>
-            +212 633 366 901
-          </p>
-
-          <p>
-            <a href="mailto:{{ config('settings.default_email_address')}}"">
-              <i class="fa fa-envelope mr-2 footer-icon"></i>
-                  {{ config('settings.default_email_address')}}
-           </a>
-          </p>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
-          <h4 class="my-4">Our Studio</h4>
-
-          <p class="mb-1">
-            <i class="fa fa-home mr-2 footer-icon"></i>
-                {{ config('attributes.is_filterable')}}
-          </p>
-        </div>
-
-        <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
-          <p class="copyright-text">&copy;2021 Tout droit reserve FRay
-        </div>
-
-        <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
-
-          <ul class="footer-link">
-            <li><a href="#">Stories</a></li>
-            <li><a href="#">Work with us</a></li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
-          <ul class="social-icon">
-            <li><a href="#" class="fab fa-facebook"></a></li>
-            <li><a href="https://twitter.com/FRay81194" class="fab fa-twitter"></a></li>
-            <li><a href="#" class="fab fa-dribbble"></a></li>
-            <li><a href="#" class="fab fa-instagram"></a></li>
-          </ul>
-        </div>
-
-      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
     </div>
+    <div class="scroll-up"><a href="#totop"><i class="fab fa-angle-double-up"></i></a></div>
   </footer>

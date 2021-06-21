@@ -34,7 +34,6 @@ class PayPalService
         );
 
         // To use PayPal in live mode you have to add
-        // the below, I prefer to use the sandbox mode only.
 
         $this->payPal->setConfig(
            array('mode'  =>  'live')
@@ -43,8 +42,9 @@ class PayPalService
 
     public function processPayment($order)
     {
+        // \dd($order);
         // Add shipping amount if you want to charge for shipping
-        $shipping = sprintf('%0.2f', 0);
+        $shipping = sprintf('%0.2f',config('settings.site_title')*10 );
         // Add any tax amount if you want to apply any tax rule
         $tax = sprintf('%0.2f', 0);
 
@@ -62,7 +62,7 @@ class PayPalService
                 // do the calculation
                 ->setCurrency("USD")
                 ->setQuantity($item->quantity)
-                ->setPrice(sprintf('%0.2f', ($item->price)/$item->quantity));
+                ->setPrice(sprintf('%0.2f', (($item->price)/$item->quantity)*10));
 
             array_push($items, $orderItems[$item->id]);
         }
@@ -74,12 +74,12 @@ class PayPalService
         $details = new Details();
         $details->setShipping($shipping)
                 ->setTax($tax)
-                ->setSubtotal(sprintf('%0.2f', $order->grand_total));
+                ->setSubtotal(sprintf('%0.2f', ($order->grand_total)*10));
 
         // Create chargeable amount
         $amount = new Amount();
-        $amount->setCurrency(config('settings.currency_code'))
-                ->setTotal(sprintf('%0.2f', $order->grand_total))
+        $amount->setCurrency("USD")
+                ->setTotal(sprintf('%0.2f', ((($order->grand_total)*10)+$shipping+$tax)))
                 ->setDetails($details);
 
         // Creating a transaction
@@ -88,7 +88,7 @@ class PayPalService
                 ->setItemList($itemList)
                 ->setDescription($order->user->full_name)
                 ->setInvoiceNumber($order->order_number);
-
+        //\dd($shipping,$order->grand_total,$details,$amount,$transaction);
         // Setting up redirection urls
         $redirectUrls = new RedirectUrls();
         $redirectUrls->setReturnUrl(route('checkout.payment.complete'))
@@ -100,12 +100,14 @@ class PayPalService
             ->setPayer($payer)
             ->setRedirectUrls($redirectUrls)
             ->setTransactions(array($transaction));
+            //\dd($payment);
 
             try {
 
                 $payment->create($this->payPal);
 
             } catch (PayPalConnectionException $exception) {
+                echo 'error1';
                 echo $exception->getCode(); // Prints the Error Code
                 echo $exception->getData(); // Prints the detailed error message
                 exit(1);
@@ -131,7 +133,8 @@ class PayPalService
             } catch (PayPalConnectionException $exception) {
                 $data = json_decode($exception->getData());
                 $_SESSION['message'] = 'Error, '. $data->message;
-                // implement your own logic here to show errors from paypal
+                // show errors from paypal
+                echo 'Actualiser la page';
                 exit;
             }
 
@@ -151,6 +154,10 @@ class PayPalService
                 echo "<h3>".$result->state."</h3>";
                 var_dump($result);
                 exit(1);
+
+                // $transactionData = ['salesId' => 'N/A', 'invoiceId' => 'N/A'];
+
+                // return $transactionData;
             }
     }
 }

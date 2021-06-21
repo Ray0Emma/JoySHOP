@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Darryldecode\Cart\Cart as CartCart;
 
 class CartController extends Controller
 {

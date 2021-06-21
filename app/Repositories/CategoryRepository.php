@@ -168,7 +168,11 @@ class CategoryRepository extends BaseRepository implements CategoryContract
     {
         return Category::with('products')
             ->where('slug', $slug)
-            ->where('menu', 1)
+            //->where('menu', 1)
             ->first();
+    }
+
+    public function homeCategory() {
+        return Category::where('menu', 1)->get();
     }
 }

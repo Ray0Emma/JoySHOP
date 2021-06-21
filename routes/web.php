@@ -17,13 +17,13 @@ require 'admin.php';
 |
 */
 
-            Route::view('/', 'site.pages.homepage');
+            //Route::view('/', 'site.pages.homepage');
 
 
             Auth::routes();
 
 
-            Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+            Route::get('/', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
             Route::get('/categorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
             Route::get('/produit/{slug}', [App\Http\Controllers\Site\ProductController::class, 'show'])->name('product.show');
             Route::post('/produit/ajouter/panier', [App\Http\Controllers\Site\ProductController::class, 'addToCart'])->name('product.add.cart');
@@ -38,3 +38,5 @@ require 'admin.php';
                 Route::get('la_caisse/paiement/achevée', [App\Http\Controllers\Site\CheckoutController::class,'complete'])->name('checkout.payment.complete');
                 Route::get('account/orders', [App\Http\Controllers\Site\AccountController::class,'getOrders'])->name('account.orders');
             });
+
+            Route::get('correo', 'Site\HomeController@correo');

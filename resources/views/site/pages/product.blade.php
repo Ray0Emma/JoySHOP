@@ -9,6 +9,14 @@
     <section class="section-content bg padding-y border-top" id="site">
         <div class="container">
             <div class="row">
+                <div class="col-sm-12">
+                    @if (Session::has('error'))
+                        <p class="alert alert-danger">{{ Session::get('error') }}</p>
+                    @endif
+                    @if (Session::has('message'))
+                        <p class="alert alert-success">{{ Session::get('message') }}</p>
+                    @endif
+                </div>
                 {{--All Content will goes here--}}
                 <div class="col-md-12">
                     <div class="card">
@@ -47,9 +55,9 @@
                                 <article class="p-5">
                                     <h3 class="title mb-3">{{ $product->name }}</h3>
                                     <dl class="row">
-                                        <dt class="col-sm-3">SKU</dt>
+                                        <dt class="col-sm-3">UGS</dt>
                                         <dd class="col-sm-9">{{ $product->sku }}</dd>
-                                        <dt class="col-sm-3">Weight</dt>
+                                        <dt class="col-sm-3">Poids</dt>
                                         <dd class="col-sm-9">{{ $product->weight }}</dd>
                                     </dl>
                                     <div class="mb-3">
@@ -96,7 +104,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <dl class="dlist-inline">
-                                                    <dt>Quantity: </dt>
+                                                    <dt>Quantité: </dt>
                                                     <dd>
                                                         <input class="form-control" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
@@ -106,7 +114,7 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>
                                     </form>
                                 </article>
                             </aside>
@@ -131,11 +139,11 @@
             $('#addToCart').submit(function (e) {
                 if ($('.option').val() == 0) {
                     e.preventDefault();
-                    alert('Please select an option');
+                    alert('Il est obligatoire de choisir un attribue');
                 }
             });
             $('.option').change(function () {
-                $('#productPrice').html("{{ $product->sale_price != '' ? $product->sale_price : $product->price }}");
+                $('#productPrice').html("{{ $product->special_price != '' ? $product->special_price : $product->price }}");
                 let extraPrice = $(this).find(':selected').data('price');
                 let price = parseFloat($('#productPrice').html());
                 let finalPrice = (Number(extraPrice) + price).toFixed(2);

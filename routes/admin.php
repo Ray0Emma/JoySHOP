@@ -20,10 +20,10 @@ use App\Http\Controllers\Admin\OrderController;
 
         Route::group(['middleware' => ['auth:admin']], function () {
 
-            Route::get('/', function () {
-                return view('admin.dashboard.index');
-            })->name('admin.dashboard');
-
+            // Route::get('/', function () {
+            //     return view('admin.dashboard.index');
+            // })->name('admin.dashboard');
+            Route::get('/', [LoginController::class,'home'])->name('admin.dashboard');
 
 
         Route::get('settings', [SettingController::class,'index'])->name('admin.settings');
@@ -96,6 +96,12 @@ use App\Http\Controllers\Admin\OrderController;
             Route::get('/', [OrderController::class,'index'])->name('admin.orders.index');
             Route::get('/{order}/show', [OrderController::class,'show'])->name('admin.orders.show');
          });
+
+         //new
+
+         Route::group(['prefix' => 'users'], function () {
+            Route::get('/', [LoginController::class,'users'])->name('admin.users.index');
+        });
 
         });
 });

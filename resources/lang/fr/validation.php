@@ -164,7 +164,9 @@ return [
         'weight'                =>  'poids',
         'special_price'         =>  'prix spécial',
         'brand_id'              =>  'marque',
-        'parent_id'            =>   'catégorie parente',
+        'parent_id'             =>   'catégorie parente',
+        'post_code'             =>   'code postal',
+        'phone_number'          =>   'téléphone',
 
     ],
 ];

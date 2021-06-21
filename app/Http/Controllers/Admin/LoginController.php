@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
+use App\Models\Order;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 //here is the problem
-class LoginController extends Controller
+class LoginController extends BaseController
 {
     //
     use Authenticatable;
@@ -27,7 +29,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:admin')->except('logout','home', 'users');
     }
 
     /**
@@ -39,27 +41,42 @@ class LoginController extends Controller
     }
 
     public function login(Request $request)
-{
-    $this->validate($request, [
-        'email'   => 'required|email',
-        'password' => 'required|min:6'
-    ]);
-    if (Auth::guard('admin')->attempt([
-        'email' => $request->email,
-        'password' => $request->password
-    ], $request->get('remember'))) {
-        return redirect()->intended(route('admin.dashboard'));
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+        if (Auth::guard('admin')->attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ], $request->get('remember'))) {
+            return redirect()->intended(route('admin.dashboard'));
+        }
+        return back()->withInput($request->only('email', 'remember'));
     }
-    return back()->withInput($request->only('email', 'remember'));
-}
-/**
- * @param Request $request
- * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
- */
-public function logout(Request $request)
-{
-    Auth::guard('admin')->logout();
-    $request->session()->invalidate();
-    return redirect()->route('admin.login');
-}
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        return redirect()->route('admin.login');
+    }
+
+    /* all users registered */
+
+    public function users() {
+        $users = User::all();
+        $this->setPageTitle('Utilisateurs', 'Liste de tous les utilisateurs');
+        return view('admin.users.index', compact('users'));
+    }
+
+    public function home() {
+        $orders = Order::all();
+        $users = User::all();
+        return view('admin.dashboard.index', compact('users','orders'));
+    }
 }

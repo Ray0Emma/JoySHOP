@@ -37,13 +37,26 @@ class CheckoutController extends Controller
      */
     public function placeOrder(Request $request)
     {
-        // Before storing the order i should implement the
-        // request validation
+        $this->validate($request,[
+
+            'first_name' => 'required|min:3|max:50',
+            'last_name' => 'required|min:3|max:50',
+            'address' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'post_code' => 'required|numeric|min:4',
+            'phone_number' => ['required'],
+
+        ]);
+
         $order = $this->orderRepository->storeOrderDetails($request->all());
         //handle if the order is not stored properly
-        //dd($order);
+        // dd($request->all(),$order);
 
-        if ($order) {
+        // if ($order) {
+        //     $this->payPal->processPayment($order);
+        // }
+        if ($order && $request->input('forma_pago') === 'PAYPAL') {
             $this->payPal->processPayment($order);
         }
 
@@ -58,12 +71,18 @@ class CheckoutController extends Controller
         $status = $this->payPal->completePayment($paymentId, $payerId);
 
         $order = Order::where('order_number', $status['invoiceId'])->first();
-        $order->status = 'En traitement';
-        $order->payment_status = 1;
-        $order->payment_method = 'PayPal -'.$status['salesId'];
-        $order->save();
 
-        Cart::clear();
-        return view('site.pages.success', compact('order'));
+        if (isset($order->status)) {
+            $order->status = 'En traitement';
+            $order->payment_status = 1;
+            $order->payment_method = 'PayPal -'.$status['salesId'];
+            $order->save();
+
+            Cart::clear();
+            return view('site.pages.success', compact('order'));
+        }
+        else {
+            return redirect()->back()->with('message','Commande non passée');
+        }
     }
 }

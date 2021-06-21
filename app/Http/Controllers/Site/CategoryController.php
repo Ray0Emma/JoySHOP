@@ -18,7 +18,16 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = $this->categoryRepository->findBySlug($slug);
-
-        return view('site.pages.category', compact('category'));
+        //new
+        $filtro = array();
+        foreach ($category->products as $product) {
+            $name = strtolower($product->name);
+            $porciones = explode(" ", $name);
+            $filtro[] = $porciones[0];
+        }
+        $filtro = array_unique($filtro);
+        /*echo json_encode($filtro);
+        die();*/
+        return view('site.pages.category', compact('category','filtro'));
     }
 }

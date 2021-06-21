@@ -7,25 +7,29 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="widget-small primary coloured-icon">
                 <i class="icon fa fa-users fa-3x"></i>
                 <div class="info">
-                    <h4>Utilisateurs</h4>
-                    <p><b>5</b></p>
+                    <a href="{{ route('admin.users.index')}}" class="href">
+                        <h4>Utilisateurs</h4>
+                        <p><b>{{count($users)}}</b></p>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+         <div class="col-md-6 col-lg-6">
             <div class="widget-small info coloured-icon">
-                <i class="icon fa fa-thumbs-o-up fa-3x"></i>
+                <i class="icon fa fa-bar-chart fa-3x"></i>
                 <div class="info">
-                    <h4>Likes</h4>
-                    <p><b>25</b></p>
+                    <a href="{{ route('admin.orders.index') }}" class="href">
+                        <h4>Commandes</h4>
+                        <p><b>{{count($orders)}}</b></p>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        {{-- <div class="col-md-6 col-lg-3">
             <div class="widget-small warning coloured-icon">
                 <i class="icon fa fa-files-o fa-3x"></i>
                 <div class="info">
@@ -43,5 +47,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  --}}
 @endsection

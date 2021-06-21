@@ -10,16 +10,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <form action="#" class="search-wrap">
-                        {{-- <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-append">
-                                {{-- <button class="btn btn-primary" type="submit">
-                                        <search></search>
-                                </button>
-                            </div>
-                        </div> --}}
-                    </form>
+                    {{-- <h5 class="title">Siguenos:</h5>
+                    <div class="btn-group white">
+                        <a class="btn btn-facebook" title="Facebook" target="_blank" href="{{ config('settings.social_facebook') }}"><i
+                                class="fab fa-facebook-f  fa-fw"></i></a>
+                        <a class="btn btn-instagram" title="Instagram" target="_blank" href="{{ config('settings.social_instagram') }}"><i
+                                class="fab fa-instagram  fa-fw"></i></a>
+                    </div> --}}
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widgets-wrap d-flex justify-content-end">
@@ -28,7 +25,7 @@
                                 <div class="icon-wrap icon-xs bg2 round text-secondary"><i
                                         class="fa fa-shopping-cart"></i></div>
                                 <div class="text-wrap">
-                                    <small>{{ $cartCount }} items</small>
+                                    <small>{{ $cartCount }} articles</small>
                                 </div>
                             </a>
                         </div>
@@ -71,5 +68,39 @@
         </div>
     </section>
     @include('site.partials.nav')
+    {{-- <div class="col-12 col-carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if(count($carousels) > 0)
+                @foreach($carousels as $key => $carousel)
+                <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+                    <img src="{{url('/')}}/{{$carousel->logo}}" class="d-block w-100"  alt="{{$carousel->name}}">
+                </div>
+                @endforeach
+                @else
+                <div class="carousel-item active">
+                    <img class="d-block w-100"  src="https://mdbootstrap.com/wp-content/uploads/2017/09/slider-fb.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://i.ytimg.com/vi/RMKQ7tO_-dA/maxresdefault.jpg">
+                </div>
+                @endif
+                <!--<div class="carousel-item active">
+                    <img class="d-block w-100"  src="https://mdbootstrap.com/wp-content/uploads/2017/09/slider-fb.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://i.ytimg.com/vi/RMKQ7tO_-dA/maxresdefault.jpg">
+                </div>-->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div> --}}
 </header>
 

@@ -6,6 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Accueil</a>
+                </li>
                 @foreach($categories as $cat)
                     @foreach($cat->items as $category)
                         @if ($category->items->count() > 0)
@@ -29,3 +32,4 @@
         </div>
     </div>
 </nav>
+
