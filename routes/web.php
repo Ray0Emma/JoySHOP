@@ -39,4 +39,4 @@ require 'admin.php';
                 Route::get('account/orders', [App\Http\Controllers\Site\AccountController::class,'getOrders'])->name('account.orders');
             });
 
-            Route::get('correo', 'Site\HomeController@correo');
+            // Route::get('correo', 'Site\HomeController@correo');

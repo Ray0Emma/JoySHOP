@@ -43,7 +43,11 @@
                 <div class="utility">
                     <div class="animated-checkbox">
                         <label>
-                            <input type="checkbox" name="remember"><span class="label-text">Rester connecté</span>
+                            <input type="checkbox" name="remember">
+                                <span
+                                   class="label-text" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                   Rester connecté
+                                </span>
                         </label>
                     </div>
                 </div>

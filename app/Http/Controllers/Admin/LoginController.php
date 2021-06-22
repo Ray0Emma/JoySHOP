@@ -52,7 +52,20 @@ class LoginController extends BaseController
         ], $request->get('remember'))) {
             return redirect()->intended(route('admin.dashboard'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return back()->withInput($request->only('email', 'remember'))
+                     ->withErrors([
+                        $this->username() => [trans('auth.failed')],
+                    ]);;
+    }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'email';
     }
 
     /**
