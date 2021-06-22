@@ -190,6 +190,8 @@
     </div>
 @endsection
 @push('scripts')
+    <script src="{{ asset('backend/js/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('backend/js/lang/summernote-fr-FR.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}"></script>
     <script>
         $( document ).ready(function() {
@@ -199,7 +201,15 @@
     <script>
         $(document).ready(function() {
             $('#description').summernote({
-                lang: 'fr-FR' // default: 'en-US'
+                lang: 'fr-FR', // default: 'en-US'
+                height: 300,
+                focus: true ,
+                maximumImageFileSize: 50*1024, // 50 KB
+                callbacks:{
+                    onImageUploadError: function(msg){
+                        alert(msg + ' 50 KB');
+                    }
+                }
             });
         });
     </script>

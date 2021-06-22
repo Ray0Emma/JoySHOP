@@ -3,6 +3,8 @@
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.css') }}"/>
 @endsection
+    <script src="{{ asset('backend/js/summernote-bs4.min.js') }}" defer></script>
+    <script src="{{ asset('backend/js/lang/summernote-fr-FR.js') }}" defer></script>
 @section('content')
     <div class="app-title">
         <div>
@@ -259,20 +261,29 @@
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap-notify.min.js') }}" defer></script>
+    <script  src="{{ mix('backend/js/app.js') }}"></script>
     <script>
         $( document ).ready(function() {
             $('#categories').select2();
-            $('#description').summernote();
-
         });
     </script>
-    <script  src="{{ mix('backend/js/app.js') }}"></script>
     <script type="text/javascript">
 
         Dropzone.autoDiscover = false;
 
         $( document ).ready(function() {
 
+            $('#description').summernote({
+                lang: 'fr-FR', // default: 'en-US'
+                height: 250,
+                focus: true ,
+                maximumImageFileSize: 50*1024, // 50 KB
+                callbacks:{
+                    onImageUploadError: function(msg){
+                       alert(msg + ' 50 KB');
+                    }
+                }
+            });
 
                 let myDropzone = new Dropzone("#dropzone", {
                 paramName: "image",

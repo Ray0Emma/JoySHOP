@@ -50,7 +50,7 @@
         </div>
     </section>
 @stop
-@push('scripts')
+{{-- @push('scripts')
     <script type="text/javascript" src="{{ asset('backend/js/plugins/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dataTables.bootstrap.min.js') }}"></script>
     <script>
@@ -84,4 +84,4 @@
                 } );
         } );
     </script>
-@endpush
+@endpush --}}

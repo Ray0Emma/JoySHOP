@@ -1,3 +1,89 @@
+.image-rounded img{
+    height: 300px;
+    width: 300px;
+    border-radius: 5%;
+    /*display: block;*/
+}
+
+.col-home{
+    padding-bottom: 50px;
+}
+
+/*animacion de imagen*/
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.text {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.col-home:hover .overlay {
+    opacity: 1;
+}
+
+.col-home:hover .image-rounded {
+    opacity: 0.2;
+}
+
+
+@media (min-width: 1200px) {
+    .name-categoria{
+        display: none;
+    }
+}
+
+/*color del nav*/
+.navbar{
+    background-color: #09C4C9;
+}
+.navbar-nav li a {
+    font-weight: 700;
+}
+
+.section-footer{
+    background-color: #09C4C9;
+}
+
+/*carousel*/
+.carousel-item img {
+    height: 50vh;
+}
+
+.col-carousel{
+    /*border-top: 2px;
+    border-left: 2px;
+    border-right: 2px;
+    border-bottom: 2px;
+    border-style: solid;*/
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.form-check {
+    margin-top: 1em;
+}
+
+.providers img{
+    width: 100%;
+    height: 40vh;
+}
+
+
 /*--------------------------------------------------------------
 	Common
 --------------------------------------------------------------*/
@@ -813,7 +899,7 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
@@ -2234,7 +2320,7 @@ Google map
 .pagination a {
   border: 1px solid #eaeaea;
   display: inline-block;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-align: center;
   color: #999;
   padding: 4px 12px;

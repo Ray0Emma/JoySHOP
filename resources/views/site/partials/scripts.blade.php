@@ -17,7 +17,7 @@
 <script type="text/javascript">
     $(function () {
     $('#myDiv').floatingWhatsApp({
-    phone: config(),
+    phone: '12345678910',
             message: "Je voudrais plus d'informations sur vos produits.",
     });
     });
