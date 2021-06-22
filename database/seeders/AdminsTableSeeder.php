@@ -20,8 +20,8 @@ class AdminsTableSeeder extends Seeder
 
         Admin::create([
             'name'      =>  'Administration',
-            'email'     =>  'admin@gmail.com',
-            'password'  =>  bcrypt('leet-password'),
+            'email'     =>  config('admin.admin_id'),
+            'password'  =>  bcrypt(config('admin.admin_secret')),
         ]);
     }
 }
