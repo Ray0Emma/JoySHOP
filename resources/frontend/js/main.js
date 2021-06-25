@@ -1,4 +1,4 @@
-console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55');
+console.log('%c Proudly Crafted By AIT ELAHMADI Farah.', 'background: #EFE7BC; color: #74BDCB');
 
 /* ---------------------------------------------- /*
  * Preloader
@@ -25,9 +25,9 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
          * Scroll top
          /* ---------------------------------------------- */
 
-        
 
-        
+
+
 
 
         /* ---------------------------------------------- /*

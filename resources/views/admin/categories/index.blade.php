@@ -20,7 +20,7 @@
                                 <th> Nom </th>
                                 <th> Slug </th>
                                 <th class="text-center"> Parent </th>
-                                <th class="text-center"> discret </th>
+                                {{-- <th class="text-center"> discret </th> --}}
                                 <th class="text-center"> Menu </th>
                                 {{-- <th class="text-center"> Ordre </th> --}}
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
@@ -34,13 +34,13 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
                                         <td>{{ optional($category->parent)->name }}</td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             @if ($category->featured == 1)
                                                 <span class="badge badge-success">Oui</span>
                                             @else
                                                 <span class="badge badge-danger">Non</span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             @if ($category->menu == 1)
                                                 <span class="badge badge-success">Oui</span>

@@ -44,4 +44,6 @@ interface ProductContract
      * @return mixed
      */
     public function findProductBySlug($slug);
+
+    public function homeProduct();
 }

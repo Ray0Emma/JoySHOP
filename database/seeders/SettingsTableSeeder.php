@@ -22,7 +22,7 @@ class SettingsTableSeeder extends Seeder
         ],
         [
             'key'                       =>  'default_email_address',
-            'value'                     =>  'admin@admin.com',
+            'value'                     =>  'admin@gmail.com',
         ],
         [
             'key'                       =>  'currency_code',
@@ -30,7 +30,7 @@ class SettingsTableSeeder extends Seeder
         ],
         [
             'key'                       =>  'currency_symbol',
-            'value'                     =>  'DH',
+            'value'                     =>  'DHS',
         ],
         [
             'key'                       =>  'site_logo',
@@ -41,7 +41,7 @@ class SettingsTableSeeder extends Seeder
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'footer_copyright_text',
+            'key'                       =>  'about_us',
             'value'                     =>  '',
         ],
         [
@@ -65,16 +65,20 @@ class SettingsTableSeeder extends Seeder
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'social_linkedin',
+            'key'                       =>  'social_youtube',
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'google_analytics',
+            'key'                       =>  'phone',
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'facebook_pixels',
+            'key'                       =>  'address',
             'value'                     =>  '',
+        ],
+        [
+            'key'                       =>  'shipping',
+            'value'                     =>  '0',
         ],
         [
             'key'                       =>  'stripe_payment_method',
@@ -113,11 +117,11 @@ class SettingsTableSeeder extends Seeder
         {
             $result = Setting::create($setting);
             if (!$result) {
-                $this->command->info("Insert failed at record $index.");
+                $this->command->info("L'insertion a échoué à l'enregistrement $index.");
                 return;
             }
         }
-        $this->command->info('Inserted '.count($this->settings). ' records');
+        $this->command->info(count($this->settings).' enregistrements insérés');
     }
 
     /**

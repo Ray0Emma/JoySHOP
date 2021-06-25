@@ -18,9 +18,9 @@
                         <tr>
                             <th> Code </th>
                             <th> Nom </th>
-                            <th class="text-center"> Type d'interface </th>
+                            {{-- <th class="text-center"> Type d'interface </th>
                             <th class="text-center"> Filtrable </th>
-                            <th class="text-center"> Obligatoire </th>
+                            <th class="text-center"> Obligatoire </th> --}}
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                         </thead>
@@ -29,8 +29,8 @@
                                 <tr>
                                     <td>{{ $attribute->code }}</td>
                                     <td>{{ $attribute->name }}</td>
-                                    <td>{{ $attribute->frontend_type }}</td>
-                                    <td class="text-center">
+                                    {{-- <td>{{ $attribute->values }}</td> --}}
+                                    {{-- <td class="text-center">
                                         @if ($attribute->is_filterable == 1)
                                             <span class="badge badge-success">Oui</span>
                                         @else
@@ -43,7 +43,7 @@
                                         @else
                                             <span class="badge badge-danger">Non</span>
                                         @endif
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center">
                                         <div class="btn-group" role="group" aria-label="Second group">
                                             <a href="{{ route('admin.attributes.edit', $attribute->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>

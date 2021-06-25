@@ -131,4 +131,9 @@ class ProductRepository extends BaseRepository implements ProductContract
 
         return $product;
     }
+
+    public function homeProduct()
+    {
+        return Product::where('featured', 1)->get();
+    }
 }

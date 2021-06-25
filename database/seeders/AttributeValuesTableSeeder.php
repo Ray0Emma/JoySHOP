@@ -14,15 +14,15 @@ class AttributeValuesTableSeeder extends Seeder
      */
     public function run()
     {
-        $sizes = ['small', 'medium', 'large'];
-        $colors = ['black', 'blue', 'red', 'orange'];
+        $contenus = ['100ml', '200ml', '300ml'];
+        $colors = ['noir', 'bleu', 'rouge', 'rose'];
 
-        foreach ($sizes as $size)
+        foreach ($contenus as $contenu)
         {
             AttributeValue::create([
                 'attribute_id'      =>  1,
-                'value'             =>  $size,
-                'price'             =>  null,
+                'value'             =>  $contenus,
+                'price'             =>  10,
             ]);
         }
 
@@ -31,7 +31,7 @@ class AttributeValuesTableSeeder extends Seeder
             AttributeValue::create([
                 'attribute_id'      =>  2,
                 'value'             =>  $color,
-                'price'             =>  null,
+                'price'             =>  10,
             ]);
         }
 

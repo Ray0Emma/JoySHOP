@@ -55,8 +55,9 @@
                                         <i class="fa fa-exclamation-circle fa-fw"></i> @error('name') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="frontend_type">Type d'interface</label>
+
+                                    <input type="hidden" name="frontend_type" id="frontend_type" value="select">
+                                    {{-- <label class="control-label" for="frontend_type">Type d'interface</label>
                                     @php $types = ['select' => 'Select Box', 'radio' => 'Radio Button', 'text' => 'Text Field', 'text_area' => 'Text Area']; @endphp
                                     <select name="frontend_type" id="frontend_type" class="form-control @error('frontend_type') is-invalid @enderror">
                                         @foreach($types as $key => $label)
@@ -92,7 +93,7 @@
                                                 {{ $attribute->is_required == 1 ? 'checked' : '' }}/>Obligatoire
                                         </label>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="tile-footer">
                                 <div class="row d-print-none mt-2">

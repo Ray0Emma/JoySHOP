@@ -16,22 +16,33 @@
                 />
             </div>
             <div class="form-group">
-                <label class="control-label" for="site_title">Titre du Site</label>
+                <label class="control-label" for="phone">Telephone</label>
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Entrez le titre du site"
-                    id="site_title"
-                    name="site_title"
-                    value="{{ config('settings.site_title') }}"
+                    placeholder="Entrez le numero de telephone"
+                    id="phone"
+                    name="phone"
+                    value="{{ config('settings.phone') }}"
                 />
             </div>
             <div class="form-group">
-                <label class="control-label" for="default_email_address">Adresse e-mail par défaut</label>
+                <label class="control-label" for="address">Adresse du magasin</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Entrez Adresse du magasin"
+                    id="address"
+                    name="address"
+                    value="{{ config('settings.address') }}"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="default_email_address">Adresse E-mail </label>
                 <input
                     class="form-control"
                     type="email"
-                    placeholder="Entrez l'adresse e-mail par défaut du magasin"
+                    placeholder="Entrez l'adresse e-mail du magasin"
                     id="default_email_address"
                     name="default_email_address"
                     value="{{ config('settings.default_email_address') }}"

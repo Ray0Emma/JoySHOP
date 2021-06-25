@@ -151,7 +151,8 @@
                                     <label class="control-label" for="description">Description</label>
                                     <textarea name="description" id="description" rows="8" class="form-control"></textarea>
                                 </div>
-                                <div class="form-group">
+                                <input type="hidden" name="status" id="status" value="1">
+                                {{-- <div class="form-group">
                                     <div class="form-check">
                                         <label class="form-check-label">
                                             <input class="form-check-input"
@@ -161,7 +162,7 @@
                                                 />Statut
                                         </label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <div class="form-check">
                                         <label class="form-check-label">

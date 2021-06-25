@@ -14,10 +14,10 @@ class AttributesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Create a size attribute
+        // Create a contenu attribute
         Attribute::create([
-            'code'          =>  'size',
-            'name'          =>  'Size',
+            'code'          =>  'contenu',
+            'name'          =>  'Contenu',
             'frontend_type' =>  'select',
             'is_filterable' =>  1,
             'is_required'   =>  1,

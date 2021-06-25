@@ -5,14 +5,15 @@
         <hr>
         <div class="tile-body">
             <div class="form-group">
-                <label class="control-label" for="footer_copyright_text">Texte de Copyright </label>
+                {{-- there an error here  --}}
+                <label class="control-label" for="footer_about_us">"Qui Somme Nous" </label>
                 <textarea
                     class="form-control"
                     rows="4"
-                    placeholder="Saisir le texte de copyright"
-                    id="footer_copyright_text"
-                    name="footer_copyright_text"
-                >{{ config('settings.footer_copyright_text') }}</textarea>
+                    placeholder="Saisir le texte du page qui somme nous"
+                    id="about_us"
+                    name="footer_about_us"
+                >{{ config('settings.about_us') }}</textarea>
             </div>
             <div class="form-group">
                 <label class="control-label" for="seo_meta_title">Meta Titre de Référencement</label>
@@ -45,3 +46,22 @@
         </div>
     </form>
 </div>
+{{-- @push('scripts')
+    <script src="{{ asset('backend/js/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('backend/js/lang/summernote-fr-FR.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#about_us').summernote({
+                lang: 'fr-FR', // default: 'en-US'
+                height: 300,
+                // focus: true ,
+                // maximumImageFileSize: 1*1024, // 50 KB
+                // callbacks:{
+                //     onImageUploadError: function(msg){
+                //         alert('Vous pauvez pas ajouter des photos');
+                //     }
+                // }
+            });
+        });
+    </script>
+@endpush --}}

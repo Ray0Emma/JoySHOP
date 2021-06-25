@@ -26,7 +26,7 @@ class CategoryFactory extends Factory
             'name'          =>  $this->faker->name,
             'description'   =>  $this->faker->realText(100),
             'parent_id'     =>  1,
-            'menu'          =>  1,
+            'menu'          =>  0,
         ];
     }
 }

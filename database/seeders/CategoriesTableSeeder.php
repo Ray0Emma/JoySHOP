@@ -18,7 +18,7 @@ class CategoriesTableSeeder extends Seeder
         //
         Category::create([
             'name'          =>  'Root',
-            'description'   =>  'This is the root category, don\'t delete this one',
+            'description'   =>  'Ceci est la catégorie racine, ne supprimez pas celle-ci',
             'parent_id'     =>  null,
             'menu'          =>  0,
         ]);

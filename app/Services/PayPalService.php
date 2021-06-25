@@ -44,7 +44,7 @@ class PayPalService
     {
         // \dd($order);
         // Add shipping amount if you want to charge for shipping
-        $shipping = sprintf('%0.2f',config('settings.site_title')*10 );
+        $shipping = sprintf('%0.2f',config('settings.shipping')*10 );
         // Add any tax amount if you want to apply any tax rule
         $tax = sprintf('%0.2f', 0);
 

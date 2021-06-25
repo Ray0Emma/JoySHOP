@@ -16,10 +16,10 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         // Faker to generat dummy names.
-        //$faker = Faker::create();
+        $faker = Faker::create();
 
         Admin::create([
-            'name'      =>  'Administration',
+            'name'      =>  $faker->name,
             'email'     =>  config('admin.admin_id'),
             'password'  =>  bcrypt(config('admin.admin_secret')),
         ]);

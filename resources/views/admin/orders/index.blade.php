@@ -7,6 +7,7 @@
             <p>{{ $subTitle }}</p>
         </div>
     </div>
+    @include('admin.partials.flash')
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
@@ -28,7 +29,7 @@
                             <tr>
                                 <td>{{ $order->order_number }}</td>
                                 <td>{{ $order->user->fullName }}</td>
-                                <td class="text-center">{{ $order->grand_total }}{{ config('settings.currency_symbol') }}</td>
+                                <td class="text-center">{{ $order->grand_total+ config('settings.site_title') }}{{ config('settings.currency_symbol') }}</td>
                                 <td class="text-center">{{ $order->item_count }}</td>
                                 <td class="text-center">
                                     @if ($order->payment_status == 1)
@@ -43,6 +44,7 @@
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Second group">
                                         <a href="{{ route('admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.orders.delete', $order->order_number) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -60,7 +62,7 @@
     <script>
         $(document).ready(function() {
         $('#sampleTable').DataTable( {
-            responsive: true;
+            responsive: true,
             "language": {
                             "decimal":        "",
                             "emptyTable":     "Aucune donnée disponible dans le tableau",
@@ -89,3 +91,4 @@
         } );
     </script>
 @endpush
+{{-- i should add attributes selected to show.blade  --}}

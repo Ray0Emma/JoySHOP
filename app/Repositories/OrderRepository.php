@@ -40,16 +40,18 @@ class OrderRepository extends BaseRepository implements OrderContract
         if ($order) {
 
             $items = Cart::getContent();
+
             foreach ($items as $item)
             {
-                // A better way will be to bring the product id with the cart items
-                // you can explore the package documentation to send product id with the cart
                 $product = Product::where('name', $item->name)->first();
 
                 $orderItem = new OrderItem([
                     'product_id'    =>  $product->id,
                     'quantity'      =>  $item->quantity,
-                    'price'         =>  $item->getPriceSum()
+                    'price'         =>  $item->getPriceSum(),
+                    // 'attribute'     =>  $product->attributes,
+
+
                 ]);
 
                 $order->items()->save($orderItem);
@@ -67,5 +69,18 @@ class OrderRepository extends BaseRepository implements OrderContract
     public function findOrderByNumber($orderNumber)
     {
         return Order::where('order_number', $orderNumber)->first();
+    }
+
+    /**
+     * @param $id
+     * @return bool|mixed
+     */
+    public function deleteOrder($id)
+    {
+        $order = $this->findOrderByNumber($id);
+
+        $order->delete();
+
+        return $order;
     }
 }

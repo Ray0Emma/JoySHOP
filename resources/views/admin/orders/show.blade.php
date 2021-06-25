@@ -21,14 +21,14 @@
                     </div>
                     <div class="row invoice-info">
                         <div class="col-4">Passée par
-                            <address><strong>{{ $order->user->fullName }}</strong><br>Email: {{ $order->user->email }}</address>
+                            <address><strong>{{ strtoupper($order->user->fullName) }}</strong><br>Email: {{ $order->user->email }}</address>
                         </div>
                         <div class="col-4">Expédier à
                             <address><strong>{{ $order->first_name }} {{ $order->last_name }}</strong><br>{{ $order->address }}<br>{{ $order->city }}, {{ $order->country }} {{ $order->post_code }}<br>{{ $order->phone_number }}<br></address>
                         </div>
                         <div class="col-4">
                             <b>ID Commande:</b> {{ $order->order_number }}<br>
-                            <b>Montant:</b> {{ round($order->grand_total, 2) }} {{ config('settings.currency_symbol') }}<br>
+                            <b>Montant:</b> {{ round($order->grand_total+ config('settings.site_title'), 2) }} {{ config('settings.currency_symbol') }}<br>
                             <b>Mode de Paiement:</b> {{ $order->payment_method }}<br>
                             <b>Statut de Paiement:</b> {{ $order->payment_status == 1 ? 'Complétée' : 'Non Complétée' }}<br>
                             <b>Statut de la commande:</b> {{ $order->status }}<br>
@@ -44,6 +44,10 @@
                                     <th>UGS #</th>
                                     <th>Quantité</th>
                                     <th>Total</th>
+                                    @if ( $order->notes)
+                                       <th>note</th>
+                                    @endif
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,8 +58,15 @@
                                             <td>{{ $item->product->sku }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ round($item->price, 2) }}{{ config('settings.currency_symbol') }}</td>
-                                        </tr>
+
                                     @endforeach
+                                            @if ( $order->notes)
+                                            <td>{{ $order->notes}}
+
+                                            </td>
+                                            @endif
+
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>

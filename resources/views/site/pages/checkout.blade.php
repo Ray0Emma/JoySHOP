@@ -147,12 +147,12 @@
                                         </dl>
                                         <dl class="dlist-align">
                                             <dt>Envio: </dt>
-                                            <dd class="text-right h5 b costo"> 10.00 Dhs</dd>
-                                            <input type="hidden" name="costo_envio" id="costo_envio" value="10">
+                                            <dd class="text-right h5 b costo"> {{round(confing('setting.shipping'),2)}} {{ config('settings.currency_symbol') }}</dd>
+                                            <input type="hidden" name="costo_envio" id="costo_envio" value="{{confing('setting.shipping')}}">
                                         </dl>
                                         <dl class="dlist-align">
                                             <dt>Total: </dt>
-                                            <dd class="text-right h5 b precio_total"></dd>
+                                            <dd class="text-right h5 b total_price"></dd>
                                         </dl>
                                     </article>
                                 </div>
@@ -205,7 +205,7 @@
         var subtotal = $('#subtotal').val();
         var envio = $('#costo_envio').val();
         var total = parseFloat(subtotal) + parseFloat(envio);
-        $('.precio_total').text( total.toFixed(2) + ' Dhs');
+        $('.total_price').text( total.toFixed(2) + ' Dhs');
         $('#addToCart').submit(function (e) {
             var val = $('input:radio[name=forma_pago]:checked').val();
             var terms = $('input:checkbox[name=terms]:checked').val();

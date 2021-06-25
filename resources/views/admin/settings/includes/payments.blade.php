@@ -3,9 +3,21 @@
         @csrf
         <h3 class="tile-title">Paramètres de paiement</h3>
         <hr>
-        <div class="tile-body">
+            <div class="tile-body">
             <div class="form-group">
-                <label class="control-label" for="stripe_payment_method">Mode de paiement Stripe</label>
+                <label class="control-label" for="site_title">Prix Livraison</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Entrez le prix de livraison"
+                    id="site_title"
+                    name="site_title"
+                    value="{{ config('settings.site_title') }}"
+                />
+            </div>
+            {{-- it should be number --}}
+            <div class="form-group">
+                <label class="control-label" for="stripe_payment_method">Autre Mode de Paiement </label>
                 <select name="stripe_payment_method" id="stripe_payment_method" class="form-control">
                     <option value="1" {{ (config('settings.stripe_payment_method')) == 1 ? 'selected' : '' }}>Activé</option>
                     <option value="0" {{ (config('settings.stripe_payment_method')) == 0 ? 'selected' : '' }}>Désactivé</option>

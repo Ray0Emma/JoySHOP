@@ -26,10 +26,30 @@
                 </div>
             </div>
             @endforeach
+            <h3>Popular Products</h3>
+            <div class="row">
+                @foreach($products as $product)
+                <div class="col-md-5 col-home">
+                    <div class="image-rounded">
+                        <a href="{{ route('product.show', $product->name) }}">
+                            @if ($product->images->count() > 0)
+                                <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
+                            @else
+                                <img src="https://via.placeholder.com/176" alt="">
+                            @endif
+                        </a>
+                    </div>
+                    <h5 class="name-categoria">{{$product->name}}</h5>
+                    <div class="overlay">
+                        <a href="{{ route('product.show', $product->name) }}">
+                            <div class="text">
+                                <h5>{{strtoupper($product->name)}}</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
         </div>
-        {{-- <div class="row providers">
-            <img src="{{url('/')}}/img/footer.jpeg">
-        </div> --}}
     </div>
 </section>
 @stop

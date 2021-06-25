@@ -28,7 +28,12 @@ class CheckoutController extends Controller
      */
     public function getCheckout()
     {
-        return view('site.pages.checkout');
+        if (Cart::isEmpty()) {
+            return redirect()->back()->with('message', "Votre panier est vide vous devez ajouter des articles avant de passer au paiement" );
+        }
+        else{
+            return view('site.pages.checkout');
+        }
     }
 
     /**
@@ -51,13 +56,21 @@ class CheckoutController extends Controller
 
         $order = $this->orderRepository->storeOrderDetails($request->all());
         //handle if the order is not stored properly
-        // dd($request->all(),$order);
+        //dd($request->all(),$order);
 
-        // if ($order) {
-        //     $this->payPal->processPayment($order);
-        // }
         if ($order && $request->input('forma_pago') === 'PAYPAL') {
             $this->payPal->processPayment($order);
+        }
+        if ($order && $request->input('forma_pago') === 'PEPM') {
+
+            if (isset($order->status)) {
+                $order->status = 'En traitement';
+                $order->payment_status = 0;
+                $order->payment_method = 'Paiement par espèces';
+                $order->save();
+
+            Cart::clear();
+            return view('site.pages.success', compact('order'));}
         }
 
         return redirect()->back()->with('message','Commande non passée');

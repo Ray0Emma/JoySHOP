@@ -167,6 +167,7 @@ return [
         'parent_id'             =>   'catégorie parente',
         'post_code'             =>   'code postal',
         'phone_number'          =>   'téléphone',
+        'subject'               =>    'suject'
 
     ],
 ];

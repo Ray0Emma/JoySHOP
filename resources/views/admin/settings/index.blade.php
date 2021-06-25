@@ -22,8 +22,8 @@
                         Pied de Page &amp; SEO</a></li>
                     <li class="nav-item"><a class="nav-link" href="#social-links" data-toggle="tab">
                         Liens sociaux</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#analytics" data-toggle="tab">
-                        Analytique</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="#analytics" data-toggle="tab">
+                        Analytique</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="#payments" data-toggle="tab">
                         Paiements</a></li>
                 </ul>
@@ -43,9 +43,9 @@
                 <div class="tab-pane fade" id="social-links">
                     @include('admin.settings.includes.social_links')
                 </div>
-                <div class="tab-pane fade" id="analytics">
+                {{-- <div class="tab-pane fade" id="analytics">
                     @include('admin.settings.includes.analytics')
-                </div>
+                </div> --}}
                 <div class="tab-pane fade" id="payments">
                     @include('admin.settings.includes.payments')
                 </div>

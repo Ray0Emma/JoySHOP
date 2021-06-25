@@ -22,7 +22,7 @@
                             <th class="text-center"> Marque </th>
                             <th class="text-center"> Catégories </th>
                             <th class="text-center"> Prix </th>
-                            <th class="text-center"> Statut </th>
+                            {{-- <th class="text-center"> Statut </th> --}}
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                         </thead>
@@ -39,13 +39,13 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $product->price }} {{ config('settings.currency_symbol') }}</td>
-                                    <td class="text-center">
+                                    {{-- <td class="text-center">
                                         @if ($product->status == 1)
                                             <span class="badge badge-success">Actif</span>
                                         @else
                                             <span class="badge badge-danger">Pas actif</span>
                                         @endif
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center">
                                         <div class="btn-group" role="group" aria-label="Second group">
                                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>

@@ -95,6 +95,7 @@ use App\Http\Controllers\Admin\OrderController;
          Route::group(['prefix' => 'orders'], function () {
             Route::get('/', [OrderController::class,'index'])->name('admin.orders.index');
             Route::get('/{order}/show', [OrderController::class,'show'])->name('admin.orders.show');
+            Route::get('/{order}/delete', [OrderController::class,'delete'])->name('admin.orders.delete');
          });
 
          //new

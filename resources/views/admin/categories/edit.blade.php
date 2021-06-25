@@ -42,7 +42,7 @@
                                 <i class="fa fa-exclamation-circle fa-fw"></i> @error('parent_id') <span>{{ $message }}</span> @enderror
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" id="featured" name="featured"
@@ -50,7 +50,7 @@
                                     />Catégorie Spéciale
                                 </label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">

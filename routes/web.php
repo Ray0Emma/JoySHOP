@@ -17,14 +17,15 @@ require 'admin.php';
 |
 */
 
-            //Route::view('/', 'site.pages.homepage');
-
+            Route::view('/qui_somme_nous', 'site.pages.about_us');
+            Route::get('/contactez_nous', [App\Http\Controllers\Site\ContactController::class,'getContact']);
+            Route::post('/contactez_nous', [App\Http\Controllers\Site\ContactController::class,'saveContact']);
 
             Auth::routes();
 
 
             Route::get('/', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
-            Route::get('/categorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
+            Route::get('/catégorie/{slug}', [App\Http\Controllers\Site\CategoryController::class, 'show'])->name('category.show');
             Route::get('/produit/{slug}', [App\Http\Controllers\Site\ProductController::class, 'show'])->name('product.show');
             Route::post('/produit/ajouter/panier', [App\Http\Controllers\Site\ProductController::class, 'addToCart'])->name('product.add.cart');
 
@@ -36,7 +37,7 @@ require 'admin.php';
                 Route::get('/la_caisse', [App\Http\Controllers\Site\CheckoutController::class,'getCheckout'])->name('checkout.index');
                 Route::post('/la_caisse/commande', [App\Http\Controllers\Site\CheckoutController::class,'placeOrder'])->name('checkout.place.order');
                 Route::get('la_caisse/paiement/achevée', [App\Http\Controllers\Site\CheckoutController::class,'complete'])->name('checkout.payment.complete');
-                Route::get('account/orders', [App\Http\Controllers\Site\AccountController::class,'getOrders'])->name('account.orders');
+                Route::get('compte/commandes', [App\Http\Controllers\Site\AccountController::class,'getOrders'])->name('account.orders');
             });
 
-            // Route::get('correo', 'Site\HomeController@correo');
+

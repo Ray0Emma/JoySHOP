@@ -27,4 +27,18 @@ class OrderController extends BaseController
         $this->setPageTitle('Détails de la Commande', $orderNumber);
         return view('admin.orders.show', compact('order'));
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $order = $this->orderRepository->deleteOrder($id);
+
+        if (!$order) {
+            return $this->responseRedirectBack("Erreur s'est produite lors de la suppression du commande.", 'error', true, true);
+        }
+        return $this->responseRedirect('admin.orders.index', 'commande supprimé avec succès' ,'success',false, false);
+    }
 }

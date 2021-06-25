@@ -27,8 +27,8 @@
                                     @if ($product->images->count() > 0)
                                         <div class="img-big-wrap">
                                             <div class="padding-y">
-                                                <a href="{{ asset('storage/'.$product->images->first()->full) }}" data-fancybox="">
-                                                    <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
+                                                <a href="{{ asset('storage/'.$product->images->first()->full) }}" data-fancybox="" id="main-img-href">
+                                                    <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="" id="main-img">
                                                 </a>
                                             </div>
                                         </div>
@@ -63,12 +63,13 @@
                                     <div class="mb-3">
                                         @if ($product->special_price > 0)
                                             <var class="price h3 text-danger">
-                                                <span class="currency">{{ config('settings.currency_symbol') }}</span><span class="num" id="productPrice">{{ $product->special_price }}</span>
-                                                <del class="price-old"> {{ config('settings.currency_symbol') }}{{ $product->price }}</del>
+                                                <span class="num" id="productPrice">{{ $product->special_price }}</span><span class="currency">{{ config('settings.currency_symbol') }}</span>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <del class="price-old"> {{ $product->price }}{{ config('settings.currency_symbol') }}</del>
                                             </var>
                                         @else
                                             <var class="price h3 text-success">
-                                                <span class="currency">{{ config('settings.currency_symbol') }}</span><span class="num" id="productPrice">{{ $product->price }}</span>
+                                                <span class="num" id="productPrice">{{ $product->price }}</span><span class="currency">{{ config('settings.currency_symbol') }}</span>
                                             </var>
                                         @endif
                                     </div>
@@ -84,7 +85,7 @@
                                                             <dt>{{ $attribute->name }}: </dt>
                                                             <dd>
                                                                 <select class="form-control form-control-sm option" style="width:180px;" name="{{ strtolower($attribute->name ) }}">
-                                                                    <option data-price="0" value="0"> Select a {{ $attribute->name }}</option>
+                                                                    <option data-price="0" value="0"> Choisir un {{ $attribute->name }}</option>
                                                                     @foreach($product->attributes as $attributeValue)
                                                                         @if ($attributeValue->attribute_id == $attribute->id)
                                                                             <option
@@ -114,7 +115,9 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>&nbsp;&nbsp;
+                                        <a href="{{ route('home') }}" class="btn btn-info"><i class="fas fa-plus-square"></i> Continuer à acheter</a>
+                                        {{-- <a href="{{ route('checkout.cart') }}" class="btn btn-danger"><i class="fas fa-archive"></i> Terminer l'achat</a> --}}
                                     </form>
                                 </article>
                             </aside>
@@ -136,12 +139,12 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            $('#addToCart').submit(function (e) {
-                if ($('.option').val() == 0) {
-                    e.preventDefault();
-                    alert('Il est obligatoire de choisir un attribue');
-                }
-            });
+            // $('#addToCart').submit(function (e) {
+            //     if ($('.option').val() == 0) {
+            //         e.preventDefault();
+            //         swal('Il est obligatoire de choisir un attribue');
+            //     }
+            // });
             $('.option').change(function () {
                 $('#productPrice').html("{{ $product->special_price != '' ? $product->special_price : $product->price }}");
                 let extraPrice = $(this).find(':selected').data('price');
@@ -149,6 +152,12 @@
                 let finalPrice = (Number(extraPrice) + price).toFixed(2);
                 $('#finalPrice').val(finalPrice);
                 $('#productPrice').html(finalPrice);
+            });
+
+            // change gallery image
+            $(".gallery-wrap .img-small-wrap .item-gallery img ").click(function () {
+                $('#main-img').attr('src', $(this).attr('src').replace('', ''));
+                $('#main-img-href').attr('href', $(this).attr('src').replace('', ''));
             });
         });
     </script>
