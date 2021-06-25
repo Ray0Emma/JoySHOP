@@ -47,6 +47,8 @@ class SettingServiceProvider extends ServiceProvider
             }
         }
 
+        //\dd(config('settings.site_name'));
+        config(['app.name' => config('settings.site_name')]);
         /**
          * In the above code example,
          * firstly we are checking if the application is not running in the console
