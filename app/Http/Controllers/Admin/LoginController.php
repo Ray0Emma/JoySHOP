@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
+use App\Models\Category;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -90,6 +92,8 @@ class LoginController extends BaseController
     public function home() {
         $orders = Order::all();
         $users = User::all();
-        return view('admin.dashboard.index', compact('users','orders'));
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.dashboard.index', compact('users','orders','products','categories'));
     }
 }

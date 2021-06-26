@@ -16,9 +16,9 @@
                         <thead>
                         <tr>
                             <th> Numéro de commande </th>
-                            <th> Passée par </th>
-                            <th class="text-center"> Montant total </th>
-                            <th class="text-center"> Quantité d'article </th>
+                            <th> Client </th>
+                            <th class="text-center"> Montant(avec frais livraison) </th>
+                            <th class="text-center"> Quantité d'articles </th>
                             <th class="text-center"> Statut de paiement </th>
                             <th class="text-center"> Statut </th>
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ $order->order_number }}</td>
                                 <td>{{ $order->user->fullName }}</td>
-                                <td class="text-center">{{ $order->grand_total+ config('settings.site_title') }}{{ config('settings.currency_symbol') }}</td>
+                                <td class="text-center">{{ $order->grand_total+ config('settings.shipping') }}{{ config('settings.currency_symbol') }}</td>
                                 <td class="text-center">{{ $order->item_count }}</td>
                                 <td class="text-center">
                                     @if ($order->payment_status == 1)

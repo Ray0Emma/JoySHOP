@@ -12,12 +12,12 @@ use Illuminate\Http\Request;
 class ProductController extends BaseController
 {
     /**
-     *  in this controller, we will need to inject
-     *  the ProductContract as we did in any other controllers.
-     *  There are some more changes which we need
+     *  in this controller, i need to inject
+     *  the ProductContract as i did in any other controllers.
+     *  There are some more changes which i need
      *  to add to this controller, for example when
-     *  we will add a new product, we need to assign brand
-     *  and categories for that product, that’s why we will
+     *  i will add a new product, i need to assign brand
+     *  and categories for that product, that’s why i will
      *  inject the BrandContract and CategoryContract as well.
      */
     protected $brandRepository;

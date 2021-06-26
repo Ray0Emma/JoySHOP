@@ -20,15 +20,15 @@
                         </div>
                     </div>
                     <div class="row invoice-info">
-                        <div class="col-4">Passée par
+                        <div class="col-4">Client
                             <address><strong>{{ strtoupper($order->user->fullName) }}</strong><br>Email: {{ $order->user->email }}</address>
                         </div>
-                        <div class="col-4">Expédier à
+                        <div class="col-4">Envoyez à
                             <address><strong>{{ $order->first_name }} {{ $order->last_name }}</strong><br>{{ $order->address }}<br>{{ $order->city }}, {{ $order->country }} {{ $order->post_code }}<br>{{ $order->phone_number }}<br></address>
                         </div>
                         <div class="col-4">
                             <b>ID Commande:</b> {{ $order->order_number }}<br>
-                            <b>Montant:</b> {{ round($order->grand_total+ config('settings.site_title'), 2) }} {{ config('settings.currency_symbol') }}<br>
+                            <b>Montant(avec frais livraison):</b> {{ round($order->grand_total + config('settings.shipping'), 2) }} {{ config('settings.currency_symbol') }}<br>
                             <b>Mode de Paiement:</b> {{ $order->payment_method }}<br>
                             <b>Statut de Paiement:</b> {{ $order->payment_status == 1 ? 'Complétée' : 'Non Complétée' }}<br>
                             <b>Statut de la commande:</b> {{ $order->status }}<br>
@@ -43,7 +43,7 @@
                                     <th>Produit</th>
                                     <th>UGS #</th>
                                     <th>Quantité</th>
-                                    <th>Total</th>
+                                    <th>Sous-total</th>
                                     @if ( $order->notes)
                                        <th>note</th>
                                     @endif
@@ -52,12 +52,21 @@
                                 </thead>
                                 <tbody>
                                     @foreach($order->items as $item)
+
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->product->name }}</td>
+                                            <td>{{ $item->product->name }}
+                                                @foreach($item->product->attributes as  $attribute)
+                                                {{-- {{dd($attribute->value)}} --}}
+                                                <dl class="dlist-inline small">
+                                                    <dt> Attribut :{{ $attribute->value}} </dt>
+                                                    {{-- <dd> prix {{ ucwords($value) }}</dd> --}}
+                                                </dl>
+                                                @endforeach
+                                            </td>
                                             <td>{{ $item->product->sku }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ round($item->price, 2) }}{{ config('settings.currency_symbol') }}</td>
+                                            <td>{{ round($item->price, 2) }}{{ config('settings.currency_symbol') }} </td>
 
                                     @endforeach
                                             @if ( $order->notes)

@@ -5,14 +5,14 @@
         <hr>
             <div class="tile-body">
             <div class="form-group">
-                <label class="control-label" for="site_title">Prix Livraison</label>
+                <label class="control-label" for="shipping">Prix Livraison</label>
                 <input
                     class="form-control"
                     type="text"
                     placeholder="Entrez le prix de livraison"
-                    id="site_title"
-                    name="site_title"
-                    value="{{ config('settings.site_title') }}"
+                    id="shipping"
+                    name="shipping"
+                    value="{{ config('settings.shipping') }}"
                 />
             </div>
             {{-- it should be number --}}

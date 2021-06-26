@@ -147,8 +147,8 @@
                                         </dl>
                                         <dl class="dlist-align">
                                             <dt>Envio: </dt>
-                                            <dd class="text-right h5 b costo"> {{round(confing('setting.shipping'),2)}} {{ config('settings.currency_symbol') }}</dd>
-                                            <input type="hidden" name="costo_envio" id="costo_envio" value="{{confing('setting.shipping')}}">
+                                            <dd class="text-right h5 b costo"> {{config('settings.shipping')}} {{ config('settings.currency_symbol') }}</dd>
+                                            <input type="hidden" name="costo_envio" id="costo_envio" value="{{config('settings.shipping')}}">
                                         </dl>
                                         <dl class="dlist-align">
                                             <dt>Total: </dt>

@@ -29,23 +29,27 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="widget-small warning coloured-icon">
                 <i class="icon fa fa-files-o fa-3x"></i>
                 <div class="info">
-                    <h4>Téléchargements</h4>
-                    <p><b>10</b></p>
+                    <a href="{{ route('admin.categories.index') }}" class="href">
+                        <h4>Catégories</h4>
+                        <p><b>{{count($categories)}}</b></p>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="widget-small danger coloured-icon">
-                <i class="icon fa fa-star fa-3x"></i>
+                <i class="icon fa fa-shopping-bag fa-3x"></i>
                 <div class="info">
-                    <h4>Étoiles</h4>
-                    <p><b>500</b></p>
+                    <a href="{{ route('admin.products.index') }}" class="href">
+                        <h4>Produits</h4>
+                        <p><b>{{count($products)}}</b></p>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>  --}}
+    </div>
 @endsection
