@@ -1,6 +1,7 @@
 @extends('site.app')
 @section('title', 'Login')
 @section('content')
+<section class="section-content bg padding-y border-top">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -62,4 +63,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection

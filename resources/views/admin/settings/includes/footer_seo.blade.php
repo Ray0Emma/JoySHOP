@@ -6,7 +6,7 @@
         <div class="tile-body">
             <div class="form-group">
                 {{-- there an error here  --}}
-                <label class="control-label" for="footer_about_us">"Qui Somme Nous" </label>
+                <label class="control-label" for="footer_about_us">Qui Sommes Nous</label>
                 <textarea
                     class="form-control"
                     rows="4"

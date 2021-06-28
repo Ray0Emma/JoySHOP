@@ -31,7 +31,7 @@
                             <b>Montant(avec frais livraison):</b> {{ round($order->grand_total + config('settings.shipping'), 2) }} {{ config('settings.currency_symbol') }}<br>
                             <b>Mode de Paiement:</b> {{ $order->payment_method }}<br>
                             <b>Statut de Paiement:</b> {{ $order->payment_status == 1 ? 'Complétée' : 'Non Complétée' }}<br>
-                            <b>Statut de la commande:</b> {{ $order->status }}<br>
+                            <b>Statut de la Commande:</b> {{ $order->status }}<br>
                         </div>
                     </div>
                     <div class="row">
@@ -56,17 +56,18 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->product->name }}
-                                                @foreach($item->product->attributes as  $attribute)
-                                                {{-- {{dd($attribute->value)}} --}}
-                                                <dl class="dlist-inline small">
-                                                    <dt> Attribut :{{ $attribute->value}} </dt>
-                                                    {{-- <dd> prix {{ ucwords($value) }}</dd> --}}
-                                                </dl>
-                                                @endforeach
+                                                {{-- @foreach($item->product->attributes as  $attribute)
+                                                  @if($attribute->value != 0)
+                                                    <dt class="dlist-inline small">
+                                                        Attribut : {{ $attribute->value}}
+                                                    </dt>
+                                                  @endif
+
+                                                @endforeach --}}
                                             </td>
                                             <td>{{ $item->product->sku }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ round($item->price, 2) }}{{ config('settings.currency_symbol') }} </td>
+                                            <td>{{ round($item->price/$item->quantity, 2) }}{{ config('settings.currency_symbol') }} </td>
 
                                     @endforeach
                                             @if ( $order->notes)

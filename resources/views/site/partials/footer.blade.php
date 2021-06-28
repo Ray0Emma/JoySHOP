@@ -7,26 +7,26 @@
                 <div class="col-sm-3">
                   <div class="widget">
                     <h5 class="widget-title font-alt">{{ config('settings.site_name')}}</h5>
-                    <p><i class="fas fa-map-marker-alt "></i>&nbsp;332 BD BRAHIM ROUDANI 5EME ETAGE N 21, CASABLANCA.</p>
-                    <i class="fas fa-phone-square"></i><a href="tel:{{ config('settings.phone')}}" class="href"> &nbsp; +1 234 567 89 10 </a><br>
-
-                    <p> <i class="fas fa-envelope"></i><a href="mailto:{{ config('settings.default_email_address')}}">&nbsp;{{ config('settings.default_email_address')}}</a></p>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="widget">
-                    <h5 class="widget-title font-alt">{{strtoupper('Nos Pages')}}</h5>
                     <ul class="icon-list">
-                      <li><a href="#">Accueil</a></li>
-                      <li> <a href="#">Categories</a></li>
-                      <li> <a href="#">Qui somme nous ?</a></li>
-                      <li> <a href="#">Contactez nous</a></li>
+                      <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div></li>
+                      <br><br><br><br> <div class="text-dark">N'hésitez pas à nous contacter, nos services sont disponibles 24h/24 et 7j/7</div>
                     </ul>
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="widget">
-                    <h5 class="widget-title font-alt">Nos Contact</h5>
+                    <h5 class="widget-title font-alt">{{strtoupper('services')}}</h5>
+                    <ul class="icon-list">
+                      <li><a href="{{url('qui_sommes_nous')}}">Qui somme nous ?</a></li>
+                      <li> <a href="{{route('contact')}}">Contactez nous</a></li>
+                      <li> <a href="{{url('documents/conditions.pdf')}}">Termes et conditions</a></li>
+                      <li> <a href="{{url('documents/conditions.pdf')}}">Confidentialité et sécurité</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="widget">
+                    <h5 class="widget-title font-alt">Contact</h5>
                     <ul class="icon-list">
                      @if (config('settings.social_facebook'))
                          <li><a href="{{config('settings.social_facebook')}}"><i class="fab fa-facebook">&nbsp;&nbsp;Facebook</i></a></li>@endif
@@ -41,23 +41,10 @@
                 </div>
                 <div class="col-sm-3">
                   <div class="widget">
-                    <h5 class="widget-title font-alt"> Paiement </h5>
-                    <ul class="widget-posts">
-                      <li class="clearfix">
-                        <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div>
-                        <div class="widget-posts-body">
-                          <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                          <div class="widget-posts-meta">23 january</div>
-                        </div>
-                      </li>
-                      <li class="clearfix">
-                        <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div>
-                        <div class="widget-posts-body">
-                          <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                          <div class="widget-posts-meta">15 February</div>
-                        </div>
-                      </li>
-                    </ul>
+                    <h5 class="widget-title font-alt">VOUS AVEZ DES QUESTIONS ?</h5>
+                    <p><i class="fas fa-map-marker-alt "></i> &nbsp; {{ strtoupper(config('settings.address'))}}<br></p>
+                    <i class="fas fa-phone-square"></i><a href="tel:{{ config('settings.phone')}}" class="href"> &nbsp; {{config('settings.phone')}} </a><br>
+                    <p> <i class="fas fa-envelope"></i><a href="mailto:{{ config('settings.default_email_address')}}">&nbsp;&nbsp;&nbsp;{{ config('settings.default_email_address')}}</a></p>
                   </div>
                 </div>
               </div>
@@ -68,7 +55,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6">
-                  <p class="copyright ">&copy;2021&nbsp;<a href="\">{{ config('settings.site_name')}}</a>, Tous les droits sont réservés</p>
+                  <p class="copyright text ">&copy;2021&nbsp;<a href="\">{{ config('settings.site_name')}}</a>, Tous les droits sont réservés</p>
                 </div>
                 <div class="col-sm-6">
                   <div class="footer-social-links">

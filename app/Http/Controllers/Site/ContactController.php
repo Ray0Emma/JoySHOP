@@ -41,10 +41,10 @@ class ContactController extends Controller
                 {
                    $message->from($request->email);
                    //$message->to(config('settings.default_email_address'));
-                   $message->to('ahmadifarah22@gmail.com');
+                   $message->to(config('settings.default_email_address'));
                 });
 
-           return back()->with('success', 'Thank you for contact us!');
+           return back()->with('success', 'Merci de nous contacter !');
 
      }
 }

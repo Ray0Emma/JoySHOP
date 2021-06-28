@@ -25,9 +25,9 @@
                     <div class="col-md-4 picture-item" data-groups='["{{strtolower($portions[0])}}"]'>
                         <figure class="card card-product" href="{{ route('product.show', $product->slug) }}">
                             @if ($product->images->count() > 0)
-                                <div class="img-wrap padding-y"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
+                                <div class="img-wrap padding-y"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="{{$product->name}}"></div>
                             @else
-                                <div class="img-wrap padding-y"><img src="https://via.placeholder.com/176" alt=""></div>
+                                <div class="img-wrap padding-y"><img src="https://via.placeholder.com/176" alt="{{$product->name}}"></div>
                             @endif
                             <figcaption class="info-wrap">
                                 <h4 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
@@ -48,7 +48,7 @@
                         </figure>
                     </div>
                 @empty
-                    <p>No Products found in {{ $category->name }}.</p>
+                    <p class="alert alert-warning">Aucun produit trouvé dans {{ $category->name }}.</p>
                 @endforelse
             </div>
         </div>

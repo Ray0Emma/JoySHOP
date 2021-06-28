@@ -21,13 +21,14 @@
                         <p class="alert alert-warning">Votre panier est vide.</p>
                     @else
                         <div class="card">
-                            <table class="table table-hover shopping-cart-wrap">
-                                <thead class="text-muted">
-                                <tr>
-                                    <th scope="col">Produit</th>
-                                    <th scope="col" width="120">Quantité</th>
+                            <table class="table shopping-cart-wrap ">
+                                <thead class=" thead-dark">
+                                <tr style="LINE-HEIGHT:50px">
+                                    <th scope="col" >Produit</th>
                                     <th scope="col" width="120">Prix</th>
-                                    <th scope="col" class="text-right" width="200">Action</th>
+                                    <th scope="col" width="120">Quantité</th>
+                                    <th scope="col" width="120">Total</th>
+                                    <th scope="col" class="text-right" width="200"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -36,7 +37,7 @@
                                         <td>
                                             <figure class="media">
                                                 <figcaption class="media-body">
-                                                    <h6 class="title text-truncate">{{ Str::words($item->name,20) }}</h6>
+                                                    <h6 class="title text-truncate text-dark">{{ strtoupper($item->name) }}</h6>
                                                     @foreach($item->attributes as $key  => $value)
                                                         <dl class="dlist-inline small">
                                                             <dt>{{ ucwords($key) }}: </dt>
@@ -47,16 +48,18 @@
                                             </figure>
                                         </td>
                                         <td>
-                                            <var class="price">{{ $item->quantity }}</var>
-                                        </td>
-                                        <td>
                                             <div class="price-wrap">
-                                                <small class="text-muted">chaque</small>
-                                                <var class="price">{{ config('settings.currency_symbol'). $item->price }}</var>
+                                                <var class="price text-dark">{{ ($item->price/$item->quantity).config('settings.currency_symbol')  }}</var>
                                             </div>
                                         </td>
+                                        <td>
+                                            <var class="price text-dark">{{ $item->quantity }}</var>
+                                        </td>
+                                        <td>
+                                                <var class="price text-dark">{{ \Cart::getSubTotal().config('settings.currency_symbol')  }}</var>
+                                        </td>
                                         <td class="text-right">
-                                            <a href="{{ route('checkout.cart.remove', $item->id) }}" class="btn btn-outline-danger"><i class="fa fa-times"></i> </a>
+                                            <a href="{{ route('checkout.cart.remove', $item->id) }}" class="btn btn-outline-dark"><i class="fa fa-times"></i> </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -66,28 +69,41 @@
                     @endif
                 </main>
                 <aside class="col-sm-3">
-                    <a href="{{ route('checkout.cart.clear') }}" class="btn btn-danger btn-block mb-4">Vider le Panier</a>
-                    <p class="alert alert-success">
-                        Ajoutez 5,00 USD d'articles éligibles à votre commande pour bénéficier de la livraison GRATUITE. </p>
-                    <dl class="dlist-align h4">
-                        <dt>Total:</dt>
-                        <dd class="text-right"><strong>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</strong></dd>
+                    <a href="{{ route('checkout.cart.clear') }}" class="btn btn-dark btn-block mb-4">Vider le Panier</a>
+                    {{-- <p class="alert alert-success">
+                        Ajoutez 5,00 USD d'articles éligibles à votre commande pour bénéficier de la livraison GRATUITE. </p> --}}
+                    <dl class="dlist-align ">
+                        <dt>Livraison :</dt>
+                        <dd class="text-right"><strong>{{ config('settings.shipping') }}{{ config('settings.currency_symbol') }}</strong></dd>
+                    </dl>
+                    <hr>
+                    <dl class="dlist-align ">
+                        <dt>Montant :</dt>
+                        <dd class="text-right"><strong>{{ \Cart::getSubTotal()+config('settings.shipping') }}{{ config('settings.currency_symbol') }}</strong></dd>
                     </dl>
                     <hr>
                     <figure class="itemside mb-3">
-                        <aside class="aside"><img src="{{ asset('frontend/images/icons/pay-visa.png') }}"></aside>
+                        <aside class="aside text-dark"><i class="far fa-money-bill-alt fa-3x"></i></aside>
                         <div class="text-wrap small text-muted">
-                            Payez 84,78 AED (économisez 14,97 AED) en utilisant des cartes ADCB
+                            Payez en espèces devant votre porte
+                            <br> et recevez vos articles
                         </div>
                     </figure>
                     <figure class="itemside mb-3">
-                        <aside class="aside"> <img src="{{ asset('frontend/images/icons/pay-mastercard.png') }}"> </aside>
+                        <aside class="aside text-dark"> <i class="fab fa-cc-paypal fa-3x"></i></aside>
                         <div class="text-wrap small text-muted">
-                            Payez par MasterCard et économisez 40%.
-                            <br> Lorem ipsum dolor
+                            Payer maintenant en toute sécurité avec
+                            <br> votre compte Paypal
                         </div>
                     </figure>
-                    <a href="{{ route('checkout.index') }}" class="btn btn-success btn-lg btn-block">Passer à la caisse</a>
+                    <figure class="itemside mb-3">
+                        <aside class="aside text-dark"> <i class="fas fa-shipping-fast fa-3x"></i></aside>
+                        <div class="text-wrap small text-muted">
+                            Payez maintenant et Recevez vos articles
+                            <br> dans les plus brefs délais
+                        </div>
+                    </figure>
+                    <a href="{{ route('checkout.index') }}" class="btn btn-outline-dark btn-lg btn-block">Passer à la caisse</a>
                 </aside>
             </div>
         </div>

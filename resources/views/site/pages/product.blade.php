@@ -57,19 +57,21 @@
                                     <dl class="row">
                                         <dt class="col-sm-3">UGS</dt>
                                         <dd class="col-sm-9">{{ $product->sku }}</dd>
-                                        <dt class="col-sm-3">Poids</dt>
-                                        <dd class="col-sm-9">{{ $product->weight }}</dd>
+                                        @if ($product->weight)
+                                            <dt class="col-sm-3">Poids</dt>
+                                            <dd class="col-sm-9">{{ $product->weight }}</dd>
+                                        @endif
                                     </dl>
                                     <div class="mb-3">
                                         @if ($product->special_price > 0)
                                             <var class="price h3 text-danger">
-                                                <span class="num" id="productPrice">{{ $product->special_price }}</span><span class="currency">{{ config('settings.currency_symbol') }}</span>
+                                                <span class="num" id="productPrice">{{ $product->special_price }}</span>&nbsp;<span class="currency">{{ config('settings.currency_symbol') }}</span>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <del class="price-old"> {{ $product->price }}{{ config('settings.currency_symbol') }}</del>
                                             </var>
                                         @else
                                             <var class="price h3 text-success">
-                                                <span class="num" id="productPrice">{{ $product->price }}</span><span class="currency">{{ config('settings.currency_symbol') }}</span>
+                                                <span class="num" id="productPrice">{{ $product->price }}</span>&nbsp;<span class="currency">{{ config('settings.currency_symbol') }}</span>
                                             </var>
                                         @endif
                                     </div>
@@ -115,7 +117,7 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>&nbsp;&nbsp;
+                                        <button type="submit" class="btn btn-dark"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>&nbsp;&nbsp;
                                         <a href="{{ route('home') }}" class="btn btn-info"><i class="fas fa-plus-square"></i> Continuer à acheter</a>
                                         {{-- <a href="{{ route('checkout.cart') }}" class="btn btn-danger"><i class="fas fa-archive"></i> Terminer l'achat</a> --}}
                                     </form>
@@ -139,12 +141,12 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            // $('#addToCart').submit(function (e) {
-            //     if ($('.option').val() == 0) {
-            //         e.preventDefault();
-            //         swal('Il est obligatoire de choisir un attribue');
-            //     }
-            // });
+            $('#addToCart').submit(function (e) {
+                if ($('.option').val() == 0) {
+                    e.preventDefault();
+                    swal('Il est obligatoire de choisir un attribue');
+                }
+            });
             $('.option').change(function () {
                 $('#productPrice').html("{{ $product->special_price != '' ? $product->special_price : $product->price }}");
                 let extraPrice = $(this).find(':selected').data('price');

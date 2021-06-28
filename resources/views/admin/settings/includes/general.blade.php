@@ -20,7 +20,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Entrez le numero de telephone"
+                    placeholder="+212xxxxxxxxx"
                     id="phone"
                     name="phone"
                     value="{{ config('settings.phone') }}"

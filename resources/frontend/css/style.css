@@ -47,18 +47,6 @@
     }
 }
 
-/*color del nav*/
-.navbar{
-    background-color: #09C4C9;
-}
-.navbar-nav li a {
-    font-weight: 700;
-}
-
-.section-footer{
-    background-color: #09C4C9;
-}
-
 /*carousel*/
 .carousel-item img {
     height: 50vh;
@@ -96,8 +84,10 @@ html {
 body {
   background: #fff;
   font: 400 12px/1.8 "Open Sans", sans-serif;
-  color: #666;
+  color: rgb(10, 10, 10);
   -webkit-font-smoothing: antialiased;
+  position: relative;
+
 }
 
 img {

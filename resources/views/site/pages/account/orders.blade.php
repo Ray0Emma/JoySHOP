@@ -14,15 +14,17 @@
                         <div class="tile-body">
                         <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
+                          @if(sizeof($orders) != 0)
                             <tr>
                                 <th scope="col">N ° de commande</th>
                                 <th scope="col">Prénom</th>
                                 <th scope="col">Nom </th>
                                 <th scope="col">Date </th>
-                                <th scope="col">Montant</th>
-                                <th scope="col">Qté</th>
+                                <th scope="col">Montant (avec frais livraison)</th>
+                                <th scope="col">Quantité</th>
                                 <th scope="col">Statut</th>
                             </tr>
+                          @endif
                         </thead>
                         <tbody>
                             {{-- {{dd($orders)}} --}}
@@ -32,7 +34,7 @@
                                     <td>{{ $order->first_name }}</td>
                                     <td>{{ $order->last_name }}</td>
                                     <td>{{ $order->created_at->toFormattedDateString() }}</td>
-                                    <td>{{ round($order->grand_total+config('settings.site_title'), 2) }} {{ config('settings.currency_symbol') }}</td>
+                                    <td>{{ round($order->grand_total+config('settings.shipping'), 2) }} {{ config('settings.currency_symbol') }}</td>
                                     <td>{{ $order->item_count }}</td>
                                     <td><span class="badge badge-success">{{ strtoupper($order->status) }}</span></td>
                                 </tr>

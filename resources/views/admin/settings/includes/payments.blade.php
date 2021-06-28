@@ -9,7 +9,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Entrez le prix de livraison"
+                    placeholder="Entrez le prix de livraison ex:10"
                     id="shipping"
                     name="shipping"
                     value="{{ config('settings.shipping') }}"

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
                 aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,4 +32,11 @@
         </div>
     </div>
 </nav>
-
+ --}}
+ <div
+ class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
+>
+ <div class="content text-center">
+   <h1 class="text-white">Test</h1>
+ </div>
+</div>

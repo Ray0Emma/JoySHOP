@@ -17,8 +17,8 @@ require 'admin.php';
 |
 */
 
-            Route::view('/qui_somme_nous', 'site.pages.about_us');
-            Route::get('/contactez_nous', [App\Http\Controllers\Site\ContactController::class,'getContact']);
+            Route::view('/qui_sommes_nous', 'site.pages.about_us');
+            Route::get('/contactez_nous', [App\Http\Controllers\Site\ContactController::class,'getContact'])->name('contact');
             Route::post('/contactez_nous', [App\Http\Controllers\Site\ContactController::class,'saveContact']);
 
             Auth::routes();

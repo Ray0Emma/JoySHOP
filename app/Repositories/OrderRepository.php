@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\AttributeValue;
 use App\Models\OrderItem;
 use App\Contracts\OrderContract;
 
@@ -43,17 +44,29 @@ class OrderRepository extends BaseRepository implements OrderContract
 
             foreach ($items as $item)
             {
-                $product = Product::where('name', $item->name)->first();
+                // $attribute_key= [];
+                // $attribute_value=[];
+                // foreach($item->attributes as  $key =>$value)
+                // {
+                     // dd($item ->attributes);
+                    // $attribute_key=[$key];
+                    // $attribute_value=[$value];
 
-                $orderItem = new OrderItem([
-                    'product_id'    =>  $product->id,
-                    'quantity'      =>  $item->quantity,
-                    'price'         =>  $item->getPriceSum(),
-                    // 'attribute'     =>  $product->attributes,
+                    $product = Product::where('name', $item->name)->first();
+                    // $product_att= AttributeValue::where('value',$value);
+                    //  dd($product_att);
+                    $orderItem = new OrderItem([
+                        'product_id'    =>  $product->id,
+                        'quantity'      =>  $item->quantity,
+                        'price'         =>  $item->getPriceSum(),
+                        // 'attribute_key'     =>  $attribute_key,  // "color" => "blue" "contenu" => "300ml"
+                        // 'attribute_value'   =>  $attribute_value,
+                        // 'attribute_values'  =>  $item ->attributes
 
+                    ]);
+                //  }
 
-                ]);
-
+                // dd($attribute_value);
                 $order->items()->save($orderItem);
                 }
         }
