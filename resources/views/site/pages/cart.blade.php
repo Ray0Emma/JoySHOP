@@ -49,14 +49,14 @@
                                         </td>
                                         <td>
                                             <div class="price-wrap">
-                                                <var class="price text-dark">{{ ($item->price/$item->quantity).config('settings.currency_symbol')  }}</var>
+                                                <var class="price text-dark">{{ ($item->price).config('settings.currency_symbol')  }}</var>
                                             </div>
                                         </td>
                                         <td>
                                             <var class="price text-dark">{{ $item->quantity }}</var>
                                         </td>
                                         <td>
-                                                <var class="price text-dark">{{ \Cart::getSubTotal().config('settings.currency_symbol')  }}</var>
+                                                <var class="price text-dark">{{ ($item->price)*($item->quantity).config('settings.currency_symbol')  }}</var>
                                         </td>
                                         <td class="text-right">
                                             <a href="{{ route('checkout.cart.remove', $item->id) }}" class="btn btn-outline-dark"><i class="fa fa-times"></i> </a>

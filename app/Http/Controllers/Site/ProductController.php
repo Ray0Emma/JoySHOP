@@ -30,19 +30,23 @@ class ProductController extends Controller
 
     public function addToCart(Request $request)
     {
-        //dd($request->all());
-        $product = $this->productRepository->findProductById($request->input('productId'));
+        // dd($request->all());
+         $product = $this->productRepository->findProductById($request->input('productId'));
 
-        //$options for assigning only attributes
-        $options = $request->except('_token', 'productId', 'price', 'qty');
-         $cart=Cart::getContent();
-         $product_id=$request->input('productId');
+        // $options for assigning only attributes
+         $options = $request->except('_token', 'productId', 'price', 'qty');
 
-        //  //\dd(Str::contains($cart, ($product->name)));//true is exist
-        //  \dd($cart, ($options[0]));//true is exist
-        //  //\dd(!$request->has($options));//true if has options
+        // for avoiding duplicated items
+         $id = md5($product->id.serialize($options));
+        //  foreach (\unserialize(serialize($options)) as $key => $value)
+        //  {
+        //      echo $key;echo $value;
+        //  }
+
+        //  \dd( 'hi');
+
             \Cart::add(array(
-                'id' => \uniqid(),
+                'id' => $id,
                 'name' => $product->name,
                 'price' =>  $request->input('price'),
                 'quantity' => $request->input('qty'),
