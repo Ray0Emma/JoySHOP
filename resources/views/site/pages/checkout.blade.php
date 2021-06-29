@@ -141,17 +141,17 @@
                                     </header>
                                     <article class="card-body">
                                         <dl class="dlist-align">
-                                            <dt>SubTotal: </dt>
+                                            <dt>Sous Total: </dt>
                                             <dd class="text-right h5 b"> {{ \Cart::getSubTotal() }} {{ config('settings.currency_symbol') }}</dd>
                                             <input type="hidden" name="subtotal" id="subtotal" value="{{ \Cart::getSubTotal() }}">
                                         </dl>
                                         <dl class="dlist-align">
-                                            <dt>Envio: </dt>
+                                            <dt>Livraison: </dt>
                                             <dd class="text-right h5 b costo"> {{config('settings.shipping')}} {{ config('settings.currency_symbol') }}</dd>
                                             <input type="hidden" name="costo_envio" id="costo_envio" value="{{config('settings.shipping')}}">
                                         </dl>
                                         <dl class="dlist-align">
-                                            <dt>Total: </dt>
+                                            <dt>Montant: </dt>
                                             <dd class="text-right h5 b total_price"></dd>
                                         </dl>
                                     </article>

@@ -16,6 +16,7 @@ class CartController extends Controller
 
     public function removeItem($id)
     {
+        // $userId = auth()->user()->id;
         Cart::remove($id);
 
         if (Cart::isEmpty()) {
@@ -26,6 +27,7 @@ class CartController extends Controller
 
     public function clearCart()
     {
+        // $userId = auth()->user()->id;
         Cart::clear();
 
         return redirect('/');

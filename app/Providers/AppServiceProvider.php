@@ -26,5 +26,11 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
-    }
+    //     $wishlist_cart = app()->make(WishlistCart::class);
+    //      if (Auth::check())
+    //      { 	$wishlist_cart->session(Auth::user()->id); }
+    //       else
+    //       { $wishlist_cart->setSession(app('session'));
+    //      }
+     }
 }

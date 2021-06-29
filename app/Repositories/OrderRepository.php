@@ -40,6 +40,7 @@ class OrderRepository extends BaseRepository implements OrderContract
 
         if ($order) {
 
+            // $userId=auth()->user()->id;
             $items = Cart::getContent();
 
             foreach ($items as $item)
@@ -53,15 +54,15 @@ class OrderRepository extends BaseRepository implements OrderContract
                     // $attribute_value=[$value];
 
                     $product = Product::where('name', $item->name)->first();
+                    $oder_att=\serialize($item->attributes);
+                    // \dd(\unserialize($product_att));
                     // $product_att= AttributeValue::where('value',$value);
                     //  dd($product_att);
                     $orderItem = new OrderItem([
                         'product_id'    =>  $product->id,
                         'quantity'      =>  $item->quantity,
                         'price'         =>  $item->getPriceSum(),
-                        // 'attribute_key'     =>  $attribute_key,  // "color" => "blue" "contenu" => "300ml"
-                        // 'attribute_value'   =>  $attribute_value,
-                        // 'attribute_values'  =>  $item ->attributes
+                        'oder_att'      =>  $oder_att,
 
                     ]);
                 //  }

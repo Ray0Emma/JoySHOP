@@ -56,14 +56,13 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->product->name }}
-                                                {{-- @foreach($item->product->attributes as  $attribute)
-                                                  @if($attribute->value != 0)
-                                                    <dt class="dlist-inline small">
-                                                        Attribut : {{ $attribute->value}}
-                                                    </dt>
-                                                  @endif
-
-                                                @endforeach --}}
+                                                @if(sizeof(\unserialize($item->oder_att)) > 0)
+                                                    @foreach(\unserialize($item->oder_att) as  $key => $value )
+                                                        <dt class="dlist-inline small">
+                                                            {{ $key}} : {{ $value}}
+                                                        </dt>
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>{{ $item->product->sku }}</td>
                                             <td>{{ $item->quantity }}</td>

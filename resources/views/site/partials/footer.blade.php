@@ -6,9 +6,9 @@
               <div class="row">
                 <div class="col-sm-3">
                   <div class="widget">
-                    <h5 class="widget-title font-alt">{{ config('settings.site_name')}}</h5>
+                    <h5 class="widget-title font-alt">A Propos</h5>
                     <ul class="icon-list">
-                      <div class="widget-posts-image"><a href="#"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div></li>
+                      <div class="widget-posts-image"><a href="/"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div></li>
                       <br><br><br><br> <div class="text-dark">N'hésitez pas à nous contacter, nos services sont disponibles 24h/24 et 7j/7</div>
                     </ul>
                   </div>
@@ -55,7 +55,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6">
-                  <p class="copyright text ">&copy;2021&nbsp;<a href="\">{{ config('settings.site_name')}}</a>, Tous les droits sont réservés</p>
+                  <p class="copyright">&copy;2021&nbsp;<a href="\">{{ config('settings.site_name')}}</a>, Tous les droits sont réservés</p>
                 </div>
                 <div class="col-sm-6">
                   <div class="footer-social-links">

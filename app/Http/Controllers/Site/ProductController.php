@@ -38,6 +38,8 @@ class ProductController extends Controller
 
         // for avoiding duplicated items
          $id = md5($product->id.serialize($options));
+
+        //  $userId = auth()->user()->id;
         //  foreach (\unserialize(serialize($options)) as $key => $value)
         //  {
         //      echo $key;echo $value;

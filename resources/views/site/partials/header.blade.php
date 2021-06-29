@@ -158,7 +158,11 @@
           </li>
           <li class="nav-item">
             <a href="{{route('checkout.cart') }}" class="nav-link text-dark">
-                <i class="fa fa-shopping-cart"></i><small>({{ $cartCount }})</small>
+                {{-- @if(Auth::check())
+                    <i class="fa fa-shopping-cart"></i><small>({{ Cart::getContent()->count() }})</small>
+                @else --}}
+                    <i class="fa fa-shopping-cart"></i><small>({{ $cartCount }})</small>
+                {{-- @endif --}}
 
             </a>
           </li>

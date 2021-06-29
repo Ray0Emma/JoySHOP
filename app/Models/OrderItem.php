@@ -12,7 +12,7 @@ class OrderItem extends Model
     protected $table = 'order_items';
 
     protected $fillable = [
-        'order_id', 'product_id', 'quantity', 'price'
+        'order_id', 'product_id', 'quantity', 'price','oder_att'
     ];
 
     // every ordered item will belong to a product.
