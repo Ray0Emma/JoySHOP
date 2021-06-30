@@ -1,7 +1,7 @@
 @extends('site.app')
 @section('title', 'Panier')
 @section('content')
-    <section class="section-pagetop bg-dark">
+    <section class="section-pagetop ">
         <div class="container clearfix">
             <h2 class="title-page">Panier</h2>
         </div>
@@ -74,12 +74,12 @@
                         Ajoutez 5,00 USD d'articles éligibles à votre commande pour bénéficier de la livraison GRATUITE. </p> --}}
                     <dl class="dlist-align ">
                         <dt>Livraison :</dt>
-                        <dd class="text-right"><strong>{{ config('settings.shipping') }}{{ config('settings.currency_symbol') }}</strong></dd>
+                        <dd class="text-right"><b>{{ config('settings.shipping') }}{{ config('settings.currency_symbol') }}</b></dd>
                     </dl>
                     <hr>
                     <dl class="dlist-align ">
                         <dt>Montant :</dt>
-                        <dd class="text-right"><strong>{{ \Cart::getSubTotal()+config('settings.shipping') }}{{ config('settings.currency_symbol') }}</strong></dd>
+                        <dd class="text-right"><b>{{ \Cart::getSubTotal()+config('settings.shipping') }}{{ config('settings.currency_symbol') }}</b></dd>
                     </dl>
                     <hr>
                     <figure class="itemside mb-3">

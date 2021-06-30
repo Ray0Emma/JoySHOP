@@ -9,7 +9,7 @@
                     <h5 class="widget-title font-alt">A Propos</h5>
                     <ul class="icon-list">
                       <div class="widget-posts-image"><a href="/"><img src="{{ asset('storage/'.config('settings.site_logo')) }}" alt="Post Thumbnail"/></a></div></li>
-                      <br><br><br><br> <div class="text-dark">N'hésitez pas à nous contacter, nos services sont disponibles 24h/24 et 7j/7</div>
+                      <br><br><br><br> <div style="color: black">N'hésitez pas à nous contacter, nos services sont disponibles 24h/24 et 7j/7</div>
                     </ul>
                   </div>
                 </div>

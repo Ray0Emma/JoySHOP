@@ -134,30 +134,30 @@
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-dark" href="{{ route('home') }}">Accueil</a>
+            <a class="nav-link " style="color: black" href="{{ route('home') }}">Accueil</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
-            {{-- @foreach($categories as $category)
-            {{dd(is_array($cat) , is_object($cat))}}
-                @foreach($cat as $category)
-                {{dd($category->name)}}
-                    @if ($category->items->count() > 0)
+            <a class="nav-link dropdown-toggle" style="color: black"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
+                <div class="dropdown-menu multi-level">
+                    <a class="dropdown-item" href="#one">1</a>
+                    <div class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="">2</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#one">{{ $category->name }}</a>
+                            <a class="dropdown-item" href="#one">hi</a>
+                            <a class="dropdown-item" href="#one">hi</a>
                         </div>
-                    @endif
-                @endforeach
-            @endforeach --}}
+                        <a class="dropdown-item" href="#one">3</a>
+                    </div>
+                </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="{{url('/qui_sommes_nous')}}">Qui Sommes Nous?</a>
+            <a class="nav-link " style="color: black" href="{{url('/qui_sommes_nous')}}">Qui Sommes Nous?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="{{route('contact') }}">Contactez Nous</a>
+            <a class="nav-link " style="color: black" href="{{route('contact') }}">Contactez Nous</a>
           </li>
           <li class="nav-item">
-            <a href="{{route('checkout.cart') }}" class="nav-link text-dark">
+            <a href="{{route('checkout.cart') }}" class="nav-link " style="color: black">
                 {{-- @if(Auth::check())
                     <i class="fa fa-shopping-cart"></i><small>({{ Cart::getContent()->count() }})</small>
                 @else --}}
@@ -168,20 +168,20 @@
           </li>
           @guest
           <li class="nav-item">
-                <a href="{{ route('login') }}" class="nav-link text-dark">
+                <a href="{{ route('login') }}" class="nav-link " style="color: black">
                     <i class="fa fa-user"></i>
                     <span>Login</span>
                 </a>
           </li>
           <li class="nav-item">
-                <a href="{{ route('register') }}" class="nav-link text-dark">
+                <a href="{{ route('register') }}" class="nav-link " style="color: black">
                     <i class="fa fa-user"></i>
                     <span>Register</span>
                 </a>
             @else
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark"
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle " style="color: black"
                            href="{{ url('home') }}" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true"

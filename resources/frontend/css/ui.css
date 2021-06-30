@@ -1,5 +1,5 @@
 /* ========================
-UIkit bootstrap-ecommerce.com 
+UIkit bootstrap-ecommerce.com
 ===================== */
 /* ==================== INCLUDE FONTS ======================= */
 @import url("../fonts/roboto/font.css");
@@ -9,6 +9,10 @@ html {
 /* ================== HELPERS  =================== */
 a:hover {
   text-decoration: none; }
+
+  strong{
+    color: #c66;
+}
 
 .img-wrap {
   text-align: center;
@@ -494,8 +498,8 @@ article:after,
 .lh-lg {
   line-height: 1.6; }
 
-/*! 
- * grid for 24 of 1 
+/*!
+ * grid for 24 of 1
  * made by bootstrap-ecommerce.com
 */
 .col-1-24 {
@@ -1645,10 +1649,12 @@ article:after,
 .section-pagetop {
   padding: 45px 0;
   background-repeat: no-repeat;
+  background-image: url('/frontend/img/unsplash.jpg');
   background-size: cover; }
   .section-pagetop .title-page {
-    color: #fff;
-    opacity: .6; }
+    color: rgba(17, 16, 16, 0.884);
+    text-transform: uppercase;
+    text-align: center; }
 
 /* ================== PAGE DETAILS ==================  */
 .gallery-wrap .img-big-wrap {

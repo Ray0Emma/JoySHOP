@@ -1,7 +1,7 @@
 @extends('site.app')
 @section('title', $category->name)
 @section('content')
-<section class="section-pagetop bg-dark">
+<section class="section-pagetop ">
     <div class="container clearfix">
         <h2 class="title-page">{{ $category->name }}</h2>
     </div>
@@ -11,7 +11,7 @@
         <div class="filters-group">
             <div class="filter-options">
                 @foreach($filtro as $key)
-                <button class="btn btn-outline-info" data-group="{{$key}}">{{strtoupper($key)}}</button>
+                <button class="btn btn-outline-dark" data-group="{{$key}}">{{strtoupper($key)}}</button>
                 @endforeach
             </div>
         </div><br>
@@ -30,18 +30,18 @@
                                 <div class="img-wrap padding-y"><img src="https://via.placeholder.com/176" alt="{{$product->name}}"></div>
                             @endif
                             <figcaption class="info-wrap">
-                                <h4 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
+                                <h4 class="title" ><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
                             </figcaption>
                             <div class="bottom-wrap">
-                                <a href="{{ route('product.show', $product->slug) }}" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Acheter maintenant</a>
+                                <a href="{{ route('product.show', $product->slug) }}" style="background-color: #c66; border : #c66" class="btn btn-sm  btn btn-dark float-right"><i class="fa fa-cart-arrow-down"></i> Acheter maintenant</a>
                                 @if ($product->special_price != 0)
                                     <div class="price-wrap h5">
-                                        <span class="price"> {{ $product->special_price.config('settings.currency_symbol') }} </span>
+                                        <span style="color: #c66" class="price" > {{ $product->special_price.config('settings.currency_symbol') }} </span>
                                         <del class="price-old"> {{ $product->price.config('settings.currency_symbol') }}</del>
                                     </div>
                                 @else
                                     <div class="price-wrap h5">
-                                        <span class="price"> {{ $product->price.config('settings.currency_symbol') }} </span>
+                                        <span style="color: #c66" class="price"> {{ $product->price.config('settings.currency_symbol') }} </span>
                                     </div>
                                 @endif
                             </div>

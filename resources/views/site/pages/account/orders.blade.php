@@ -1,9 +1,9 @@
 @extends('site.app')
 @section('title', 'Orders')
 @section('content')
-    <section class="section-pagetop bg-dark">
+    <section class="section-pagetop ">
         <div class="container clearfix">
-            <h2 class="title-page">Mon compte - Commandes</h2>
+            <h2 class="title-page">Mes Commandes</h2>
         </div>
     </section>
     <section class="section-content bg padding-y border-top">
@@ -13,7 +13,7 @@
                     <div class="tile">
                         <div class="tile-body">
                         <table class="table table-hover table-bordered" id="sampleTable">
-                        <thead>
+                        <thead class="thead-dark">
                           @if(sizeof($orders) != 0)
                             <tr>
                                 <th scope="col">N ° de commande</th>
@@ -31,12 +31,12 @@
                             @forelse ($orders as $order)
                                 <tr>
                                     <th scope="row">{{ $order->order_number }}</th>
-                                    <td>{{ $order->first_name }}</td>
+                                    <td>{{ ucwords($order->first_name) }}</td>
                                     <td>{{ $order->last_name }}</td>
                                     <td>{{ $order->created_at->toFormattedDateString() }}</td>
                                     <td>{{ round($order->grand_total+config('settings.shipping'), 2) }} {{ config('settings.currency_symbol') }}</td>
                                     <td>{{ $order->item_count }}</td>
-                                    <td><span class="badge badge-success">{{ strtoupper($order->status) }}</span></td>
+                                    <td><span class="badge badge-success" style="background-color: #c66">{{ strtoupper($order->status) }}</span></td>
                                 </tr>
                             @empty
                                 <div class="col-sm-12">

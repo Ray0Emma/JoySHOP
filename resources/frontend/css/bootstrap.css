@@ -1654,7 +1654,7 @@ pre {
   .table-dark th,
   .table-dark td,
   .table-dark thead th {
-    border-color: #32383e; }
+    border-color: #0b0c0e; }
   .table-dark.table-bordered {
     border: 0; }
   .table-dark.table-striped tbody tr:nth-of-type(odd) {
@@ -2153,26 +2153,26 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff; }
+  background-color: #c66;
+  border-color: #c66; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc; }
+    background-color: rgb(216, 106, 106);
+    border-color: rgb(216, 106, 106); }
   .btn-primary:focus, .btn-primary.focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); }
+    -webkit-box-shadow: 0 0 0 0.2rem  rgb(216, 106, 106);
+            box-shadow: 0 0 0 0.2rem  rgb(216, 106, 106); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff; }
+    background-color: #c66;
+    border-color: rgb(216, 106, 106); }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf; }
+    background-color: #c66;
+    border-color: rgb(216, 106, 106); }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-              box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); }
+      -webkit-box-shadow: 0 0 0 0.2rem rgb(216, 106, 106, 0.5);
+              box-shadow: 0 0 0 0.2rem rgb(216, 106, 106, 0.5); }
 
 .btn-secondary {
   color: #fff;
@@ -2521,10 +2521,10 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #007bff;
+  color: #c66;
   background-color: transparent; }
   .btn-link:hover {
-    color: #0056b3;
+    color: rgb(218, 106, 106);
     text-decoration: underline;
     background-color: transparent;
     border-color: transparent; }
@@ -3250,11 +3250,13 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   list-style: none; }
 
-.nav-link {
+a.nav-link {
   display: block;
+  font-weight: bold;
+  color: #030303e1;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
-    text-decoration: none; }
+    color: #c66; }
   .nav-link.disabled {
     color: #6c757d; }
 

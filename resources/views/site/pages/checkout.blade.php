@@ -1,7 +1,7 @@
 @extends('site.app')
 @section('title', 'La Caisse')
 @section('content')
-    <section class="section-pagetop bg-dark">
+    <section class="section-pagetop ">
         <div class="container clearfix">
             <h2 class="title-page">La Caisse</h2>
         </div>
@@ -29,22 +29,22 @@
                             <article class="card-body">
                                 <div class="form-row">
                                     <div class="col form-group">
-                                        <label>Prénom</label>
+                                        <label>Prénom <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('first_name') is-invalid @enderror"
                                                name="first_name"
-                                               value="{{ old('first_name') }}"
+                                               value="{{ old('first_name') }}" style="padding: 24px 30px 24px 20px;"
                                         />
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('first_name') <span>{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                     <div class="col form-group">
-                                        <label>Nom</label>
+                                        <label>Nom <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('last_name') is-invalid @enderror"
                                                name="last_name"
-                                               value="{{ old('last_name') }}"
+                                               value="{{ old('last_name') }} " style="padding: 24px 30px 24px 20px;"
                                         />
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('last_name') <span>{{ $message }}</span> @enderror
@@ -52,32 +52,32 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Addresse</label>
+                                    <label>Addresse <span class="text-danger">*</span> </label>
                                     <input type="text"
                                            class="form-control @error('address') is-invalid @enderror"
                                            name="address"
-                                           value="{{ old('address') }}">
+                                           value="{{ old('address') }}" style="padding: 24px 30px 24px 20px;">
                                     <div class="invalid-feedback active">
                                         <i class="fa fa-exclamation-circle fa-fw"></i> @error('address') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Ville</label>
+                                        <label>Ville <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('city') is-invalid @enderror"
                                                name="city"
-                                               value="{{ old('city') }}">
+                                               value="{{ old('city') }}" style="padding: 24px 30px 24px 20px;">
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('city') <span>{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Pays</label>
+                                        <label>Pays <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('country') is-invalid @enderror"
                                                name="country"
-                                               value="Maroc" readonly="">
+                                               value="Maroc" readonly="" style="padding: 24px 30px 24px 20px;">
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('country') <span>{{ $message }}</span> @enderror
                                         </div>
@@ -85,34 +85,34 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group  col-md-6">
-                                        <label>Code Postal</label>
+                                        <label>Code Postal <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('post_code') is-invalid @enderror"
                                                name="post_code"
-                                               value="{{ old('post_code') }}">
+                                               value="{{ old('post_code') }}" style="padding: 24px 30px 24px 20px;">
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('post_code') <span>{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                     <div class="form-group  col-md-6">
-                                        <label>Numéro de Téléphone</label>
+                                        <label>Numéro de Téléphone <span class="text-danger">*</span> </label>
                                         <input type="text"
                                                class="form-control @error('phone_number') is-invalid @enderror"
                                                name="phone_number"
-                                               value="{{ old('phone_number') }}">
+                                               value="{{ old('phone_number') }}" style="padding: 24px 30px 24px 20px;">
                                         <div class="invalid-feedback active">
                                             <i class="fa fa-exclamation-circle fa-fw"></i> @error('phone_number') <span>{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Adresse E-mail</label>
-                                    <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
+                                    <label>Adresse E-mail <span class="text-danger">*</span> </label>
+                                    <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled style="padding: 24px 30px 24px 20px;">
                                     <small class="form-text text-muted">
                                         Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</small>
                                 </div>
                                 <div class="form-group">
-                                    <label>Notes de Commande</label>
+                                    <label>Notes de Commande </label>
                                     <textarea class="form-control @error('notes') is-invalid @enderror"
                                               name="notes"
                                               rows="6">
@@ -190,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <button type="submit" class="subscribe btn btn-success btn-lg btn-block">Passer la Commande</button>
+                                <button type="submit" style="background-color: #c66;border: rgb(250, 250, 250);" class="subscribe btn btn-success btn-lg btn-block">Passer la Commande</button>
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
         var subtotal = $('#subtotal').val();
         var envio = $('#costo_envio').val();
         var total = parseFloat(subtotal) + parseFloat(envio);
-        $('.total_price').text( total.toFixed(2) + ' Dhs');
+        $('.total_price').text( total.toFixed(2) + ' DHS');
         $('#addToCart').submit(function (e) {
             var val = $('input:radio[name=forma_pago]:checked').val();
             var terms = $('input:checkbox[name=terms]:checked').val();

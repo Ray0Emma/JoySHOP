@@ -64,13 +64,13 @@
                                     </dl>
                                     <div class="mb-3">
                                         @if ($product->special_price > 0)
-                                            <var class="price h3 text-danger">
+                                            <var class="price h3 " style="color: #c66">
                                                 <span class="num" id="productPrice">{{ $product->special_price }}</span>&nbsp;<span class="currency">{{ config('settings.currency_symbol') }}</span>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <del class="price-old"> {{ $product->price }}{{ config('settings.currency_symbol') }}</del>
                                             </var>
                                         @else
-                                            <var class="price h3 text-success">
+                                            <var class="price h3 " style="color: #c66">
                                                 <span class="num" id="productPrice">{{ $product->price }}</span>&nbsp;<span class="currency">{{ config('settings.currency_symbol') }}</span>
                                             </var>
                                         @endif
@@ -92,7 +92,7 @@
                                                                         @if ($attributeValue->attribute_id == $attribute->id)
                                                                             <option
                                                                                 data-price="{{ $attributeValue->price }}"
-                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
+                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}{{ config('settings.currency_symbol') }}
                                                                             </option>
                                                                         @endif
                                                                     @endforeach
@@ -117,8 +117,8 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <button type="submit" class="btn btn-dark"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>&nbsp;&nbsp;
-                                        <a href="{{ route('home') }}" class="btn btn-info"><i class="fas fa-plus-square"></i> Continuer à acheter</a>
+                                        <button type="submit" class="btn btn-dark" style="background-color: #c66;border: rgb(250, 250, 250);"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>&nbsp;&nbsp;
+                                        <a href="{{ route('home') }}" class="btn btn-dark" style="border: rgb(250, 250, 250);"><i class="fas fa-plus-square"></i> Continuer à acheter</a>
                                         {{-- <a href="{{ route('checkout.cart') }}" class="btn btn-danger"><i class="fas fa-archive"></i> Terminer l'achat</a> --}}
                                     </form>
                                 </article>

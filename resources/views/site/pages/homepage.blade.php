@@ -2,18 +2,161 @@
 @section('title', 'Accueil')
 
 @section('content')
+<style>
+
+.product {
+	background-color: #fff;
+	text-align: center;
+	margin: 0 5px;
+}
+.product .product-image {
+	overflow: hidden;
+	position: relative;
+}
+.product .product-image a.image {
+	display: block;
+}
+.product .product-image img {
+	width: 100%;
+	height: auto;
+}
+.product .product-image .pic-1 {
+	transition: .5s;
+}
+.product .product-image:hover .pic-1 {
+	opacity: 0;
+}
+.product .product-image .pic-2 {
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: .5s;
+}
+.product .product-image:hover .pic-2 {
+	opacity: 1;
+}
+.product .discount {
+	color: #fff;
+	background: #c66;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	line-height: 30px;
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.product .cart {
+	color: #000;
+	background: #fff;
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	width: 100%;
+	padding: 4px 14px;
+	opacity: .85;
+	transform: translateX(-50%);
+	position: absolute;
+	bottom: -75px;
+	left: 50%;
+	transition: .5s;
+}
+.product .cart:hover {
+	opacity: 1;
+	color: #fff;
+	background: #c66;
+}
+.product:hover .cart {
+	bottom: 0px;
+}
+.product .content {
+	padding: 12px;
+}
+.product .category {
+	font-size: 17px;
+	margin: 0 0 5px;
+	display: block;
+}
+.product .category a {
+	color: #999;
+	transition: .5s;
+	font-size: 11px;
+}
+.product .category a:hover {
+	color: #555;
+}
+.product .title {
+	font-size: 14px;
+	font-weight: 500;
+	margin: 0 0 8px;
+}
+.product .title a {
+	color: #444;
+	transition: .5s;
+}
+.product .title a:hover {
+	color: #c66;
+}
+.product .price {
+	color: #c66;
+	font-size: 14px;
+	font-weight: 700;
+}
+.product .price span {
+	color: #888;
+	margin: 0 5px 0 0;
+	font-weight: 300;
+	font-size: 12px;
+}
+/* @media screen and (max-width: 990px) {
+.product {
+	margin: 0 0 30px;
+} */
+}
+/*OWL*/
+.owl-controls .owl-buttons {
+	position: relative;
+}
+.owl-controls .owl-prev {
+	position: absolute;
+	left: -40px;
+	bottom: 185px;
+	padding: 8px 17px;
+	background: #c66;
+	border-radius: 50px;
+	transition: .5s;
+}
+.owl-controls .owl-next {
+	position: absolute;
+	right: -40px;
+	bottom: 185px;
+	padding: 8px 17px;
+	background: #c66;
+	border-radius: 50px;
+	transition: .5s;
+}
+.owl-controls .owl-prev:after, .owl-controls .owl-next:after {
+	content: '\f104';
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 16px;
+}
+.owl-controls .owl-next:after {
+	content: '\f105';
+}
+.owl-controls .owl-prev:hover, .owl-controls .owl-next:hover {
+	background: #000;
+}
+
+</style>
 <div class="container">
-    <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" ">
-        <div class="container py-5">
-            <div class="row px-4 px-lg-5">
-                <div class="col-lg-6">
-                    <p class="text-muted small text-uppercase mb-2">Comparateur de Prix</p>
-                    <h1 class="h2 text-uppercase mb-3">Cherchez votre produit et trouvez le moins cher !</h1><a class="btn btn-dark" >Liste des produits</a>
-                </div>
-            </div>
-        </div>
-    </section>
- <section class="section-content bg padding-y">
+ <section class="section-content  padding-y">
     <div class="container">
         <h3>Popular Categories</h3>
         <div class="row">
@@ -37,148 +180,58 @@
             @empty
             <p> Aucune catégorie en vedette.</p>
             @endforelse
-            {{--<h3>Popular Products</h3>
-            <div class="row">
-                @foreach($products as $product)
-                <div class="col-md-5 col-home">
-                    <div class="image-rounded">
-                        <a href="{{ route('product.show', $product->name) }}">
-                            @if ($product->images->count() > 0)
-                                <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
-                            @else
-                                <img src="https://via.placeholder.com/176" alt="">
-                            @endif
-                        </a>
-                    </div>
-                    <h5 class="name-categoria">{{$product->name}}</h5>
-                    <div class="overlay">
-                        <a href="{{ route('product.show', $product->name) }}">
-                            <div class="text">
-                                <h5>{{strtoupper($product->name)}}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                @endforeach--}}
         </div>
     </div>
   </section>
-
-    <!-- CATEGORIES SECTION-->
-    {{-- <section class="pt-5">
-        <header class="text-center">
-            <p class="small text-muted small text-uppercase mb-1">Collections soigneusement créées</p>
-            <h2 class="h5 text-uppercase mb-4">Catégories en vedette</h2>
-        </header>
-        <div class="row">
-            @forelse($categories as $category)
-            <div class="col-md-3 mb-4">
-                <a class="category-item" href="{{ route('category.show' , $category->slug) }}">
-                    @if($category->image)
-                    <img class="img-fluid" height="200px" src="{{ asset('storage/'.$category->image) }}" alt="">
-                    @endif
-                    <strong class="category-item-title">{{ $category->name }}</strong></a>
+  {{-- <section class="section-content bg padding-y">
+    <div class="row">
+        <div id="news-slider" class="owl-carousel">
+        @forelse($products as $product)
+          <div class="product">
+            <div class="product-image"> <a href="{{ route('product.show', $product->slug) }}" class="image">
+                @if ($product->images->count() > 0)
+                        <img  src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
+                @else
+                    <img class="pic-1" src="https://via.placeholder.com/176" alt="...">
+                @endif
+                </a> <a href="{{ route('product.show', $product->slug) }}" class="cart">Voir Produit</a>
             </div>
-            @empty
-            <p> Aucune catégorie en vedette.</p>
-            @endforelse
-        </div>
-    </section> --}}
-    <!-- TRENDING PRODUCTS-->
-    <section class="py-5">
-        <header>
-            <p class="small text-muted small text-uppercase mb-1">Consultez nos</p>
-            <h2 class="h5 text-uppercase mb-4">Produits En Vedette !</h2>
-        </header>
-        <div class="row">
-
-            @forelse($products as $product)
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div>
-                        @if ($product->special_price)
-                        <div class="badge text-white badge-danger">Solde !</div>
-                        @endif
-                        <a class="d-block" href="{{ route('product.show', $product->slug) }}">
-                            @if ($product->images->count() > 0)
-                            <img class="img-fluid w-100" src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
-
-                            @else
-                            <img class="img-fluid w-100" src="https://via.placeholder.com/176" alt="...">
-
-                            @endif
-                        </a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="{{ route('product.show', $product->slug) }}">Détails</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h6>
-                    <p class="small text-muted">
-                        @if ($product->special_price)
-                        <del>{{ $product->price}} </del> {{ $product->special_price}}
-                        @else
-                        {{ $product->price}}
-                        @endif
-
-                    </p>
-                    <p class="small text-muted">{{ $product->brand->name}} DT</p>
-                </div>
+            <div class="content"> <span class="category"><a href="">{{ $product->brand->name}}</a></span>
+              <h3 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
+              <div class="price">
+                @if ($product->special_price)
+                     {{ $product->price}} <span>{{ $product->special_price}}</span>
+                @else
+                   {{ $product->price}}
+                @endif
+              </div>
             </div>
-            @empty
-            <p>0 Produit Trouvé.</p>
-            @endforelse
-
-        </div>
-    </section>
-    <!-- SERVICES-->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-4 mb-3 mb-lg-0">
-                    <div class="d-inline-block">
-                        <div class="media align-items-end">
-                            <svg class="svg-icon svg-icon-big svg-icon-light">
-                                <use xlink:href="#delivery-time-1"> </use>
-                            </svg>
-                            <div class="media-body text-left ml-3">
-                                <h6 class="text-uppercase mb-1">Free shipping</h6>
-                                <p class="text-small mb-0 text-muted">Free shipping worlwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-3 mb-lg-0">
-                    <div class="d-inline-block">
-                        <div class="media align-items-end">
-                            <svg class="svg-icon svg-icon-big svg-icon-light">
-                                <use xlink:href="#helpline-24h-1"> </use>
-                            </svg>
-                            <div class="media-body text-left ml-3">
-                                <h6 class="text-uppercase mb-1">24 x 7 service</h6>
-                                <p class="text-small mb-0 text-muted">Free shipping worlwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="d-inline-block">
-                        <div class="media align-items-end">
-                            <svg class="svg-icon svg-icon-big svg-icon-light">
-                                <use xlink:href="#label-tag-1"> </use>
-                            </svg>
-                            <div class="media-body text-left ml-3">
-                                <h6 class="text-uppercase mb-1">Festival offer</h6>
-                                <p class="text-small mb-0 text-muted">Free shipping worlwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="product">
+            <div class="product-image"> <a href="{{ route('product.show', $product->slug) }}" class="image">
+                @if ($product->images->count() > 0)
+                        <img  src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
+                @else
+                    <img class="pic-1" src="https://via.placeholder.com/176" alt="...">
+                @endif
+                </a> <a href="{{ route('product.show', $product->slug) }}" class="cart">Voir Produit</a>
             </div>
+            <div class="content"> <span class="category"><a href="">{{ $product->brand->name}}</a></span>
+              <h3 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
+              <div class="price">
+                @if ($product->special_price)
+                     {{ $product->price}} <span>{{ $product->special_price}}</span>
+                @else
+                   {{ $product->price}}
+                @endif
+              </div>
+            </div>
+          </div>
+          @empty
+          <p>0 Produit Trouvé.</p>
+          @endforelse
         </div>
-    </section>
-
-</div>
+    </div>
+  </div>
+ </section> --}}
 @stop
