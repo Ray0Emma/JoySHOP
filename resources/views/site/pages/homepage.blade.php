@@ -4,6 +4,73 @@
 @section('content')
 <style>
 
+.containerr {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left {
+  width: 50%;
+  height: 600px;
+  background: url("/frontend/img/alex-shaw-kIcFTNvx3fY-unsplash.jpg")
+  no-repeat center / cover;
+  border-radius: 0px;
+}
+.right {
+  width: 50%;
+  min-height: 400px;
+  background-color: #c66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  margin-left: -150px;
+}
+.right h1 {
+  font-size: 40px;
+  font-weight: lighter;
+}
+.right p {
+  margin: 20px 0;
+  font-weight: 500;
+  line-height: 25px;
+}
+.right a {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: white;
+  color: #c66;
+  padding: 20px 30px;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+    .containerr {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+  }
+  .left {
+    width: 100%;
+    height: 400px;
+  }
+  .right {
+    width: 90%;
+    margin: 0;
+    margin-top: -100px;
+  }
+}
+
+/* -------------------------------------------------------------------
+Products owlcarousal
+------------------------------------------------------------------- */
+
 .product {
 	background-color: #fff;
 	text-align: center;
@@ -53,8 +120,8 @@
 	left: 10px;
 }
 .product .cart {
-	color: #000;
-	background: #fff;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.692);
 	font-size: 12px;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -114,12 +181,7 @@
 	font-weight: 300;
 	font-size: 12px;
 }
-/* @media screen and (max-width: 990px) {
-.product {
-	margin: 0 0 30px;
-} */
-}
-/*OWL*/
+  OWL
 .owl-controls .owl-buttons {
 	position: relative;
 }
@@ -141,6 +203,7 @@
 	border-radius: 50px;
 	transition: .5s;
 }
+/*
 .owl-controls .owl-prev:after, .owl-controls .owl-next:after {
 	content: '\f104';
 	font-family: FontAwesome;
@@ -152,15 +215,40 @@
 }
 .owl-controls .owl-prev:hover, .owl-controls .owl-next:hover {
 	background: #000;
-}
+} */
 
 </style>
+  <!-- *******************   -->
+  <!--  !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+  <!--  This Code is for only the floating card in right bottom corner -->
+<section class="section-content  padding-y p-5">
+    <div class="containerr">
+      <div class="left"></div>
+      <div class="right">
+        <div class="content">
+          <h1>Qui Sommes Nous ?</h1>
+          <p>{{config('settings.about_us')}}</p>
+          <a href="#" class="btn">Click Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- Banner Image  -->
-@include('site.partials.nav')
+<section class="section-content  padding-y p-5">
+    <div class="container">
+        <h3 class="text-center m-5"><strong> Produits Populaires</strong></h3>
+        <div class="row">
+           @include('site.partials.nav')
+        </div>
+    </div>
+ </section>
+
+<!-- Categories  -->
 <div class="container">
  <section class="section-content  padding-y">
     <div class="container">
-        <h3>Popular Categories</h3>
+        <h3 class="text-center m-5"><strong>Catégories Populaires</strong></h3>
         <div class="row">
             @forelse($categories as $category)
             <div class="col-md-4 col-home">
@@ -237,4 +325,5 @@
   </div>
  </section> --}}
 
+</div>
 @stop

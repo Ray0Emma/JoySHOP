@@ -6,13 +6,13 @@
         <div class="tile-body">
             <div class="form-group">
                 {{-- there an error here  --}}
-                <label class="control-label" for="footer_about_us">Qui Sommes Nous</label>
+                <label class="control-label" for="about_us">Qui Sommes Nous</label>
                 <textarea
                     class="form-control"
                     rows="4"
-                    placeholder="Saisir le texte du page qui somme nous"
+                    placeholder="Saisir le texte qui sommes nous"
                     id="about_us"
-                    name="footer_about_us"
+                    name="about_us"
                 >{{ config('settings.about_us') }}</textarea>
             </div>
             <div class="form-group">

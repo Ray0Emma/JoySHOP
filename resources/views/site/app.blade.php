@@ -12,8 +12,8 @@
     <body>
         @include('site.partials.header')
         @yield('content')
+        <div id="myDiv"></div>
         @include('site.partials.footer')
         @include('site.partials.scripts')
-        <div id="myDiv"></div>
     </body>
 </html>

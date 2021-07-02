@@ -33,10 +33,37 @@
     </div>
 </nav>
  --}}
- <div
+ {{-- <div
  class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
 >
  <div class="content">
    <h1 class="text-white">Test</h1>
  </div>
+</div> --}}
+<div class="owl-carousel owl-theme">
+    @forelse($products as $product)
+    <div class="product">
+        <div class="product-image"> <a href="{{ route('product.show', $product->slug) }}" class="image">
+            @if ($product->images->count() > 0)
+                    <img  src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
+            @else
+                <img class="pic-1" src="https://via.placeholder.com/176" alt="...">
+            @endif
+            </a> <a href="{{ route('product.show', $product->slug) }}" class="cart">Voir Produit</a>
+        </div>
+        <div class="content"> <span class="category"><a href="">Marque {{ $product->brand->name}} </a></span>
+          <h3 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
+          <div class="price">
+            @if ($product->special_price)
+                 {{ $product->price}}{{config('settings.currency_symbol')}}
+                 <span>{{ $product->special_price}}{{config('settings.currency_symbol')}}</span>
+            @else
+               {{ $product->price}}{{config('settings.currency_symbol')}}
+            @endif
+          </div>
+        </div>
+      </div>
+    @empty
+          <p>0 Produit Trouvé.</p>
+    @endforelse
 </div>

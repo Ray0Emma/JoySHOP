@@ -29,18 +29,36 @@
      interval: 1000
      });
      });*/
-
-    $(function() {
-    $("#news-slider").owlCarousel({
-        items : 5,
-        itemsDesktop:[1199,2],
-        itemsDesktopSmall:[980,2],
-        itemsMobile : [700,1],
-        pagination:false,
-        navigation:true,
-        navigationText:["",""],
-        // autoPlay:true
-       });
-    });
-</script>
+     $('.owl-carousel').owlCarousel({
+        loop:true,
+        autoplay:true,
+        autoplayTimeout:2000,
+        pagination: false,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+});
+//     $(function() {
+//     $("#news-slider").owlCarousel({
+//         items : 5,
+//         itemsDesktop:[1199,2],
+//         itemsDesktopSmall:[980,2],
+//         itemsMobile : [700,1],
+//         pagination:false,
+//         navigation:true,
+//         navigationText:["",""],
+//         // autoPlay:true
+//        });
+//     });
+ </script>
 
