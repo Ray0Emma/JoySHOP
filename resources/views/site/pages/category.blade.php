@@ -1,11 +1,13 @@
 @extends('site.app')
 @section('title', $category->name)
 @section('content')
-<section class="section-pagetop ">
-    <div class="container clearfix">
-        <h2 class="title-page">{{ $category->name }}</h2>
-    </div>
-</section>
+<div style="margin-top: 110px">
+    <section class="section-pagetop ">
+        <div class="container clearfix">
+            <h2 class="title-page">{{ $category->name }}</h2>
+        </div>
+    </section>
+</div>
 <section class="section-content bg padding-y">
     <div class="container">
         <div class="filters-group">

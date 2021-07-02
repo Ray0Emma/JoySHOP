@@ -22,7 +22,6 @@ a:hover {
 
 .icon-wrap {
   text-align: center; }
-
 .zoom-in {
   -webkit-transition: -webkit-transform ease .3s;
   transition: -webkit-transform ease .3s;
@@ -1650,7 +1649,8 @@ article:after,
   padding: 45px 0;
   background-repeat: no-repeat;
   background-image: url('/frontend/img/unsplash.jpg');
-  background-size: cover; }
+  background-size: cover;
+ }
   .section-pagetop .title-page {
     color: rgba(17, 16, 16, 0.884);
     text-transform: uppercase;

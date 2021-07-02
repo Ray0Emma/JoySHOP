@@ -1,17 +1,21 @@
-@extends('site.app')
+ @extends('site.app')
 @section('title', 'Login')
 @section('content')
+<div style="margin-top: 110px">
+    <section class="section-pagetop ">
+        <div class="container clearfix">
+            <h2 class="title-page">REINITIALISATION DU MOT DE PASSE</h2>
+        </div>
+    </section>
+</div>
 <section class="section-content bg padding-y border-top">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
-
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group row">

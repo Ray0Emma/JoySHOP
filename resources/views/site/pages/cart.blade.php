@@ -1,11 +1,13 @@
 @extends('site.app')
 @section('title', 'Panier')
 @section('content')
+<div style="margin-top: 110px">
     <section class="section-pagetop ">
         <div class="container clearfix">
             <h2 class="title-page">Panier</h2>
         </div>
     </section>
+</div>
     <section class="section-content bg padding-y border-top">
         <div class="container">
             <div class="row">

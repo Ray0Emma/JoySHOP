@@ -2,17 +2,17 @@
 @section('title', 'Contact')
 
 @section('content')
+<div style="margin-top: 110px">
             @if(Session::has('success'))
                 <div class="alert alert-success">
                      {{ Session::get('success') }}
                 </div>
             @endif
+</div>
 <!-- CONTACT -->
 <section class="contact section-padding">
     <div class="container">
          <div class="row">
-
-
               <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
 
                 <h1 class="mb-4"><strong>Bienvenue</strong> cher client, contactez-nous <strong>maintenant</strong></h1>

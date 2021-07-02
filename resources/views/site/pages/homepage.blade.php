@@ -155,6 +155,8 @@
 }
 
 </style>
+<!-- Banner Image  -->
+@include('site.partials.nav')
 <div class="container">
  <section class="section-content  padding-y">
     <div class="container">
@@ -234,4 +236,5 @@
     </div>
   </div>
  </section> --}}
+
 @stop

@@ -1,11 +1,13 @@
 @extends('site.app')
 @section('title', 'La Caisse')
 @section('content')
+<div style="margin-top: 110px">
     <section class="section-pagetop ">
         <div class="container clearfix">
             <h2 class="title-page">La Caisse</h2>
         </div>
     </section>
+</div>
     <section class="section-content bg padding-y">
         <div class="container">
             <div class="row">
@@ -52,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Addresse <span class="text-danger">*</span> </label>
+                                    <label>Adresse <span class="text-danger">*</span> </label>
                                     <input type="text"
                                            class="form-control @error('address') is-invalid @enderror"
                                            name="address"

@@ -36,7 +36,7 @@
  <div
  class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
 >
- <div class="content text-center">
+ <div class="content">
    <h1 class="text-white">Test</h1>
  </div>
 </div>
