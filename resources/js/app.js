@@ -26,7 +26,6 @@ Vue.use(VueSwal);
 
 Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 Vue.component('product-attributes', require('./components/ProductAttributes').default);
-Vue.component('search', require('./components/Search').default);
 
 
 /**
@@ -38,10 +37,18 @@ Vue.component('search', require('./components/Search').default);
  import Vue from 'vue'
  import AttributeValues from './components/AttributeValues.vue'
  import ProductAttributes from './components/ProductAttributes.vue'
- import Search from './components/Search.vue'
 
  const app = new Vue({
      el: '#app',
-     components: { AttributeValues , ProductAttributes, Search}
+     components: { AttributeValues , ProductAttributes},
+
+    methods: {
+
+        printInvoice(divName){
+
+			window.print();
+
+        }
+      }
  });
 

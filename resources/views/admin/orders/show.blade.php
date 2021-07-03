@@ -7,7 +7,7 @@
             <p>{{ $subTitle }}</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="myDiv">
         <div class="col-md-12">
             <div class="tile">
                 <section class="invoice">
@@ -78,6 +78,7 @@
                                         </tr>
                                 </tbody>
                             </table>
+                            <a href="" @click.prevent="printInvoice" target="_blank" class="btn btn-default"><i class="fa fa-print"></i>Imprimer</a>
                         </div>
                     </div>
                 </section>
@@ -85,3 +86,6 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{ mix('backend/js/app.js') }}"></script>
+@endpush

@@ -3,7 +3,33 @@
 
 @section('content')
 <style>
-
+/*
+*/
+.card {
+    border: none;
+    background: rgba(228, 227, 227, 0.582);
+}
+.card-body{
+    background: rgba(255, 254, 254, 0.822);
+}
+/*  */
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 40px;
+    font-weight: lighter;
+    color: rgb(41, 37, 37);
+    cursor: pointer;
+    background-color: rgb(224, 186, 186);
+}
+.circle:hover {
+    background-color: #c66;
+    color: #fff
+}
+/*  */
 .containerr {
   width: 90%;
   max-width: 1000px;
@@ -11,6 +37,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btn{
+    color: #c66;
 }
 .left {
   width: 50%;
@@ -181,28 +210,6 @@ Products owlcarousal
 	font-weight: 300;
 	font-size: 12px;
 }
-  OWL
-.owl-controls .owl-buttons {
-	position: relative;
-}
-.owl-controls .owl-prev {
-	position: absolute;
-	left: -40px;
-	bottom: 185px;
-	padding: 8px 17px;
-	background: #c66;
-	border-radius: 50px;
-	transition: .5s;
-}
-.owl-controls .owl-next {
-	position: absolute;
-	right: -40px;
-	bottom: 185px;
-	padding: 8px 17px;
-	background: #c66;
-	border-radius: 50px;
-	transition: .5s;
-}
 /*
 .owl-controls .owl-prev:after, .owl-controls .owl-next:after {
 	content: '\f104';
@@ -218,112 +225,86 @@ Products owlcarousal
 } */
 
 </style>
-  <!-- *******************   -->
-  <!--  !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-  <!--  This Code is for only the floating card in right bottom corner -->
-<section class="section-content  padding-y p-5">
-    <div class="containerr">
-      <div class="left"></div>
-      <div class="right">
-        <div class="content">
-          <h1>Qui Sommes Nous ?</h1>
-          <p>{{config('settings.about_us')}}</p>
-          <a href="#" class="btn">Click Me</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-<!-- Banner Image  -->
-<section class="section-content  padding-y p-5">
-    <div class="container">
-        <h3 class="text-center m-5"><strong> Produits Populaires</strong></h3>
-        <div class="row">
-           @include('site.partials.nav')
-        </div>
-    </div>
- </section>
+    <!-- Hero  -->
+    @include('site.partials.hero')
 
-<!-- Categories  -->
-<div class="container">
- <section class="section-content  padding-y">
-    <div class="container">
-        <h3 class="text-center m-5"><strong>Catégories Populaires</strong></h3>
-        <div class="row">
-            @forelse($categories as $category)
-            <div class="col-md-4 col-home">
-                <div class="image-rounded">
-                    <a href="{{ route('category.show', $category->slug) }}">
-                        <img src="{{ asset('storage/'.$category->image) }}" >
-
-                    </a>
-                </div>
-                <h5 class="name-categoria">{{$category->name}}</h5>
-                <div class="overlay">
-                    <a href="{{ route('category.show', $category->slug) }}">
-                        <div class="text">
-                            <h5>{{strtoupper($category->name)}}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            @empty
-            <p> Aucune catégorie en vedette.</p>
-            @endforelse
-        </div>
-    </div>
-  </section>
-  {{-- <section class="section-content bg padding-y">
-    <div class="row">
-        <div id="news-slider" class="owl-carousel">
-        @forelse($products as $product)
-          <div class="product">
-            <div class="product-image"> <a href="{{ route('product.show', $product->slug) }}" class="image">
-                @if ($product->images->count() > 0)
-                        <img  src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
-                @else
-                    <img class="pic-1" src="https://via.placeholder.com/176" alt="...">
-                @endif
-                </a> <a href="{{ route('product.show', $product->slug) }}" class="cart">Voir Produit</a>
-            </div>
-            <div class="content"> <span class="category"><a href="">{{ $product->brand->name}}</a></span>
-              <h3 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
-              <div class="price">
-                @if ($product->special_price)
-                     {{ $product->price}} <span>{{ $product->special_price}}</span>
-                @else
-                   {{ $product->price}}
-                @endif
-              </div>
+    {{-- service --}}
+    <section class="section-content " >
+        <div class="card">
+        <div class="row mx-auto text-center">
+        <div class="card text-dark  m-3" style="max-width: 22rem;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-handshake fa-2x"></i></h5>
+              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
             </div>
           </div>
-          <div class="product">
-            <div class="product-image"> <a href="{{ route('product.show', $product->slug) }}" class="image">
-                @if ($product->images->count() > 0)
-                        <img  src="{{ asset('storage/'.$product->images->first()->full) }}" alt="...">
-                @else
-                    <img class="pic-1" src="https://via.placeholder.com/176" alt="...">
-                @endif
-                </a> <a href="{{ route('product.show', $product->slug) }}" class="cart">Voir Produit</a>
-            </div>
-            <div class="content"> <span class="category"><a href="">{{ $product->brand->name}}</a></span>
-              <h3 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
-              <div class="price">
-                @if ($product->special_price)
-                     {{ $product->price}} <span>{{ $product->special_price}}</span>
-                @else
-                   {{ $product->price}}
-                @endif
-              </div>
+          <div class="card text-dark m-3" style="max-width: 22rem;">
+            {{-- <div class="card-header">Header</div> --}}
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-shield-alt fa-2x"></i></h5>
+              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
             </div>
           </div>
-          @empty
-          <p>0 Produit Trouvé.</p>
-          @endforelse
+          <div class="card text-dark  m-3" style="max-width: 22rem;">
+            {{-- <div class="card-header">Header</div> --}}
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-shipping-fast fa-2x"></i></h5>
+              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
- </section> --}}
+       </div>
+    </section>
 
-</div>
+    <!-- About US-->
+    <section class="section-content  padding-y p-5" >
+        <div class="containerr">
+        <div class="left"></div>
+        <div class="right">
+            <div class="content">
+            <h1>Qui Sommes Nous ?</h1>
+            <p>{{config('settings.about_us')}}</p>
+            <a class="btn text-dark" onClick="document.getElementById('product').scrollIntoView();">
+                Achetez Maintenant</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Produits Populaires  -->
+    <section class="section-content  padding-y " id="product">
+        <div class="container">
+            <h2 class="text-center mb-5"><strong> Produits Populaires</strong></h2>
+            <div class="row">
+                @include('site.partials.nav')
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories  -->
+    <h2 class="text-center m-5"><strong>Catégories Populaires</strong></h2>
+    <section class="section-pagetop">
+            <div class="row mx-auto text-center">
+                @forelse($categories as $category)
+                <div class="mx-auto text-center">
+                    <a href="{{ route('category.show', $category->slug) }}">
+                    <div class="circle">
+                         <p>{{$category->name}}</p>
+                    </div>
+                </a>
+                    {{-- <h5 class="name-categoria">{{$category->name}}</h5>
+                    <div class="overlay">
+                        <a href="{{ route('category.show', $category->slug) }}">
+                            <div class="text">
+                                <h5>{{strtoupper($category->name)}}</h5>
+                            </div>
+                        </a>
+                    </div> --}}
+                </div>
+                @empty
+                <p> Aucune catégorie en vedette.</p>
+                @endforelse
+            </div>
+    </section>
 @stop

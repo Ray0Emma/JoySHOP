@@ -173,6 +173,6 @@ class CategoryRepository extends BaseRepository implements CategoryContract
     }
 
     public function homeCategory() {
-        return Category::where('menu', 1)->get();
+        return Category::where('menu', 1)->paginate(3);
     }
 }

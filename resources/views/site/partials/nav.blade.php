@@ -62,7 +62,7 @@
             @endif
           </div>
         </div>
-      </div>
+    </div>
     @empty
           <p>0 Produit Trouvé.</p>
     @endforelse

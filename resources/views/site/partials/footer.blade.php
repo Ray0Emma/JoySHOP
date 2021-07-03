@@ -17,7 +17,7 @@
                   <div class="widget">
                     <h5 class="widget-title font-alt">{{strtoupper('services')}}</h5>
                     <ul class="icon-list">
-                      <li><a href="{{url('qui_sommes_nous')}}">Qui somme nous ?</a></li>
+                      <li><a href="#" onClick="document.getElementById('category').scrollIntoView();" >Nos Categories</a></li>
                       <li> <a href="{{route('contact')}}">Contactez nous</a></li>
                       <li> <a href="{{url('documents/conditions.pdf')}}">Termes et conditions</a></li>
                       <li> <a href="{{url('documents/conditions.pdf')}}">Confidentialité et sécurité</a></li>
@@ -59,9 +59,9 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="footer-social-links">
-                      <button><i class="fab fa-cc-visa fa-2x"></i></button>
+                      <button><i class="fas fa-shipping-fast fa-2x"></i></button>
                       <button><i class="fab fa-cc-paypal fa-2x"></i></button>
-                      <button><i class="fab fa-cc-mastercard fa-2x"></i></button>
+                      <button><i class="far fa-money-bill-alt fa-2x"></i></button>
 
                   </div>
                 </div>
