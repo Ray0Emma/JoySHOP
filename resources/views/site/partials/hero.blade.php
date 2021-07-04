@@ -21,11 +21,11 @@
 
 }
 .carousel-caption h5 {
-
+    font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: 45px;
     font-weight: bold;
-	text-transform:capitalize;
-	letter-spacing: 2px;
+	text-transform:uppercase;
+	letter-spacing: 3px;
 
 }
 .carousel-caption p {
@@ -45,24 +45,34 @@
         <div class="carousel-item active">
             <img alt="First slide" class="d-block w-100 vh-100" src="/frontend/img/img-3.jpg">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Slider One Item</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                <h5>Produits
+                    <span style="background-color: #c66;color:rgb(255, 244, 249)">
+                         Naturels
+                    </span>
+                </h5>
+                <p>Votre peau représente 90% de votre selfie.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img alt="Second slide" class="d-block w-100 vh-100" src="/frontend/img/slider1.jpg">
+            <img alt="Second slide" class="d-block w-100 vh-100" src="/frontend/img/img.jpg">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Slider two Item</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                <h5>Votre
+                    <span style="background-color: #c66;color:rgb(255, 244, 249)">
+                        beaute
+                    </span>
+                  notre inspiration</h5>
+                <p>Donnez un peu d'amour à votre peau.</p>
             </div>
         </div>
         <div class="carousel-item">
             <img alt="Third slide" class="d-block w-100 vh-100" src="/frontend/img/img-2.jpg">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Slider One Item</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                <h5>Votre peau est votre meilleur
+                     <span style="background-color: #c66;color:rgb(255, 244, 249)">
+                        accessoire.
+                    </span>
+                </h5>
+                <p>produits sains, naturels et sans danger</p>
             </div>
         </div>
     </div>

@@ -177,15 +177,14 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="forma_pago" id="forma_pago" value="PEPM">
                                             <label class="form-check-label" for="exampleRadios1">
-                                                Paiement en espèces à la porte de votre maison
+                                                Paiement en espèces
                                             </label>
                                         </div>
                                         <div class="form-check">
 
                                             <input class="form-check-input" type="radio" name="forma_pago" id="forma_pago" value="PAYPAL">
                                             <label class="form-check-label" for="exampleRadios1">
-                                                Payer avec Paypal
-                                                {{-- <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/na/us/logo-center/9_bdg_secured_by_pp_2line.png" border="0" alt="PayPal Logo"><br> --}}
+                                                Paiement avec Paypal
                                             </label>
                                         </div>
                                     </article>

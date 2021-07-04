@@ -210,19 +210,6 @@ Products owlcarousal
 	font-weight: 300;
 	font-size: 12px;
 }
-/*
-.owl-controls .owl-prev:after, .owl-controls .owl-next:after {
-	content: '\f104';
-	font-family: FontAwesome;
-	color: #fff;
-	font-size: 16px;
-}
-.owl-controls .owl-next:after {
-	content: '\f105';
-}
-.owl-controls .owl-prev:hover, .owl-controls .owl-next:hover {
-	background: #000;
-} */
 
 </style>
 
@@ -236,21 +223,21 @@ Products owlcarousal
         <div class="card text-dark  m-3" style="max-width: 22rem;">
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-handshake fa-2x"></i></h5>
-              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
+              <p class="card-text">N'hésitez pas à nous contacter, nos services sont disponibles.</p>
             </div>
           </div>
           <div class="card text-dark m-3" style="max-width: 22rem;">
             {{-- <div class="card-header">Header</div> --}}
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-shield-alt fa-2x"></i></h5>
-              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
+              <p class="card-text">Votre sécurité est notre priorité,vos achats sont toujours sécurisés</p>
             </div>
           </div>
           <div class="card text-dark  m-3" style="max-width: 22rem;">
             {{-- <div class="card-header">Header</div> --}}
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-shipping-fast fa-2x"></i></h5>
-              <p class="card-text">Far far away, behind the word mountains, far from the countries.</p>
+              <p class="card-text">Achetez maintenant et recevez vos articles dans les plus brefs délais</p>
             </div>
           </div>
         </div>
@@ -290,17 +277,9 @@ Products owlcarousal
                 <div class="mx-auto text-center">
                     <a href="{{ route('category.show', $category->slug) }}">
                     <div class="circle">
-                         <p>{{$category->name}}</p>
+                         <p>{{ucwords($category->name)}}</p>
                     </div>
                 </a>
-                    {{-- <h5 class="name-categoria">{{$category->name}}</h5>
-                    <div class="overlay">
-                        <a href="{{ route('category.show', $category->slug) }}">
-                            <div class="text">
-                                <h5>{{strtoupper($category->name)}}</h5>
-                            </div>
-                        </a>
-                    </div> --}}
                 </div>
                 @empty
                 <p> Aucune catégorie en vedette.</p>

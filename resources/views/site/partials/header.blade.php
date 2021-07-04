@@ -25,57 +25,30 @@
           <li class="nav-item">
             <a class="nav-link " href="{{ route('home') }}">Accueil</a>
           </li>
-          <li class="nav-item dropdown" id="category">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
-                <ul class="dropdown-menu">
+          <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" id="category" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
+                <ul class="dropdown-menu" id="dropdown-menu">
                     @foreach($categories as $cat)
-                    @foreach($cat->items as $category)
-                        @if ($category->items->count() > 0)
-                            <li class="nav-link dropright">
-                                <a class="nav-item dropdown-toggle" data-toggle="dropdown" href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
-                                @foreach($category->items as $item)
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
-                                        </li>
+                        @foreach($cat->items as $category)
+                            @if ($category->items->count() > 0)
+                                <li class="nav-link dropright" >
+                                    <a class="nav-item dropdown-toggle" data-toggle="dropdown" href="#" id="catName">{{ $category->name }}</a>
+                                    <ul class="dropdown-menu " id="itemCat">
+                                        @foreach($category->items as $item)
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('category.show', $item->slug) }}" id="itemName">{{ $item->name }}</a>
+                                                </li>
+                                        @endforeach
                                     </ul>
-                                @endforeach
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
-                            </li>
-                        @endif
-                    @endforeach
+                                </li>
+                            @else
+                                <li class="nav-item" id="catName2" >
+                                    <a class="nav-link " href="{{ route('category.show', $category->slug) }}" >{{ $category->name }}</a>
+                                </li>
+                            @endif
+                        @endforeach
                     @endforeach
                 </ul>
-
-            {{-- <div class="dropdown-menu">
-                @foreach($categories as $cat)
-                    @foreach($cat->items as $category)
-                        @if ($category->items->count() > 0)
-                        <li class="dropdown dropend">
-                            <a class="dropdown-item dropdown-toggle" id="multilevelDropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{{ route('category.show', $category->slug) }}" >
-                                {{ $category->name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="multilevelDropdownMenu1">
-                                @foreach($category->items as $item)
-                                    <li>
-                                    <a class="dropdown-item" href="{{ route('category.show', $item->slug) }}">
-                                        {{ $item->name }}
-                                    </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        @else
-                        <a class="dropdown-item" href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}">
-                            {{ $category->name }}
-                        </a>
-                        @endif
-                    @endforeach
-                @endforeach
-                </div> --}}
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{route('contact') }}">Contactez Nous</a>
@@ -97,8 +70,9 @@
                     <i class="fa fa-user"></i>
                     <span>S'inscrire</span>
                 </a>
-            @else
-            <li class="nav-item dropdown">
+          </li>
+          @else
+          <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle "
                 href="{{ url('home') }}" role="button"
                 data-toggle="dropdown"
@@ -120,7 +94,7 @@
                     @csrf
                 </form>
             </div>
-        </li>
+           </li>
             @endguest
           </li>
         </ul>
