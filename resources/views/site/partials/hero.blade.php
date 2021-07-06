@@ -69,7 +69,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h5>Votre peau est votre meilleur
                      <span style="background-color: #c66;color:rgb(255, 244, 249)">
-                        accessoire.
+                        accessoire
                     </span>
                 </h5>
                 <p>produits sains, naturels et sans danger</p>

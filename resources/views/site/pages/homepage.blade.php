@@ -227,14 +227,12 @@ Products owlcarousal
             </div>
           </div>
           <div class="card text-dark m-3" style="max-width: 22rem;">
-            {{-- <div class="card-header">Header</div> --}}
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-shield-alt fa-2x"></i></h5>
               <p class="card-text">Votre sécurité est notre priorité,vos achats sont toujours sécurisés</p>
             </div>
           </div>
           <div class="card text-dark  m-3" style="max-width: 22rem;">
-            {{-- <div class="card-header">Header</div> --}}
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-shipping-fast fa-2x"></i></h5>
               <p class="card-text">Achetez maintenant et recevez vos articles dans les plus brefs délais</p>
