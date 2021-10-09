@@ -1,4 +1,4 @@
-![Logo](https://i.pinimg.com/originals/01/05/47/01054784cb9f7326924d9579628dd3f0.jpg)
+![Logo](https://i.pinimg.com/originals/b5/89/4b/b5894b2e69fbe7972f0dcd853dd7cfa9.jpg)
 
 # JoySHOP✨
 
