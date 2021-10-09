@@ -4,6 +4,11 @@
 
 JoySHOP is an eCommerce website made with Laravel and VueJS.
 
+## Screenshots
+🙈 Home Page :
+
+![homePage](https://i.pinimg.com/originals/1b/fa/d1/1bfad196771fa5c62800e9c5cd6c460c.jpg)
+
 
 ## License
 
