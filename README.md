@@ -1,4 +1,6 @@
-![Logo](https://i.pinimg.com/originals/b5/89/4b/b5894b2e69fbe7972f0dcd853dd7cfa9.jpg)
+<p align="center">
+  <img width="200" src="https://i.pinimg.com/originals/b5/89/4b/b5894b2e69fbe7972f0dcd853dd7cfa9.jpg" alt="JoySHOP logo">
+</p>
 
 # JoySHOP✨
 
