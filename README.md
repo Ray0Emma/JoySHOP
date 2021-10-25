@@ -4,13 +4,19 @@
 
 # JoySHOP✨
 
-JoySHOP is an eCommerce website made with Laravel and VueJS designed by [Farah](https://twitter.com/ahmadiF__)..
+JoySHOP is an eCommerce website made with Laravel and VueJS designed by [Farah](https://twitter.com/ahmadiF__).
 
 ## Screenshots
 🙈 Home Page :
 
 <p align="center">
-  <img width="700" src="https://i.pinimg.com/originals/1b/fa/d1/1bfad196771fa5c62800e9c5cd6c460c.jpg" alt="homePage">
+  <img width="400" src="https://i.pinimg.com/originals/1b/fa/d1/1bfad196771fa5c62800e9c5cd6c460c.jpg" alt="homePage">
+</p>
+
+🙈 Admin Login Page :
+
+<p align="center">
+   <img width="400" src="https://i.pinimg.com/originals/3f/f9/0a/3ff90a1185dad903452239290351be80.jpg" alt="homePage">
 </p>
 
 ## Tech Stack
@@ -29,4 +35,4 @@ I welcome and encourage all pull requests. It usually will take me within 24-48 
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
