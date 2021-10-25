@@ -16,31 +16,37 @@ JoySHOP is an eCommerce website built and designed by [Farah](https://twitter.co
 🙈 Product Detail Page :
 
 <p align="center">
-  <img  src="https://i.pinimg.com/originals/55/80/6f/55806f6e277abadc5bd3b92076c7063a.jpg" alt="homePage">
+  <img  src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/product_page.png" alt="homePage">
 </p>
 
 🙈 Basket Page :
 
 <p align="center">
-  <img src="https://i.pinimg.com/originals/33/02/3c/33023cbed1dc957a8dce813d1b1be50f.jpg" alt="homePage">
+  <img src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/Basket%20page.png" alt="homePage">
 </p>
 
 🙈 Cart Page :
 
 <p align="center">
-  <img src="https://i.pinimg.com/originals/d3/50/80/d35080fdb7f3ad4f3a17e3aec2c6c39d.jpg" alt="homePage">
+  <img src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/cart%20page.png" alt="homePage">
+</p>
+
+🙈 History Page :
+
+<p align="center">
+  <img src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/history.png" alt="homePage">
 </p>
 
 🙈 Admin Login Page :
 
 <p align="center">
-   <img width="500" src="https://i.pinimg.com/originals/3f/f9/0a/3ff90a1185dad903452239290351be80.jpg" alt="Admin Login Page">
+   <img width="500" src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/Login_admin.png" alt="Admin Login Page">
 </p>
 
 🙈 Admin Dashboard Page :
 
 <p align="center">
-   <img  src="https://i.pinimg.com/originals/81/0d/4f/810d4f56a8a39f10d43b7183825c41db.jpg" alt="DashboardPage">
+   <img  src="https://github.com/Ray0Emma/JoySHOP/blob/main/public/documents/dashboard.png" alt="DashboardPage">
 </p>
 
 ## Tech Stack
