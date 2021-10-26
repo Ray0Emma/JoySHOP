@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" src="https://i.pinimg.com/originals/b5/89/4b/b5894b2e69fbe7972f0dcd853dd7cfa9.jpg" alt="JoySHOP logo">
+  <img width="200" src="https://user-images.githubusercontent.com/70212296/138898502-0e184c30-9212-487f-9fd1-e26c7281b0ff.png" alt="JoySHOP logo">
 </p>
 
 # JoySHOP✨
@@ -7,6 +7,13 @@
 JoySHOP is an eCommerce website built and designed by [Farah](https://twitter.com/ahmadiF__).
 
 ## Screenshots
+### ✧User Journey
+1. The customer login to the app.
+2. The customer explore products .
+3. The customer can read the product description and the required quantity to the cart.
+4. The customer can revise the cart.
+5. The customer checkout and pay the products.
+ 
 🙈 Home Page :
 
 <p align="center">
