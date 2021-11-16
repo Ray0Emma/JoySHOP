@@ -64,7 +64,7 @@ JoySHOP is an eCommerce website built and designed by [Farah](https://twitter.co
 
 ## Pull Requests
 
-I welcome and encourage all pull requests. It usually will take me within 24-48 hours to respond to any issue or request.
+I welcome and encourage all pull requests.
 
 ## Authors
 
